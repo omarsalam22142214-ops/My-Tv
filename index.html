@@ -49,10 +49,7 @@
         }
         .fav-icon-star:hover { transform: scale(1.2); }
         .is-fav { border-color: #ffcc00 !important; }
-        .is-fav .fav-icon-star {
-            color: #ffcc00; 
-            border-color: #ffcc00;
-        }
+        .is-fav .fav-icon-star { color: #ffcc00; border-color: #ffcc00; }
 
         @media (max-width: 1200px) { .tv-container { grid-template-columns: repeat(10, 1fr); } }
         @media (max-width: 768px) { .tv-container { grid-template-columns: repeat(6, 1fr); } }
@@ -69,7 +66,7 @@
         body.light-theme .active-cat { background: #4caac9 !important; color: #000 !important; }
         body.light-theme .tv-container { background-color: rgba(255,255,255,0.7) !important; }
 
-        /* --- رسالة الإشعارات (Toast) للمفضلة --- */
+        /* --- رسالة الإشعارات (Toast) --- */
         #toast {
             visibility: hidden; min-width: 250px; background-color: #333; color: #fff; 
             text-align: center; border-radius: 8px; padding: 16px; position: fixed; 
@@ -80,11 +77,11 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
-<style>undefined</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"></head>
+</head>
 <body>
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٥:٥١:٤١ م</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٦:١١:٢١ م</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -120,17 +117,18 @@
         <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin" src="" style="border: 10px solid red;"></iframe>
     </div>
 
-    <div id="toast">تمت الإضافة للمفضلة ⭐</div>
+    <div id="toast" class="">تم الحذف من المفضلة ❌</div>
 
     <div class="tv-container" id="main-list">
-        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url('https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png'); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=acf15b20-ed74-4f55-827b-41845d1614f2&amp;kt=1773512244')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 1<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 2<div class="fav-icon-star active-cat" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773510029')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 3<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 4<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b5&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773586485')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 5<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('http://135.125.109.73:9000/beinsport6_.m3u8')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 6<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b7&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773586307')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 7<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://t.me/marfawe18x', '_blank')" class="cat-btn match-btn" style="display: inline-block;">الاهداف<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b7&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773586307')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 7<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://t.me/marfawe18x', '_blank')" class="cat-btn match-btn" style="display: inline-block;">الاهداف<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch1.php')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch2.php')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch3.php')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 3<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -160,7 +158,8 @@
         <button onclick="playVideo(null, 'https://aaa.yallashoot2026.com/albaplayer/sports-10')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 10<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=alwan1&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773533547')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Alwan 1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=alwan2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773528934')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Alwan 2<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f31312e73706f72747375726765732e63632f616c6261706c617965722f61642d7072656d69756d2d312f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Alwan 3<div class="fav-icon-star" title="المفضلة">★</div></button><a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-1/?serv=1/')" style="background-image: url(&quot;https://i.imgur.com/Vtk2cGI.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f31312e73706f72747375726765732e63632f616c6261706c617965722f61642d7072656d69756d2d312f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Alwan 3<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-1/?serv=1/')" style="background-image: url(&quot;https://i.imgur.com/Vtk2cGI.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-2/?serv=1/')" style="background-image: url(&quot;https://i.imgur.com/vUJZSvs.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://aa.yallashoot2026.com/albaplayer/sports-3/')" style="background-image: url(&quot;https://i.imgur.com/UYSMao3.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://aa.yallashoot2026.com/albaplayer/sports-4/')" style="background-image: url(&quot;https://i.imgur.com/vwAgJNi.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -217,10 +216,12 @@
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://live.baranewssumsel.online/albaplayer/bein-22/')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Logo_bein_sports_2.png/40px-Logo_bein_sports_2.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.sawlivenow.com/embed/ch85_LQ/')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://live4m.com/embed1.php?channel=a29_USA_Network_Orig&amp;waiting=1&amp;background=grey')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=9af92487-b87c-453c-bf2d-3855af05be6c&amp;kt=1773512401', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773534340', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b5&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773586485', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://streamcrichd.com/update/wwe.php')" style="background-image: url(&quot;https://i.imgur.com/SmAq8yM.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box is-fav" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=9af92487-b87c-453c-bf2d-3855af05be6c&amp;kt=1773512401', '_blank')" style="background-image: url('https://i.imgur.com/TTxh9tZ.png'); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box is-fav" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591', '_blank')" style="background-image: url('https://i.imgur.com/TTxh9tZ.png'); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box is-fav" onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773534340', '_blank')" style="background-image: url('https://i.imgur.com/TTxh9tZ.png'); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box is-fav" onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545', '_blank')" style="background-image: url('https://i.imgur.com/TTxh9tZ.png'); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box is-fav" onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b5&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773586485', '_blank')" style="background-image: url('https://i.imgur.com/TTxh9tZ.png'); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://streamcrichd.com/update/wwe.php')" style="background-image: url(&quot;https://i.imgur.com/SmAq8yM.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://live4m.com/livetv.php?channel=a29_USA_Network_Orig&amp;heading=USA_Network', '_blank')" style="background-image: url(&quot;https://assets.bein.com/mena/sites/3/2015/06/bein_SPORTS_FTA_DIGITAL_Mono.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://16.wwwkoora.com/albaplayer/bein-sports-hd-6/?serv=1/')" style="background-image: url(&quot;https://assets.bein.com/mena/sites/3/2015/06/bein_SPORTS_FTA_DIGITAL_Mono.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.sawlivenow.com/embed/ch85_HD/')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -231,7 +232,8 @@
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://streamcrichd.com/update/skys3.php')" style="background-image: url(&quot;https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-action-icon-uk.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://streamcrichd.com/update/skys2.php')" style="background-image: url(&quot;https://yt3.ggpht.com/a/AATXAJx6OBu8q-XMm--FgtaT6ByJtxo1CCRnyk0C5Q=s900-c-k-c0xffffffff-no-rj-mo&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://streamcrichd.com/update/skys1.php')" style="background-image: url(&quot;https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-main-event-icon-uk.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://yalla.kora-top.zip/frame.php?ch=cricket&amp;p=12&amp;token=508d6d72-8008-4320-89b7-aa222300b80c&amp;kt=1773587589')" style="background-image: url(&quot;https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-main-event-icon-uk.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://streamcrichd.com/update/skysfotb.php')" style="background-image: url(&quot;https://www.pikpng.com/pngl/b/345-3459371_logo-sky-sports-football3-sky-sports-main-event.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://yalla.kora-top.zip/frame.php?ch=cricket&amp;p=12&amp;token=508d6d72-8008-4320-89b7-aa222300b80c&amp;kt=1773587589')" style="background-image: url(&quot;https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-main-event-icon-uk.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://streamcrichd.com/update/skysfotb.php')" style="background-image: url(&quot;https://www.pikpng.com/pngl/b/345-3459371_logo-sky-sports-football3-sky-sports-main-event.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://streamcrichd.com/update/skys5.php')" style="background-image: url(&quot;https://yt3.ggpht.com/a-/AAuE7mA11IFYIc_ZNrAKjautAm7bri3h7GIFRWduxw=s900-mo-c-c0xffffffff-rj-k-no&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://streamcrichd.com/update/skys4.php')" style="background-image: url(&quot;https://yt3.googleusercontent.com/ytc/AGIKgqP-PK9kAhN3RkQl3gJRuGyf14kjZ472XWhbDwY=s176-c-k-c0x00ffffff-no-rj-mo&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://streamcrichd.com/update/skysmix.php')" style="background-image: url(&quot;https://raw.githubusercontent.com/tv-logo/tv-logos/refs/heads/main/countries/united-kingdom/sky-sports-mix-icon-uk.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -305,51 +307,34 @@
         <a href="javascript:void(0)" class="tv-box" data-category="news" onclick="playVideo(this, 'https://www.sawlivenow.com/embed/ch85_LQ/')" style="background-image: url(&quot;https://watchwrestling.ae/wp-content/uploads/2023/07/AEW-Dynamite.webp&quot;); background-color: rgb(255, 255, 255); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" data-category="news" onclick="playVideo(this, 'https://www.sawlivenow.com/embed/ch83_LQ/')" style="background-image: url(&quot;https://watchwrestling.ae/wp-content/uploads/2023/07/AEW-Dynamite.webp&quot;); background-color: rgb(255, 255, 255); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         
-    <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=usa&amp;p=12&amp;token=82818e9f-0dba-4511-840f-28e4d3e5237a&amp;kt=1773585601')" class="cat-btn match-btn" style="display: inline-block;">⭐ usa network<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=espn1&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773587011')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=espn3&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773587193')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn 2 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=dep&amp;p=12&amp;token=1806a641-90ce-467d-b175-63fe84aa3e93&amp;kt=1773587449')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn 3 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f70742f73706f72747476342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ sport <div class="fav-icon-star" title="المفضلة">★</div></button>
-  <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=usa&amp;p=12&amp;token=82818e9f-0dba-4511-840f-28e4d3e5237a&amp;kt=1773585601')" class="cat-btn match-btn" style="display: inline-block;">⭐ usa network<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=now2&amp;p=12&amp;token=753d6dd8-b7eb-491f-bc51-a6f3a281e98e&amp;kt=1773589094')" class="cat-btn match-btn" style="display: inline-block;">⭐ now<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=usa&amp;p=12&amp;token=82818e9f-0dba-4511-840f-28e4d3e5237a&amp;kt=1773585601')" class="cat-btn match-btn" style="display: inline-block;">⭐ usa network<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=espn1&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773587011')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=espn3&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773587193')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn 2 <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=dep&amp;p=12&amp;token=1806a641-90ce-467d-b175-63fe84aa3e93&amp;kt=1773587449')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn 3 <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f70742f73706f72747476342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ sport <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=now2&amp;p=12&amp;token=753d6dd8-b7eb-491f-bc51-a6f3a281e98e&amp;kt=1773589094')" class="cat-btn match-btn" style="display: inline-block;">⭐ now<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67312f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=cricket&amp;p=12&amp;token=508d6d72-8008-4320-89b7-aa222300b80c&amp;kt=1773587981')" class="cat-btn match-btn" style="display: inline-block;">⭐ cricket<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67332f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f6272612f6272362e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=skypl&amp;p=12&amp;token=98692692-eae0-4156-bd63-4566d180e97b&amp;kt=1773588078')" class="cat-btn match-btn" style="display: inline-block;">⭐ skypl<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864352e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67322f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864382e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=prem1&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773588395')" class="cat-btn match-btn" style="display: inline-block;">⭐ prem1<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864332e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67342f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+ <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67342f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream2<div class="fav-icon-star" title="المفضلة">★</div></button>
 
+<button onclick="loadIPTVPlaylist('https://iptv-org.github.io/iptv/index.m3u')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">📡 سحب ملف IPTV كامل 1<div class="fav-icon-star" title="المفضلة">★</div></button>
 
+<button onclick="loadIPTVPlaylist('https://iptv-org.github.io/iptv/languages/ara.m3u')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">📡 سحب ملف IPTV كامل 2<div class="fav-icon-star" title="المفضلة">★</div></button>
 
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67312f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+<button onclick="loadIPTVPlaylist('https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">📡 سحب ملف IPTV كامل 3<div class="fav-icon-star" title="المفضلة">★</div></button> 
+  </div>
 
-<button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=cricket&amp;p=12&amp;token=508d6d72-8008-4320-89b7-aa222300b80c&amp;kt=1773587981')" class="cat-btn match-btn" style="display: inline-block;">⭐ cricket<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67332f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f6272612f6272362e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=skypl&amp;p=12&amp;token=98692692-eae0-4156-bd63-4566d180e97b&amp;kt=1773588078')" class="cat-btn match-btn" style="display: inline-block;">⭐ skypl<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864352e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67322f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f70742f73706f72747476342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864382e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=prem1&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773588395')" class="cat-btn match-btn" style="display: inline-block;">⭐ prem1<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864332e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-
-
-
-
-<button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67342f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream2<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="loadIPTVPlaylist('https://iptv-org.github.io/iptv/index.m3u')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">
-        📡 سحب ملف IPTV كامل
-    <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="loadIPTVPlaylist('https://iptv-org.github.io/iptv/languages/ara.m3u')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">
-        📡 سحب ملف IPTV كامل
-    <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="loadIPTVPlaylist('https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">
-        📡 سحب ملف IPTV كامل
-    <div class="fav-icon-star" title="المفضلة">★</div></button>
-
-
-</div>
-
-    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: block;">⬆</button>
+    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: none;">⬆</button>
 
     <footer>
         <p style="font-size: 22px; font-weight: bold;">© 2026 ENG OMAR TV. All Rights Reserved.</p>
@@ -372,8 +357,12 @@
             document.querySelectorAll('.tv-box, .match-btn').forEach(ch => {
                 if (ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn') return;
                 
-                // سطر الحماية لمنع تكرار النجمة أبداً
-                if (ch.querySelector('.fav-icon-star')) return;
+                // --- الجزء السحري الجديد ---
+                // مسح أي نجمة قديمة ميتة (عشان لو حفظت الصفحة من المتصفح بالغلط)
+                let existingStar = ch.querySelector('.fav-icon-star');
+                if (existingStar) {
+                    existingStar.remove();
+                }
                 
                 let onclickStr = ch.getAttribute('onclick') || '';
                 let urlMatch = onclickStr.match(/['"](.*?)['"]/);
@@ -382,6 +371,8 @@
                 if(channelUrl) {
                     if (favChannels.includes(channelUrl)) {
                         ch.classList.add('is-fav');
+                    } else {
+                        ch.classList.remove('is-fav');
                     }
 
                     let star = document.createElement('div');
@@ -565,11 +556,9 @@
             else scrollBtn.style.display = "none";
         };
 
-        // --- السكربت بتاع سحب ملف الـ IPTV ---
         async function loadIPTVPlaylist(url) {
             let listContainer = document.getElementById('main-list');
             
-            // رسالة تحميل شيك
             let loadingMsg = document.createElement('div');
             loadingMsg.id = 'loading-iptv';
             loadingMsg.style.cssText = "width: 100%; color: #4caac9; font-size: 18px; font-weight: bold; margin: 20px 0; grid-column: 1 / -1;";
@@ -589,7 +578,6 @@
                     let line = lines[i].trim();
                     
                     if (line.startsWith('#EXTINF')) {
-                        // سحب اللوجو
                         let logoMatch = line.match(/tvg-logo="([^"]+)"/);
                         if(logoMatch && logoMatch[1]) {
                             currentLogo = logoMatch[1];
@@ -597,7 +585,6 @@
                             currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
                         }
                         
-                        // سحب اسم القناة
                         let parts = line.split(',');
                         if(parts.length > 1) {
                             currentName = parts[1].trim();
@@ -617,7 +604,6 @@
                 document.getElementById('loading-iptv').remove();
                 listContainer.innerHTML += channelsHtml;
                 
-                // بننادي الدالة دي هنا عشان القنوات الجديدة يتضافلها النجمة
                 injectFavStars();
                 
                 alert('تم سحب القنوات بنجاح يا هندسة! انزل تحت هتلاقيهم ظهروا 🚀');
@@ -628,7 +614,6 @@
             }
         }
     </script>
-
 
 
 </body></html>
