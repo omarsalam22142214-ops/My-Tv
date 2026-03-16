@@ -77,11 +77,11 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
-</head>
+<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٩:٥٢:٣٧ م</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: جاري التحميل...</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -93,12 +93,6 @@
         <button id="themeToggleBtn" type="button" class="theme-toggle-btn" onclick="toggleTheme()">🌙 الوضع الداكن</button>
     </div>
     
-    
-
-    
-
-    
-    
     <button onclick="playVideo(null, 'https://www.filgoal.com/matches/?date=2026-03-14')" class="cat-btn match-btn" style="display: inline-block;">⚽️ مباريات اليوم<div class="fav-icon-star" title="المفضلة">★</div></button>
     <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
     <button onclick="playVideo(null, 'https://timesprayer.com/')" class="cat-btn match-btn" style="display: inline-block;">🕌 مواقيت الصلاة<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -106,7 +100,7 @@
     <button onclick="playVideo(null, 'https://www.i2arabic.com/newspapers/egyptian-newspapers')" class="cat-btn match-btn" style="display: inline-block;">اخبار<div class="fav-icon-star" title="المفضلة">★</div></button>
     <button onclick="window.open('https://www.i2arabic.com/newspapers/egyptian-newspapers')" class="cat-btn match-btn" style="display: inline-block;">صحف واخبار<div class="fav-icon-star" title="المفضلة">★</div></button>
     
-    <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة...">
+    <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." data-ddg-inputtype="unknown">
 
     <div id="adhkar-ticker">
         <span id="adhkar-text">الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ</span>
@@ -125,7 +119,7 @@
 
     <div id="toast" class="">تم الحذف من المفضلة ❌</div>
 
-    <div class="tv-container" id="main-list">
+   <div class="tv-container" id="main-list">
         <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=acf15b20-ed74-4f55-827b-41845d1614f2&amp;kt=1773512244')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 1<div class="fav-icon-star active-cat" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -352,6 +346,82 @@
         let currentPlayingUrl = '';
         let currentPlayingElement = null;
 
+        // --- بداية كود التحديث التلقائي للقنوات ---
+        const autoUpdatePlaylists = [
+            'https://iptv-org.github.io/iptv/index.m3u',
+            'https://iptv-org.github.io/iptv/languages/ara.m3u',
+            'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8'
+        ];
+
+        let loadedStreamUrls = new Set(); // عشان نمنع تكرار نفس القنوات
+
+        async function fetchAndAddNewChannels(url) {
+            let proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
+            try {
+                let response = await fetch(proxyUrl);
+                let data = await response.text();
+                
+                let lines = data.split('\n');
+                let channelsHtml = '';
+                let currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
+                let currentName = 'قناة جديدة (تلقائي)';
+
+                for (let i = 0; i < lines.length; i++) {
+                    let line = lines[i].trim();
+                    
+                    if (line.startsWith('#EXTINF')) {
+                        let logoMatch = line.match(/tvg-logo="([^"]+)"/);
+                        if(logoMatch && logoMatch[1]) {
+                            currentLogo = logoMatch[1];
+                        } else {
+                            currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
+                        }
+                        
+                        let parts = line.split(',');
+                        if(parts.length > 1) {
+                            currentName = parts[1].trim();
+                        }
+                    } 
+                    else if (line.startsWith('http')) {
+                        let streamUrl = line;
+                        
+                        // لو اللينك ده متسجلش قبل كده، هنضيفه
+                        if (!loadedStreamUrls.has(streamUrl)) {
+                            loadedStreamUrls.add(streamUrl);
+                            
+                            channelsHtml += `
+                            <a href="javascript:void(0)" class="tv-box" data-category="sports" 
+                               onclick="playVideo(this, '${streamUrl}')" 
+                               style="background-image: url('${currentLogo}'); display: inline-block;" 
+                               title="${currentName}">
+                            </a>`;
+                        }
+                    }
+                }
+
+                if (channelsHtml !== '') {
+                    let listContainer = document.getElementById('main-list');
+                    listContainer.insertAdjacentHTML('beforeend', channelsHtml);
+                    injectFavStars(); // تفعيل أيقونة النجمة للقنوات الجديدة
+                    console.log("تم سحب قنوات جديدة تلقائياً من: " + url);
+                }
+
+            } catch (error) {
+                console.error("فشل التحديث التلقائي من: " + url, error);
+            }
+        }
+
+        function startAutoUpdate() {
+            // سحب القنوات أول مرة المتصفح يفتح
+            autoUpdatePlaylists.forEach(fetchAndAddNewChannels);
+
+            // تكرار السحب كل 6 ساعات (21600000 ملي ثانية)
+            setInterval(() => {
+                autoUpdatePlaylists.forEach(fetchAndAddNewChannels);
+            }, 21600000); 
+        }
+        // --- نهاية كود التحديث التلقائي ---
+
         function showToast(msg) {
             let toast = document.getElementById("toast");
             toast.innerHTML = msg;
@@ -411,6 +481,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             applySavedTheme();
             injectFavStars();
+            startAutoUpdate(); // تفعيل خاصية التحديث التلقائي أول ما الصفحة تفتح
         });
 
         function filterChannels(category) {
@@ -485,7 +556,7 @@
             let qualityBadge = document.getElementById('quality-badge'); 
             let streamStatus = document.getElementById('stream-status');
             
-            if (finalUrl.includes('.m3u8')) {
+            if (finalUrl.includes('.m3u8') || finalUrl.includes('.ts') || finalUrl.includes('.m3u')) {
                 iframeVideo.classList.add('hidden'); 
                 videoPlayer.classList.remove('hidden');
                 iframeVideo.src = "";
@@ -552,7 +623,7 @@
                 videoPlayer.classList.add('hidden'); 
                 iframeVideo.classList.remove('hidden');
                 qualityBadge.style.display = 'none'; 
-                streamStatus.style.display = 'none'; // بنخفيه في المواقع عشان منقدرش نفحصها
+                streamStatus.style.display = 'none';
                 if (hlsInstance) { hlsInstance.destroy(); }
                 videoPlayer.pause();
                 
@@ -576,6 +647,7 @@
             else scrollBtn.style.display = "none";
         };
 
+        // دالة السحب اليدوي القديمة لسه موجودة عشان لو حبيت تستخدمها في أي وقت
         async function loadIPTVPlaylist(url) {
             let listContainer = document.getElementById('main-list');
             
@@ -636,6 +708,5 @@
             }
         }
     </script>
-
-
-</body></html>
+</body>
+</html>
