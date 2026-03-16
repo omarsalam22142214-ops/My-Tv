@@ -77,11 +77,11 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
-</head>
+<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٨:٥٢:٢٤ م</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٩:١١:١٨ م</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -89,7 +89,7 @@
         <button onclick="filterChannels('movies')" class="cat-btn">🎬 أفلام ومسلسلات</button>
         <button onclick="filterChannels('news')" class="cat-btn">🌍 أخبار</button>
         <button onclick="filterChannels('fav')" class="cat-btn" style="border-color: #ffeb3b; color: #ffeb3b;">⭐ مفضلتي</button>
-        <button id="themeToggleBtn" type="button" class="theme-toggle-btn" onclick="toggleTheme()">🌙 الوضع الداكن</button>
+        <button id="themeToggleBtn" type="button" class="theme-toggle-btn" onclick="toggleTheme()">🌙 الوضع الداكن</button><button onclick="window.location.reload()" class="cat-btn">🔄 تحديث الصفحة</button>
     </div>
     
     <button onclick="playVideo(null, 'https://www.filgoal.com/matches/')" class="cat-btn match-btn" style="display: inline-block;">⚽️ مباريات اليوم<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -386,6 +386,26 @@
             <div class="fav-icon-star" title="المفضلة">★</div></a>
 <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rp.tactivemedia.com/watantv_source/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pZyKaUH.png&quot;); display: inline-block;" title="Watan TV (1080p)">
                         <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://wecima.show/')" style="background-image: url('https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg'); background-color: #fff; display: inline-block;" title="وي سيما (WeCima)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://akoam.io/')" style="background-image: url('https://upload.wikimedia.org/wikipedia/ar/a/a2/Akoam_Logo.png'); background-color: #fff; display: inline-block;" title="أكوام (Akoam)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://egybest.land/')" style="background-image: url('https://upload.wikimedia.org/wikipedia/ar/c/c8/Egybest_logo.png'); background-color: #fff; display: inline-block;" title="إيجي بست (EgyBest)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://arabseed.show/')" style="background-image: url('https://arabseed.show/wp-content/themes/arabseed/assets/images/logo.png'); background-color: #fff; display: inline-block;" title="عرب سيد (ArabSeed)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://mycima.band/')" style="background-image: url('https://mycima.band/wp-content/themes/Mycima/images/logo.png'); background-color: #fff; display: inline-block;" title="ماي سيما (MyCima)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://shahid4u.com/')" style="background-image: url('https://shahid4u.com/wp-content/themes/shahid4u/assets/images/logo.png'); background-color: #fff; display: inline-block;" title="شاهد فور يو (Shahid4u)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://cima4u.io/')" style="background-image: url('https://cima4u.io/wp-content/themes/cima4u/assets/images/logo.png'); background-color: #fff; display: inline-block;" title="سيما فور يو (Cima4u)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://d.alooytv8.xyz')" style="background-image: url('https://d.alooytv8.xyz/wp-content/themes/AlooyTV/assets/images/logo.png'); background-color: #fff; display: inline-block;" title="ألوى تي في (AlooyTV)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://eg.bahyfilms.com')" style="background-image: url('https://eg.bahyfilms.com/wp-content/uploads/2023/05/logo.png'); background-color: #fff; display: inline-block;" title="سيما فيلمز (CimaFilms)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://www.hitv.vip/ar-ae/guide?frm&amp;serialType=episodes')" style="background-image: url('https://www.hitv.vip/favicon.ico'); background-color: #fff; display: inline-block;" title="كوري (HiTV)">
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
                 <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://wecima.show/')" style="background-image: url('https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg'); background-color: #fff; display: inline-block;" title="وي سيما (WeCima)">
                 <div class="fav-icon-star" title="المفضلة">★</div></a>
                 <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://akoam.io/')" style="background-image: url('https://upload.wikimedia.org/wikipedia/ar/a/a2/Akoam_Logo.png'); background-color: #fff; display: inline-block;" title="أكوام (Akoam)">
@@ -818,5 +838,6 @@
             }
         }
     </script>
+
 
 </body></html>
