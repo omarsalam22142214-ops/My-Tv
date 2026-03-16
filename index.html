@@ -81,33 +81,32 @@
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٦:٥٥:٢٢ م</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٨:٢٨:١٥ م</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
-        
-        
-        
+        <button onclick="filterChannels('sports')" class="cat-btn">⚽ رياضة</button>
+        <button onclick="filterChannels('movies')" class="cat-btn">🎬 أفلام ومسلسلات</button>
         <button onclick="filterChannels('news')" class="cat-btn">🌍 أخبار</button>
         <button onclick="filterChannels('fav')" class="cat-btn" style="border-color: #ffeb3b; color: #ffeb3b;">⭐ مفضلتي</button>
         <button id="themeToggleBtn" type="button" class="theme-toggle-btn" onclick="toggleTheme()">🌙 الوضع الداكن</button>
     </div>
     
-    <button onclick="playVideo(null, 'https://www.filgoal.com/matches/?date=2026-03-14')" class="cat-btn match-btn" style="display: inline-block;">⚽️ مباريات اليوم<div class="fav-icon-star" title="المفضلة">★</div></button>
-    <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn is-fav" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
+    <button onclick="playVideo(null, 'https://www.filgoal.com/matches/')" class="cat-btn match-btn" style="display: inline-block;">⚽️ مباريات اليوم<div class="fav-icon-star" title="المفضلة">★</div></button>
+    <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
     <button onclick="playVideo(null, 'https://timesprayer.com/')" class="cat-btn match-btn" style="display: inline-block;">🕌 مواقيت الصلاة<div class="fav-icon-star" title="المفضلة">★</div></button>
     <button onclick="window.open('https://qiblafinder.withgoogle.com/intl/ar/desktop', '_blank')" class="cat-btn match-btn" style="display: inline-block;">🧭 القبلة<div class="fav-icon-star" title="المفضلة">★</div></button>
     <button onclick="playVideo(null, 'https://www.i2arabic.com/newspapers/egyptian-newspapers')" class="cat-btn match-btn" style="display: inline-block;">اخبار<div class="fav-icon-star" title="المفضلة">★</div></button>
     <button onclick="window.open('https://www.i2arabic.com/newspapers/egyptian-newspapers')" class="cat-btn match-btn" style="display: inline-block;">صحف واخبار<div class="fav-icon-star" title="المفضلة">★</div></button>
     
-    <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." data-ddg-inputtype="unknown">
+    <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة أو موقع..." data-ddg-inputtype="unknown">
 
     <div id="adhkar-ticker">
         <span id="adhkar-text">الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
-        <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0, 0, 0, 0.7); color: rgb(0, 255, 204); border: 1px solid rgb(0, 255, 204); padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: 1080p</div>
+        <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0, 0, 0, 0.7); color: rgb(0, 255, 204); border: 1px solid rgb(0, 255, 204); padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: Auto</div>
         
         <div id="stream-status" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(0, 0, 0, 0.8); color: rgb(0, 255, 0); border: 1px solid rgb(0, 255, 0); padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 15px; display: none;">✅ البث شغال</div>
 
@@ -115,15 +114,15 @@
         
         <button id="external-open-btn" onclick="openExternalCurrent()" style="position: absolute; top: 15px; right: 65px; z-index: 9999; background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px; display: none;">🔗 فتح  </button>
         
-        <video id="my-player" class="hidden" controls="" style="background: #000;"></video>
-        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
+        <video id="my-player" class="" controls="" style="background: #000;"></video>
+        <iframe id="iframe-player" class="hidden" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
     </div>
 
     <div id="toast" class="">تمت الإضافة للمفضلة ⭐</div>
 
    <div class="tv-container" id="main-list">
         <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn is-fav" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=acf15b20-ed74-4f55-827b-41845d1614f2&amp;kt=1773512244')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 1<div class="fav-icon-star active-cat" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=acf15b20-ed74-4f55-827b-41845d1614f2&amp;kt=1773512244')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 1<div class="fav-icon-star active-cat" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773510029')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 3<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 4<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -173,7 +172,7 @@
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://aa.yallashoot2026.com/albaplayer/sports-4/')" style="background-image: url(&quot;https://i.imgur.com/vwAgJNi.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://aa.yallashoot2026.com/albaplayer/sports-5/')" style="background-image: url(&quot;https://assets.bein.com/mena/sites/3/2015/06/bein_SPORTS_FTA_DIGITAL_Mono.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://dpv6ceilvhyrw.cloudfront.net/playlist.m3u8')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <button onclick="window.open('https://www.sofascore.com/ar', '_blank')" class="cat-btn match-btn" style="display: inline-block;">مباريات اليوم ⚽<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://www.btolat.com/video/type/10/home', '_blank')" class="cat-btn match-btn" style="display: inline-block;"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://www.sofascore.com/ar', '_blank')" class="cat-btn match-btn is-fav" style="display: inline-block;">مباريات اليوم ⚽<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://www.btolat.com/video/type/10/home', '_blank')" class="cat-btn match-btn is-fav" style="display: inline-block;"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://www.beinsports.com/ar-mena/%D9%81%D9%8A%D8%AF%D9%8A%D9%88', '_blank')" class="cat-btn match-btn" style="display: inline-block;"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.yallakora.com/match-center')" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXR5f7PCbYx1NfkGARgKgsj8UDi7jeI9tFw&amp;s&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.filgoal.com/matches/?date=2026-03-14')" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXR5f7PCbYx1NfkGARgKgsj8UDi7jeI9tFw&amp;s&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -219,7 +218,7 @@
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.sawlivenow.com/embed/ch85_LQ/')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://live4m.com/embed1.php?channel=a29_USA_Network_Orig&amp;waiting=1&amp;background=grey')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://can.yalla--shoots.live/bein-premium1/CH1.php', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=9af92487-b87c-453c-bf2d-3855af05be6c&amp;kt=1773512401', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star active-cat" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box is-fav" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=9af92487-b87c-453c-bf2d-3855af05be6c&amp;kt=1773512401', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773534340', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b5&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773586485', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -308,745 +307,87 @@
         <a href="javascript:void(0)" class="tv-box" data-category="news" onclick="playVideo(this, 'https://www.sawlivenow.com/embed/ch81_LQ/')" style="background-image: url(&quot;https://watchwrestling.ae/wp-content/uploads/2023/07/AEW-Dynamite.webp&quot;); background-color: rgb(255, 255, 255); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" data-category="news" onclick="playVideo(this, 'https://www.sawlivenow.com/embed/ch85_LQ/')" style="background-image: url(&quot;https://watchwrestling.ae/wp-content/uploads/2023/07/AEW-Dynamite.webp&quot;); background-color: rgb(255, 255, 255); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" data-category="news" onclick="playVideo(this, 'https://www.sawlivenow.com/embed/ch83_LQ/')" style="background-image: url(&quot;https://watchwrestling.ae/wp-content/uploads/2023/07/AEW-Dynamite.webp&quot;); background-color: rgb(255, 255, 255); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-    
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0e9/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/PJYTfHi.png&quot;); display: inline-block;" title="2M (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0dt/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/MvpntzA.png&quot;); display: inline-block;" title="2M Monde (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d2qh3gh0k5vp3v.cloudfront.net/v1/master/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-n6pess5lwbghr/2M_ES.m3u8')" style="background-image: url(&quot;https://i.imgur.com/MvpntzA.png&quot;); display: inline-block;" title="2M Monde +1 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d2hng5r56zpsbw.cloudfront.net/out/v1/9c4c990f44bb4767bb46271f326dd574/index.m3u8')" style="background-image: url(&quot;https://assets.mbcmood.com/channels/1720184087Abdullah%20Majeed%20Abdullah%20banner.png&quot;); display: inline-block;" title="Abdulmajeed Abdullah (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mediaserver.abnvideos.com/streams/abnsat.m3u8')" style="background-image: url(&quot;https://i.imgur.com/WhPlJzh.jpeg&quot;); display: inline-block;" title="ABNsat (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://hls.afintl.com/hls/stream.m3u8')" style="background-image: url(&quot;https://i.imgur.com/r8MmFRX.png&quot;); display: inline-block;" title="Afghanistan International (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/0044dd4b001a466c941ad77b04a574a2/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/cTLj7Yt.png&quot;); display: inline-block;" title="Aflam (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://77.42.253.43:9090/stream5/AGHANITV.m3u8')" style="background-image: url(&quot;https://i.imgur.com/o6HSfNg.png&quot;); display: inline-block;" title="Aghani Aghani TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5b622f07944df.streamlock.net/aghapykids.tv/aghapykids2/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8ariztD.png&quot;); display: inline-block;" title="Aghapy Kids (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5b622f07944df.streamlock.net/aghapy.tv/aghapy.smil/playlist.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/en/e/eb/AghapyTV.jpg&quot;); display: inline-block;" title="Aghapy TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn1.logichost.in/ajmantv/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/hVNIwgE.png&quot;); display: inline-block;" title="Ajman TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://htvmada.mada.ps:8888/ajyal/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/i6Y7beR.jpg&quot;); display: inline-block;" title="Ajyal TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live2.alalam.ir/alalam.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Zdi31dy.png&quot;); display: inline-block;" title="Al Alam (360p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://82.212.74.98:8000/live/7815.m3u8')" style="background-image: url(&quot;https://i.imgur.com/5FrE3Nv.png&quot;); display: inline-block;" title="Al Alamiya 2">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ef/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/nq53d2N.png&quot;); display: inline-block;" title="Al Aoula Inter (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ab/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/nq53d2N.png&quot;); display: inline-block;" title="Al Aoula Inter HD (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://167.172.161.13/hls/feedspare/6udfi7v8a3eof6nlps6e9ovfrs65c7l7.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Z2rfrQ8.png&quot;); display: inline-block;" title="Al Aqsa Channel (416p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.alarabiya.net/alarabiapublish/alarabiya.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/NXFkYFj.png&quot;); display: inline-block;" title="Al Arabiya (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.alarabiya.net/alarabiapublish/aswaaq.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/eEV4r6J.jpg&quot;); display: inline-block;" title="Al Arabiya Business (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.alarabiya.net/alarabiapublish/aaprograms.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Hoc3cfO.png&quot;); display: inline-block;" title="Al Arabiya Programs (1280p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/alaraby1live/alaraby_abr/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/YMqWEe4.png&quot;); display: inline-block;" title="Al Araby TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/alaraby2live/alaraby2.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Gp5mNea.png&quot;); display: inline-block;" title="Al Araby TV 2 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-al-ekhbaria/297b3ef1cd0633ad9cfba7473a686a06/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/WcRlHQm.png&quot;); display: inline-block;" title="Al Ekhbariya (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://eazyvwqssi.erbvr.com/alghadtv/alghadtv.m3u8')" style="background-image: url(&quot;https://i.imgur.com/ga6NXb9.png&quot;); display: inline-block;" title="Al Ghad TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-hadath/2ff87ec4c2f3ede35295a20637d9f8fd/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/De4SEWE.png&quot;); display: inline-block;" title="Al Hadath (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn3.wowza.com/5/OE5HREpIcEkySlNT/alhayat-live/ngrp:livestream_all/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/M8ZuzeB.png&quot;); display: inline-block;" title="Al Hayat TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://media.smc-host.com:1935/alhorreya.tv/mp4:alhorreya3/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/EK75DMJ.png&quot;); display: inline-block;" title="Al Horreya TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn.catiacast.video/abr/8d2ffb0aba244e8d9101a9488a7daa05/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8qQouTW.jpg&quot;); display: inline-block;" title="Al Iraqia (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn.catiacast.video/abr/78054972db7708422595bc96c6e024ac/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/feQTXeZ.jpg&quot;); display: inline-block;" title="Al Iraqia News (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://185.105.4.151:8080/_defapp_/ittihad/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/QMUjPXx.png&quot;); display: inline-block;" title="Al Ittihad (552p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://185.9.2.18/chid_391/mono.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CfxR8o3.png&quot;); display: inline-block;" title="Al Jadeed (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-hls-apps-aja-fa.getaj.net/AJA/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/7bRVpnu.png&quot;); display: inline-block;" title="Al Jazeera (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-hls-apps-ajd-fa.getaj.net/AJD/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/5dNJlLo.png&quot;); display: inline-block;" title="Al Jazeera Documentary (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-hls-apps-ajm-fa.getaj.net/AJM/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/X80DQvF.png&quot;); display: inline-block;" title="Al Jazeera Mubasher (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-hls-apps-ajm24-fa.getaj.net/AJM24/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/LMCcIZ2.png&quot;); display: inline-block;" title="Al Jazeera Mubasher 24 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-hls-apps-ajm2-fa.getaj.net/AJM2/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/nJmi6G6.png&quot;); display: inline-block;" title="Al Jazeera Mubasher Broadcast 2 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://bucharest.zeuscdn724.com/lb0/CH-AL-MA/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/QFnztgo.png&quot;); display: inline-block;" title="Al Maaref TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://streaming.zaytonatube.com:8081/AlMadinatv/almadina21/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/NVOeM3P.png&quot;); display: inline-block;" title="Al Madina (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ec/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/7GaahYh.png&quot;); display: inline-block;" title="Al Maghribia (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0af/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/7GaahYh.png&quot;); display: inline-block;" title="Al Maghribia HD (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://bcovlive-a.akamaihd.net/4109c7ba30fd4a44ad9afe917c67a8c8/eu-central-1/6415809151001/playlist_dvr.m3u8')" style="background-image: url(&quot;https://i.imgur.com/UeTseMV.png&quot;); display: inline-block;" title="Al Mamlaka TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://edge.fastpublish.me/live/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/sOQLV7L.png&quot;); display: inline-block;" title="Al Manar (576p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://starmenajo.com/hls/almasar/index.m3u8')" style="background-image: url(&quot;https://play-lh.googleusercontent.com/FHPrsr391mPFqKfTq6ZdvWPZNVfsZeTAVQ8rjQF-NosnRdNipUy5xa43RWkiF4tGcQU&quot;); display: inline-block;" title="Al Masar TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.cdnbridge.tv/Almasirah/Almasirah_all/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/V055t5e.png&quot;); display: inline-block;" title="Al Masirah (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live2.cdnbridge.tv/AlmasirahMubasher/Mubasher_All/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/0xHb3XM.jpg&quot;); display: inline-block;" title="Al Masirah Mubacher (642p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://viamotionhsi.netplus.ch/live/eds/almasriyah/browser-HLS8/almasriyah.m3u8')" style="background-image: url(&quot;https://i.ibb.co/Kx7wmXCQ/almasriya.png&quot;); display: inline-block;" title="Al Masriyah [Geo-Blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mdnlv.cdn.octivid.com/almdn/smil:mpegts.stream.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/GtQOKeW.png&quot;); display: inline-block;" title="Al Mayadeen (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://streaming.najah.edu:8443/hls/AlNajah.m3u8')" style="background-image: url(&quot;https://i.imgur.com/c2bwn4G.png&quot;); display: inline-block;" title="Al Najah News (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://streamer3.premio.link/alqamar/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/zkBT0C8.png&quot;); display: inline-block;" title="Al Qamar TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn-globecast.akamaized.net/live/eds/saudi_quran/hls_roku/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/A2fJysM.png&quot;); display: inline-block;" title="Al Quran Al Kareem TV (360p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://arrafidain.tvplayer.online/arrafidaintv/source/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/rjXDCN5.png&quot;); display: inline-block;" title="Al Rafidain (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://media1.livaat.com/static/AL-RASHEED-HD/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/ltyRjPK.png&quot;); display: inline-block;" title="Al Rasheed TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://alrayyancdn.vidgyor.com/pub-noalrayy3pwz0l/liveabr/playlist_dvr.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Ts3RjTV.png&quot;); display: inline-block;" title="Al Rayyan (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://alrayyancdn.vidgyor.com/pub-nooldraybinbdh/liveabr/playlist_dvr.m3u8')" style="background-image: url(&quot;https://i.imgur.com/4qB5iN0.png&quot;); display: inline-block;" title="Al Rayyan Al Qadeem (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/risala_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/7o4HgrP.png&quot;); display: inline-block;" title="Al Resalah (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/sbrksariyadhradiolive/srpksariyadhradio/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8PH1Lak.png&quot;); display: inline-block;" title="Al Riyadh Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-saudi-tv/2ad66056b51fd8c1b624854623112e43/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/GRQTndk.png&quot;); display: inline-block;" title="Al Saudiya (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-ksa-now/71ed3aa814c643306c0a8bc4fcc7d17f/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/sEOjApe.png&quot;); display: inline-block;" title="Al Saudiya Alaan (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://amg01480-alshallalfze-alshallal-ono-q0hfg.amagi.tv/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/otAHLRo.png&quot;); display: inline-block;" title="Al Shallal TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/kablatvlive/kabtv1.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/m4qheI4.png&quot;); display: inline-block;" title="Al Sharqiya Min Kabla (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn-globecast.akamaized.net/live/eds/saudi_sunnah/hls_roku/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/S6LcTJv.png&quot;); display: inline-block;" title="Al Sunnah Al Nabawiyah TV (360p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://nl.livekadeh.com/hls2/alwilayah_tv.m3u8')" style="background-image: url(&quot;https://i.imgur.com/OI1HQv5.png&quot;); display: inline-block;" title="Al Wilayah (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/alwoustalive/alwoustatv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/zgMqQPQ.png&quot;); display: inline-block;" title="Al Wousta TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://hlspackager.akamaized.net/live/DB/ALYAUM_TV/HLS/ALYAUM_TV.m3u8')" style="background-image: url(&quot;https://i.imgur.com/rBixF3P.png&quot;); display: inline-block;" title="Al Yaum TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://stream.alaimma.tv/hls/alaimma/h3b1rd584cpq8p60okoj01rnfigdcnia.m3u8')" style="background-image: url(&quot;https://alaimma.tv/alaimma-logo.png&quot;); display: inline-block;" title="Al-Aimma TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5d658d7e9f562.streamlock.net/alfadytv.tv/alfadytv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/7L0l0iY.png&quot;); display: inline-block;" title="Al-Fady TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.aljawadain.org/live/aljawadaintv/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Eo3UYCK.png&quot;); display: inline-block;" title="Al-Jawadain TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://edge66.magictvbox.com/liveApple/al_majd/tracks-v1a1/mono.m3u8')" style="background-image: url(&quot;https://i.imgur.com/JBelAQj.png&quot;); display: inline-block;" title="Al-Majd Holy Quran">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://assahat.b-cdn.net/Assahat/assahatobs/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/UVndAta.png&quot;); display: inline-block;" title="Al-Sahat TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5d94523502c2d.streamlock.net/home/mystream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/mJIG5IV.png&quot;); display: inline-block;" title="Al-Sharqiya (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5d94523502c2d.streamlock.net/alsharqiyalive/mystream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/PeAcXB9.png&quot;); display: inline-block;" title="Al-Sharqiya News (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live2.alalam.ir/live/Alalam/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/WQKYPKD.png&quot;); display: inline-block;" title="Alalam News Channel Syria (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://82.212.74.2:8000/live/7307.m3u8')" style="background-image: url(&quot;https://i.imgur.com/iYibJxK.png&quot;); display: inline-block;" title="Alerth Alnabawi Channel (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ghaasiflu.online/alhqeqa/index.m3u8')" style="background-image: url(&quot;https://www.lyngsat.com/logo/tv/aa/alhaqeqa-aldawlia-jo.png&quot;); display: inline-block;" title="Alhaqeqa Aldawlia (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mn-nl.mncdn.com/alhiwar_live/smil:alhiwar.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/UjOxwdd.png&quot;); display: inline-block;" title="Alhiwar TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mbn-ingest-worldsafe.akamaized.net/hls/live/2038900/MBN_Alhurra_Worldsafe_HLS/master.m3u8')" style="background-image: url(&quot;https://i.imgur.com/tiQp2sR.png&quot;); display: inline-block;" title="Alhurra (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mbn-ingest-worldsafe.akamaized.net/hls/live/2038899/MBN_Iraq_Worldsafe_HLS/master.m3u8')" style="background-image: url(&quot;https://i.imgur.com/fsgQDcN.png&quot;); display: inline-block;" title="Alhurra Iraq (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/alimanlive/imantv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/4WKQppG.png&quot;); display: inline-block;" title="Aliman TV (240p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://jmc-live.ercdn.net/alistiqama/alistiqama.m3u8')" style="background-image: url(&quot;https://i.imgur.com/2FPtYZr.png&quot;); display: inline-block;" title="Alistiqama TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5a8308add0b31.streamlock.net/alkarmatv.com/alkarmaau.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/90ykspa.png&quot;); display: inline-block;" title="Alkarma TV Australia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://58cc65c534c67.streamlock.net/alkarmatv.com/alkarmaNA2.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/yUEuQA2.png&quot;); display: inline-block;" title="Alkarma TV Family (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://58cc65c534c67.streamlock.net/alkarmatv.com/alkarmame1.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/6OmNw5A.png&quot;); display: inline-block;" title="Alkarma TV Middle East (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5aafcc5de91f1.streamlock.net/alkarmatv.com/alkarmana1.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pnm60bq.png&quot;); display: inline-block;" title="Alkarma TV North America &amp; Canada (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://58cc65c534c67.streamlock.net/alkarmatv.com/alkarmapa.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/bJLKkou.png&quot;); display: inline-block;" title="Alkarma TV Praise (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://58cc65c534c67.streamlock.net/alkarmatv.com/alkarmame2.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/t2ZkRbr.png&quot;); display: inline-block;" title="Alkarma TV Talmaza (Discipleship) (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5aafcc5de91f1.streamlock.net/alkarmatv.com/alkarmaus.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/kpuO8m7.png&quot;); display: inline-block;" title="Alkarma TV Youth &amp; English (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/alkass5-p/main.m3u8')" style="background-image: url(&quot;https://i.imgur.com/6RGNGsM.png&quot;); display: inline-block;" title="Alkass Five (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/alkass4-p/main.m3u8')" style="background-image: url(&quot;https://i.imgur.com/iDL65Wu.png&quot;); display: inline-block;" title="Alkass Four (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/alkass1-p/main.m3u8')" style="background-image: url(&quot;https://i.imgur.com/10mmlha.png&quot;); display: inline-block;" title="Alkass One (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/alkass7-p/main.m3u8')" style="background-image: url(&quot;https://i.imgur.com/3eyHP3S.png&quot;); display: inline-block;" title="Alkass Seven (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/shooflive/main.m3u8')" style="background-image: url(&quot;https://shoof.alkass.net/assets/images/shoof.png&quot;); display: inline-block;" title="Alkass SHOOF (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/shooflive2/main.m3u8')" style="background-image: url(&quot;https://shoof.alkass.net/assets/images/shoof2.png&quot;); display: inline-block;" title="Alkass SHOOF 2 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/alkass6-p/main.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CrPSPSC.png&quot;); display: inline-block;" title="Alkass Six (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/alkass3-p/main.m3u8')" style="background-image: url(&quot;https://i.imgur.com/d57BdFh.png&quot;); display: inline-block;" title="Alkass Three (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://liveeu-gcp.alkassdigital.net/alkass2-p/main.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8w61kFX.png&quot;); display: inline-block;" title="Alkass Two (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://lenz.splus.ir/PLTV/88888888/224/3221226158/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/x4zUmY1.png&quot;); display: inline-block;" title="AlKawthar">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/sbrksakhuzamaradiolive/srpkhuzama/playlist.m3u8')" style="background-image: url(&quot;https://shahid.mbc.net/mediaObject/61010cbc-91c5-4ce1-94a4-ed40adadb97b&quot;); display: inline-block;" title="Alkhuzama Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://597f64b67707a.streamlock.net/almagd.tv/almagd.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/3pUik3b.png&quot;); display: inline-block;" title="Almagd TV Middle East (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5aafcc5de91f1.streamlock.net/almagd.tv/almagd.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/3pUik3b.png&quot;); display: inline-block;" title="Almagd TV North America (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://starmenajo.com/hls/almahriah/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/GgEeTNr.png&quot;); display: inline-block;" title="Almahriah TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn.bestream.io:19360/alqanat9/alqanat9.m3u8')" style="background-image: url(&quot;https://i.imgur.com/HC91Mho.png&quot;); display: inline-block;" title="Alqanat9 TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ktvlive.online/stream/hls/ch1.m3u8')" style="background-image: url(&quot;https://i.imgur.com/lqVwrAF.png&quot;); display: inline-block;" title="Alquran (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://jmc-live.ercdn.net/altaghier/altaghier.m3u8')" style="background-image: url(&quot;https://i.imgur.com/YTyCBvB.png&quot;); display: inline-block;" title="Altaghier TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/syriatv02live/syriatv02.smil/playlist.m3u8')" style="background-image: url(&quot;https://cdn-icons-png.flaticon.com/512/1006/1006517.png&quot;); display: inline-block;" title="Althania (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://alwifaklive.info:1935/live/myStream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/1vqhmNz.png&quot;); display: inline-block;" title="ALWifak News TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ammantv-live.ercdn.net/ammantvhd/ammantvhd.m3u8')" style="background-image: url(&quot;https://i.imgur.com/5l7kw0b.png&quot;); display: inline-block;" title="Amman TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://mkstream.servehttp.com:1940/AmouYazid/ay1/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/L8UPGPC.png&quot;); display: inline-block;" title="Amou Yazid TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/e7350ddf46c94dddafe14b099394ff56/index.m3u8')" style="background-image: url(&quot;https://shahid.mbc.net/mediaObject/a5893f8d-8488-4c21-ab97-a627f99c7676?height=auto&amp;width=512&amp;croppingPoint=&amp;version=1&amp;type=png&quot;); display: inline-block;" title="Anime (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cloud.odysee.live/content/f92670235a1ce2bce4cf77671cc4dcc2188baa1d/master.m3u8')" style="background-image: url(&quot;https://i.imgur.com/yHZXPcn.png&quot;); display: inline-block;" title="Anwar TV2 (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://istream.binarywaves.com:8081/hls/arabica/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/sTOoDy1.png&quot;); display: inline-block;" title="Arabica TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ea/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/XjzK3gZ.png&quot;); display: inline-block;" title="Arryadia (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0bi/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/XjzK3gZ.png&quot;); display: inline-block;" title="Arryadia HD (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0dq/index.m3u8')" style="background-image: url(&quot;https://i.ibb.co/fYNx6Fk1/image-removebg-preview-1.png&quot;); display: inline-block;" title="Arryadia HD1 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Czxi7yk.png&quot;); display: inline-block;" title="Asharq Discovery (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/asharqdocumentarylive/asharqdocumentary.smil/playlist_dvr.m3u8')" style="background-image: url(&quot;https://i.imgur.com/v6VsFEt.png&quot;); display: inline-block;" title="Asharq Documentary (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-news.asharq.com/asharq.m3u8')" style="background-image: url(&quot;https://i.imgur.com/bqRC3sl.png&quot;); display: inline-block;" title="Asharq News (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/asharqradiovlive/asharqradiov/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/M6K8cD3.jpeg&quot;); display: inline-block;" title="Asharq Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.asil.tv/asiltv/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/gROQqFD.png&quot;); display: inline-block;" title="Asil TV">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ed/index.m3u8')" style="background-image: url(&quot;https://freebox.cdn.scw.iliad.fr/medium_Assadissa_f8b25de821.png&quot;); display: inline-block;" title="Assadisa (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ag/index.m3u8')" style="background-image: url(&quot;https://freebox.cdn.scw.iliad.fr/medium_Assadissa_f8b25de821.png&quot;); display: inline-block;" title="Assadissa HD (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://softverse.b-cdn.net/Assirat/assiratobs/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/ps4Gtj0.png&quot;); display: inline-block;" title="Assirat TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5aafcc5de91f1.streamlock.net/atfal1.com/atfal2/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Y2BqP9m.png&quot;); display: inline-block;" title="Atfal &amp; Mawaheb TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ae/index.m3u8')" style="background-image: url(&quot;https://freebox.cdn.scw.iliad.fr/medium_Athaqafia_fdc90e055e.png&quot;); display: inline-block;" title="Athaqafia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0eb/index.m3u8')" style="background-image: url(&quot;https://freebox.cdn.scw.iliad.fr/medium_Athaqafia_fdc90e055e.png&quot;); display: inline-block;" title="Athaqafia (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://stream.atvsat.com/atvsatlive/smil:atvsatlive.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pwM5txv.png&quot;); display: inline-block;" title="ATVSat (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/948c54279b594944adde578c95f1d7d1/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/QtlnZbq.png&quot;); display: inline-block;" title="Bab Al Hara (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5c7b683162943.streamlock.net/live/ngrp:bahraininternational_all/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/t6Lmntr.png&quot;); display: inline-block;" title="Bahrain International (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5c7b683162943.streamlock.net/live/ngrp:bahrainquran_all/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/er5hOK4.png&quot;); display: inline-block;" title="Bahrain Quran (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5c7b683162943.streamlock.net/live/ngrp:sportsone_all/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/fBpLsbC.png&quot;); display: inline-block;" title="Bahrain Sports 1 (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5c7b683162943.streamlock.net/live/ngrp:bahrainsportstwo_all/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/ZkuZmIo.png&quot;); display: inline-block;" title="Bahrain Sports 2 (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5c7b683162943.streamlock.net/live/ngrp:bahraintvmain_all/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/LTD0jIm.png&quot;); display: inline-block;" title="Bahrain TV (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/bahry1live/bahry1.smil/playlist.m3u8')" style="background-image: url(&quot;https://bahry.faulio.com/storage/mediagallery/9a/c7/fullhd_6a5a505408b027c0d4a4453c72258f9db0d2cb20.png&quot;); display: inline-block;" title="Bahry (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://nl2.livekadeh.com/hls2/Bayyinat.m3u8')" style="background-image: url(&quot;https://i.imgur.com/PVQKsjE.png&quot;); display: inline-block;" title="Bayyinat TV (404p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://vs-cmaf-pushb-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_arabic_tv/pc_hd_abr_v2.mpd')" style="background-image: url(&quot;https://i.imgur.com/ScyTG6P.png&quot;); display: inline-block;" title="BBC Arabic (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.beitolabbas.tv/live/beitolabbastv.m3u8')" style="background-image: url(&quot;https://i.imgur.com/s8PfUQy.png&quot;); display: inline-block;" title="BeitolAbbas TV Channel (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0fi/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Uc2PAmL.png&quot;); display: inline-block;" title="Berbere TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-big-time-plus/924283f994779a311c1389698ff7e736/index.m3u8')" style="background-image: url(&quot;https://shahid.mbc.net/mediaObject/4e042cb6-500b-4e4c-a8ca-21a5a7a7a71b&quot;); display: inline-block;" title="Big Time Plus (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://flu.systemnet.tv/CBC/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8apNaLP.png&quot;); display: inline-block;" title="CBC (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://flu.systemnet.tv/CBCDrama/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/I8YdakH.png&quot;); display: inline-block;" title="CBC Drama (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://flu.systemnet.tv/CBCSofra/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/YAdk2WR.png&quot;); display: inline-block;" title="CBC Sofra (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://arabic-livews.cgtn.com/hls/LSveq57bErWLinBnxosqjisZ220802LSTefTAS9zc9mpU08y3np9TH220802cd/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/AkFFrS7.png&quot;); display: inline-block;" title="CGTN Arabic (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ch14.tv/live/ch4teenclip/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pHpFGeg.png&quot;); display: inline-block;" title="Ch4Teen">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://chadatv.vedge.infomaniak.com/livecast/chadatv/playlist.m3u8')" style="background-image: url(&quot;https://freebox.cdn.scw.iliad.fr/medium_Logo_chada_tv_2ee1412d38.png&quot;); display: inline-block;" title="Chada TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.channel8.com/Channel8-Kurdish/index.fmp4.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Channel8corp.png/960px-Channel8corp.png&quot;); display: inline-block;" title="Channel 8 Kurdish (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://185.105.4.236:1935/live/ngrp:livestream_all/live.m3u8')" style="background-image: url(&quot;https://i.imgur.com/U9z8WBY.png&quot;); display: inline-block;" title="CharityTV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0fj/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/yp2clII.png&quot;); display: inline-block;" title="Chebab TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.creacast.com/cna/smil:cna.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Ki3ySUE.png&quot;); display: inline-block;" title="CNA (Chaîne Nord Africaine) (360p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cnbc-live.akamaized.net/cnbc/master.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/en/5/54/CNBC_Arabia_-_New_Logo.png&quot;); display: inline-block;" title="CNBC Arabiya (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5aafcc5de91f1.streamlock.net/ctvchannel.tv/ctv.smil/playlist.m3u8')" style="background-image: url(&quot;https://www.ctvchannel.tv/images/CTV-logo-white.png&quot;); display: inline-block;" title="Coptic TV (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://hls.dabangasudan.org/hls/stream.m3u8')" style="background-image: url(&quot;https://i.imgur.com/BH1N6TA.png&quot;); display: inline-block;" title="Dabanga TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://radiodamascus.ortas.live/RDimshq/RDimshqLive/playlist.m3u8')" style="background-image: url(&quot;https://www.lyngsat.com/logo/radio/rr/radio-damascus-sy.png&quot;); display: inline-block;" title="Damascus Radio (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ghaasiflu.online/Dijlah/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/kyzH3G5.png&quot;); display: inline-block;" title="Dijlah TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://dwamdstream103.akamaized.net/hls/live/2015526/dwstream103/master.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8MRNFb9.png&quot;); display: inline-block;" title="DW Arabic (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://dvrfl06.bozztv.com/astv-elousra/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/hpnL96b.png&quot;); display: inline-block;" title="El Oussra TV">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://9090video.mobtada.com/hls/stream.m3u8')" style="background-image: url(&quot;https://www.9090.fm/images/logo.png&quot;); display: inline-block;" title="El Radio 9090 FM (480p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://media3.smc-host.com:1935/elbesharagtv.com/gtv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/b0Wx7pE.png&quot;); display: inline-block;" title="Elbeshara GTV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mn-nl.mncdn.com/elsharq_live/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8vmfZb5.png&quot;); display: inline-block;" title="Elsharq TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://jmc-live.ercdn.net/eritreatv/eritreatv.m3u8')" style="background-image: url(&quot;https://i.imgur.com/bTR0Huw.png&quot;); display: inline-block;" title="ERi-TV 1 (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/bba3ef00b71b470fa955d93a9ca8c277/index.m3u8')" style="background-image: url(&quot;https://shahid.mbc.net/mediaObject/f809d51c-e83d-43c9-8236-78731c2216ad?type=png&quot;); display: inline-block;" title="Fairuz (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rp.tactivemedia.com/palestiniantv_source/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/6B3Cims.png&quot;); display: inline-block;" title="Falastini TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://b01c02nl.mediatriple.net/videoonlylive/mtfknklgwrlive/broadcast_5dc818c793576.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/WdMIpsA.png&quot;); display: inline-block;" title="February Channel (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.france24.com/hls/live/2037222-b/F24_AR_HI_HLS/master_5000.m3u8')" style="background-image: url(&quot;https://xstreamcp-assets-msp.streamready.in/assets/LIVETV/LIVECHANNEL/LIVETV_LIVETVCHANNEL_FRANCE_24/images/LOGO_HD/image.png&quot;); display: inline-block;" title="France 24 Arabic (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/fujairahlive/fujairah.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/D2tOhbE.png&quot;); display: inline-block;" title="Fujairah TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/futurelive/ftv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/OaqEpwe.png&quot;); display: inline-block;" title="Future TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://online.godstands.tv:5443/WebRTCApp/streams/Arabic.m3u8')" style="background-image: url(&quot;https://i.imgur.com/EO6cYUI.png&quot;); display: inline-block;" title="God Stands TV Arabic">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ncdn.telewebion.com/habib/live/playlist.m3u8')" style="background-image: url(&quot;https://i.ibb.co/spZRy7mg/habib.png&quot;); display: inline-block;" title="Habib TV">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://halalondon-live.ercdn.net/halalondon/halalondon.m3u8')" style="background-image: url(&quot;https://i.imgur.com/bM4VZDH.png&quot;); display: inline-block;" title="Hala London (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://halaramallahtv.com:2053/HRamallah-Tv/HalaRamallah/playlist.m3u8')" style="background-image: url(&quot;https://i.ibb.co/swP1FDK/halaramallah-logo.png&quot;); display: inline-block;" title="Hala Ramallah (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://stream.panet.com/edge/halaTV/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/028M4Ew.png&quot;); display: inline-block;" title="Hala TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mn-nl.mncdn.com/halabtoday/livestream/index.m3u8')" style="background-image: url(&quot;https://pbs.twimg.com/profile_images/1779495135841075200/aPINrLwe_400x400.png&quot;); display: inline-block;" title="Halab Today TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://raw.githubusercontent.com/ipstreet312/freeiptv/master/ressources/dzflix/helwa.m3u8')" style="background-image: url(&quot;https://cdn-icons-png.flaticon.com/512/1006/1006517.png&quot;); display: inline-block;" title="Helwa TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://streaming.zaytonatube.com:8080/holyquran/holyquran/video.m3u8')" style="background-image: url(&quot;https://quran-radio.com/assets/images/site/quran-radio-logo-h-rtl.png&quot;); display: inline-block;" title="Holy Quran Radio Nablus (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://bcovlive-a.akamaihd.net/95116e8d79524d87bf3ac20ba04241e3/eu-central-1/5377161796001/playlist.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/LOGO_i24NEWS.png/960px-LOGO_i24NEWS.png&quot;); display: inline-block;" title="I24 News Arabic (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.presstv.ir/hls/ifilmar.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/commons/b/b9/IFILM.png&quot;); display: inline-block;" title="iFilm Arabic">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.imamhossaintv.com/live/ih2.m3u8')" style="background-image: url(&quot;https://i.imgur.com/IXVSPdJ.png&quot;); display: inline-block;" title="Imam Hussein TV 2 (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.i-news.tv/hls/stream.m3u8')" style="background-image: url(&quot;https://i.imgur.com/9lOuzHQ.png&quot;); display: inline-block;" title="iNEWS TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/dlkqw1ftuvuuzkcb4pxdcg/Iqraafasttv1/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/nUlZvSe.png&quot;); display: inline-block;" title="Iqraa Africa &amp; Europe (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/dlkqw1ftuvuuzkcb4pxdcg/Iqraafasttv3/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/HPVsIa4.png&quot;); display: inline-block;" title="Iqraa Arabic (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/dlkqw1ftuvuuzkcb4pxdcg/Iqraafasttv2/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/HPVsIa4.png&quot;); display: inline-block;" title="Iqraa Quran (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://viewmedia7219.bozztv.com/wmedia/viewmedia100/web_040/Stream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Z7woTe5.png&quot;); display: inline-block;" title="Iraq Future">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://streaming.toutech.net:1935/live/mp4:jawharafm.sdp/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/mRSQ5bP.png&quot;); display: inline-block;" title="Jawhara TV (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/cc0blorawy1ibohhrupraa/Archive/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8UrCl4k.png&quot;); display: inline-block;" title="Jordan Archive (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/cc0blorawy1ibohhrupraa/Comedy/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/DuwwoO2.png&quot;); display: inline-block;" title="Jordan Comedy (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/cc0blorawy1ibohhrupraa/Drama/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/gvIAEsJ.png&quot;); display: inline-block;" title="Jordan Drama (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/cc0blorawy1ibohhrupraa/cooking/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/B45qcQX.png&quot;); display: inline-block;" title="Jordan Kitchen (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://jrtv-live.ercdn.net/jordanhd/jordanhd.m3u8')" style="background-image: url(&quot;https://i.imgur.com/0XozB5N.png&quot;); display: inline-block;" title="Jordan Satellite Channel (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/cc0blorawy1ibohhrupraa/Song/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/1DE7Gmw.png&quot;); display: inline-block;" title="Jordan Songs (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://jrtv-live.ercdn.net/jordansporthd/jordansporthd.m3u8')" style="background-image: url(&quot;https://i.imgur.com/2EmrZPQ.png&quot;); display: inline-block;" title="Jordan Sport (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://jrtv-live.ercdn.net/learning2/learning2.m3u8')" style="background-image: url(&quot;https://static.jrtv.gov.jo/resize-width/380/content/D/yH/2972/Poster.png&quot;); display: inline-block;" title="Jordan Sport 2 (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/cc0blorawy1ibohhrupraa/Tourism/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/gpeIoU9.png&quot;); display: inline-block;" title="Jordan Tourism (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://82.212.74.2:8000/live/7311.m3u8')" style="background-image: url(&quot;https://i.imgur.com/zGGeSQg.png&quot;); display: inline-block;" title="Kaifa TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://htvint.mada.ps/kolalnas/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/OyMxcRG.png&quot;); display: inline-block;" title="Kolalnas TV">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5d658d7e9f562.streamlock.net/koogi.tv/koogi.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/zojMTP9.png&quot;); display: inline-block;" title="Koogi TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kwtktv1ta.cdn.mangomolo.com/ktv1/smil:ktv1.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/kG0d8Ay.png&quot;); display: inline-block;" title="KTV 1 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kwtktvaqta.cdn.mangomolo.com/ktvaq/smil:tktvaq.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/naVEZtj.png&quot;); display: inline-block;" title="KTV Al Qurain (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kwtktvata.cdn.mangomolo.com/ktva/smil:tktva.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/jg3VAxO.png&quot;); display: inline-block;" title="KTV Arabe (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kwtethta.cdn.mangomolo.com/eth/smil:eth.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/hqEbc49.png&quot;); display: inline-block;" title="KTV Ethraa (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kwtkbta.cdn.mangomolo.com/kb/smil:kb.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/erZ0Ol1.png&quot;); display: inline-block;" title="KTV News (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kwtspta.cdn.mangomolo.com/sp/smil:sp.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/R1hGX1d.png&quot;); display: inline-block;" title="KTV Sport (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kwtsplta.cdn.mangomolo.com/spl/smil:spl.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/l4oX0gf.png&quot;); display: inline-block;" title="KTV Sport Plus (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5a3ed7a72ed4b.streamlock.net/live/SMIL:myStream.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/mjQptpc.png&quot;); display: inline-block;" title="Kurdistan TV (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://iko-live.akamaized.net/KurdsatTV/master.m3u8')" style="background-image: url(&quot;https://i.imgur.com/UAbSwYA.png&quot;); display: inline-block;" title="Kurdsat (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://hlspackager.akamaized.net/live/DB/KURDSAT_NEWS/HLS/KURDSAT_NEWS.m3u8')" style="background-image: url(&quot;https://i.imgur.com/F3XRwkt.png&quot;); display: inline-block;" title="Kurdsat News (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0eg/index.m3u8')" style="background-image: url(&quot;https://www.snrt.ma/sites/default/files/2023-04/laayoune.png&quot;); display: inline-block;" title="Laayoune TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ac/index.m3u8')" style="background-image: url(&quot;https://i.ibb.co/Q3r5D5d0/image-removebg-preview.png&quot;); display: inline-block;" title="Laayoune TV HD (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/lbc_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/whyZXzW.png&quot;); display: inline-block;" title="LBC (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://stream-hls.castr.net/64490fcefe045f1b63012886/live_22d9a1f0c69c11ee9441219c2cc6d61f/index.fmp4.m3u8')" style="background-image: url(&quot;https://i.imgur.com/xkQKVGi.png&quot;); display: inline-block;" title="Libya Al Ahrar TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn-globecast.akamaized.net/live/eds/libya_al_watanya/hls_roku/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/KSUny9D.jpeg&quot;); display: inline-block;" title="Libya Al Wataniya (360p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://brightstar-arabic-pull-secure.akamaized.net/brightstararabic/stream.m3u8')" style="background-image: url(&quot;https://i.imgur.com/fbrQpC4.png&quot;); display: inline-block;" title="Lighting Lives Blessing Nations TV Arabic (LLBN) (480p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5a8308add0b31.streamlock.net/logoschannel.com/logostv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/h8DioXU.png&quot;); display: inline-block;" title="Logos TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://go5lm6a6dawb-hls-live.5centscdn.com/lwarabic/53132d996b4263ec0d7b602292c46eaf.sdp/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/KYMjRjK.png&quot;); display: inline-block;" title="LoveWorld Arabic (360p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://p-ltv.akamaized.net/ltv/ltv.m3u8')" style="background-image: url(&quot;https://i.imgur.com/xPoycVY.png&quot;); display: inline-block;" title="LTV (360p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/m-plus/master.m3u8?ads.vf=99_BajuDhjC')" style="background-image: url(&quot;https://i.imgur.com/Ho8N310.png&quot;); display: inline-block;" title="like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" group-title="Music" "="">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-mood-ak.akamaized.net/out/v1/8e2419c6c7494dbba478be025af490ee/index.m3u8')" style="background-image: url(&quot;https://i.discogs.com/Fk9Bm8gTYJYeVXIJKX-EOGmYQ90sVQPtkIW5ZK4fydo/rs:fit/g:sm/q:90/h:372/w:412/czM6Ly9kaXNjb2dz/LWRhdGFiYXNlLWlt/YWdlcy9MLTE2OTY4/MzMtMTU2ODk0NjI5/MC01Njk2LmpwZWc.jpeg&quot;); display: inline-block;" title="Majid Al Mohandis (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kancdn.medonecdn.net/livehls/oil/kancdn-live/live/makan/live.livx/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/RVtQTed.png&quot;); display: inline-block;" title="Makan 33 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://media2.streambrothers.com:1936/8122/8122/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/PRPcOi0.png&quot;); display: inline-block;" title="Makkah TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/a4a39d8e92e34b0780ca602270a59512/index.m3u8')" style="background-image: url(&quot;https://shahid.mbc.net/mediaObject/d089a559-4f41-4def-a786-f98fcfbf0464?height=auto&amp;width=288&amp;croppingPoint=&amp;version=1&amp;type=png&quot;); display: inline-block;" title="Maraya (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ffs.gulfsat.com/Marina-TV-HD/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/F2PzEaw.png&quot;); display: inline-block;" title="Marina TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://livefa.marjaeyattv.com/mtv_ar/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/LsYYkUI.png&quot;); display: inline-block;" title="Marjaeyat TV Arabic (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1/15cf99af5de54063fdabfefe66adc075/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CiA3plN.png&quot;); display: inline-block;" title="MBC 1 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1-na/eec141533c90dd34722c503a296dd0d8/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CiA3plN.png&quot;); display: inline-block;" title="MBC 1 Egypt (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1-usa/fdac3a4fc0473f1f56e07ec1d63a4b7b/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CiA3plN.png&quot;); display: inline-block;" title="MBC 1 USA (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-3-usa/5d58265a862a476dc7f97694addb5ded/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/PVt8OPN.png&quot;); display: inline-block;" title="MBC 3 USA (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-4/24f134f1cd63db9346439e96b86ca6ed/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/BcXASJp.png&quot;); display: inline-block;" title="MBC 4 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-5/ee6b000cee0629411b666ab26cb13e9b/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/fRWaDyF.png&quot;); display: inline-block;" title="MBC 5 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-bollywood/546eb40d7dcf9a209255dd2496903764/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/TTAGFHG.png&quot;); display: inline-block;" title="MBC Bollywood (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-drama/2c28a458e2f3253e678b07ac7d13fe71/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/g5PWnqp.png&quot;); display: inline-block;" title="MBC Drama (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-drama-usa/ea2f5db904aff224b7066e59c7f585a2/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/g5PWnqp.png&quot;); display: inline-block;" title="MBC Drama USA (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-iraq/e38c44b1b43474e1c39cb5b90203691e/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/D0LxiPE.png&quot;); display: inline-block;" title="MBC Iraq (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr/956eac069c78a35d47245db6cdbb1575/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/o2elx0u.png&quot;); display: inline-block;" title="MBC Masr (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-2/754931856515075b0aabf0e583495c68/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/KHo7Gtn.png&quot;); display: inline-block;" title="MBC Masr 2 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-drama/567b703c19ede6598222de81b0e4508b/index.m3u8')" style="background-image: url(&quot;https://media0070.elcinema.com/tvguide/1399_1.png&quot;); display: inline-block;" title="MBC Masr Drama (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-usa/cd8d40acdab28aac0582faa3bd3983f1/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/o2elx0u.png&quot;); display: inline-block;" title="MBC Masr USA (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-plus-drama/e37251ec2aac8f6c98f75cd0fa37cd28/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/lxWdjXG.png&quot;); display: inline-block;" title="MBC+ Drama (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://streaming2.medi1tv.com/live/smil:medi1ar.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/3YsZPY6.jpeg&quot;); display: inline-block;" title="Medi 1 TV Arabic (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://streaming2.medi1tv.com/live/smil:medi1tv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/F5OFQsp.jpeg&quot;); display: inline-block;" title="Medi 1 TV Maghreb (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/q7iVchl.png&quot;); display: inline-block;" title="Mekameleen TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn3.wowza.com/1/OVRrOWxXUEswS2Yv/eGVxSWZy/hls/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/J8omcNz.png&quot;); display: inline-block;" title="Melody FM Jordan (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mumt03.tangotv.in/MELODYHITS/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/OOMkVrU.png&quot;); display: inline-block;" title="Melody Hits">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.miracleonline.org/hls/miracle1.m3u8')" style="background-image: url(&quot;https://i.imgur.com/rc68GZJ.png&quot;); display: inline-block;" title="Miracle TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://livecdn.live247stream.com/missionasia/tv/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/B5mKwF6.png&quot;); display: inline-block;" title="Mission Asia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/1ENdbZn.png&quot;); display: inline-block;" title="Mix Hollywood (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d2ow8h651gs7dx.cloudfront.net/out/v1/371fb663da604e659a2fb99bf89d92d4/index.m3u8')" style="background-image: url(&quot;https://assets.mbcmood.com/channels/1720184012Mohammed%20Abdo%20banner.png&quot;); display: inline-block;" title="Mohammed Abdo (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://webcam.mosaiquefm.net/mosatv/_definst_/studio/playlist.m3u8?DVR')" style="background-image: url(&quot;https://i.imgur.com/GDUykah.png&quot;); display: inline-block;" title="Mosaique FM (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/46079e838e65490c8299f902a7731168/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/NIVhISa.png&quot;); display: inline-block;" title="Movies Action (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/f6d718e841f8442f8374de47f18c93a7/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/JWihdcl.png&quot;); display: inline-block;" title="Movies Thriller (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://chlivemta1.akamaized.net/hls/live/2008145/mta1/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/bYiRfAg.png&quot;); display: inline-block;" title="MTA1 World (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://chlivemta1.akamaized.net/hls/live/2008145/mta2/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/aVts0sz.png&quot;); display: inline-block;" title="MTA2 Europe (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://chlivemta1.akamaized.net/hls/live/2010556/mta3alarabia/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/m3PEldJ.png&quot;); display: inline-block;" title="MTA3 Al-Arabia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://livemtaasia.akamaized.net/hls/live/2039224/mta6asia/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/nhCNPJI.png&quot;); display: inline-block;" title="MTA6 Asia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://livemtaasia.akamaized.net/hls/live/2039224/mtaasia2/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/3Nl8Tpu.png&quot;); display: inline-block;" title="MTA7 Asia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/45ad6fbe1f7149ad9f05f8aefc38f6c0/index.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/commons/7/75/Murr_tv.png&quot;); display: inline-block;" title="MTV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://pbc.furrera.ps/musawahd/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/GB2Q9kl.png&quot;); display: inline-block;" title="like Gecko) Chrome/92.0.4515.131 Safari/537.36" group-title="General" "="">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://31.14.40.237:1935/live/Nabaa/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/p8eRgSs.png&quot;); display: inline-block;" title="Nabaa TV (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://htvint.mada.ps/nabluslive/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/GoLhaDK.png&quot;); display: inline-block;" title="Nablus TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/sbrksanedaradiolive/srpksanedaradio/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/laEk64E.png&quot;); display: inline-block;" title="Nidae AlIslam Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://nogoumtv.nrpstream.com/hls/stream.m3u8')" style="background-image: url(&quot;https://i.imgur.com/krp3kgv.png&quot;); display: inline-block;" title="NogoumFMTV (672p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/nour1satlive/livestream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/dF4Mvts.png&quot;); display: inline-block;" title="Nour Al Koddas (406p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/nour8satlive/livestream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/EEy2dUr.png&quot;); display: inline-block;" title="Nour Al Sharq (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/nour3satlive/livestream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/cNr0vl1.png&quot;); display: inline-block;" title="Nour El Shabeb">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/nour9satlive/livestream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Ow5Lqh6.jpg&quot;); display: inline-block;" title="Nour Mariam (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/nour4satlive/livestream/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/6Zs5rx4.png&quot;); display: inline-block;" title="NourSAT (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://partwota.cdn.mgmlcdn.com/omcultural/smil:omcultural.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/b38wNPK.png&quot;); display: inline-block;" title="Oman Althakafia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://partwota.cdn.mgmlcdn.com/omlive/smil:omlive.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/UkQTR5b.png&quot;); display: inline-block;" title="Oman Mubashir (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://partneta.cdn.mgmlcdn.com/omsport/smil:omsport.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/1omi7p8.png&quot;); display: inline-block;" title="Oman Sports TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://partneta.cdn.mgmlcdn.com/omantv/smil:omantv.stream.smil/chunklist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/rBftT9x.png&quot;); display: inline-block;" title="Oman TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://hms.pfs.gdn/v1/broadcast/one/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/O4DuR9G.png&quot;); display: inline-block;" title="One TV (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://hms.pfs.gdn/v1/broadcast/onefm/playlist.m3u8')" style="background-image: url(&quot;https://i.ibb.co/Vp2G9wTz/onefmlb.png&quot;); display: inline-block;" title="OneFM (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://otv.hibridcdn.net/otv/tv_abr/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/toxFMeY.png&quot;); display: inline-block;" title="OTV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ncdn.telewebion.com/palestine/live/playlist.m3u8')" style="background-image: url(&quot;https://i.ibb.co/svrZNZTX/Palestine.png&quot;); display: inline-block;" title="Palestine">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.paltodaytv.com/paltv/live/playlist_sfm4s.m3u8')" style="background-image: url(&quot;https://i.imgur.com/n8dSgx4.png&quot;); display: inline-block;" title="Palestine Al Yawm (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://pbc.furrera.ps/PalestineEDU/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/AwVHXyC.png&quot;); display: inline-block;" title="Palestine Edu (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://pbc.furrera.ps/palestinelivehd/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/68llVTZ.png&quot;); display: inline-block;" title="like Gecko) Chrome/92.0.4515.131 Safari/537.36" group-title="General" "="">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://pbc.furrera.ps/palestinehd/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/4B5FvmX.png&quot;); display: inline-block;" title="like Gecko) Chrome/92.0.4515.131 Safari/537.36" group-title="General" "="">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.paltodaytv.com/paltv/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/BS8XXug.png&quot;); display: inline-block;" title="Palestine Today (480p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d6izdil55uftn.cloudfront.net/out/v1/0a06d1d6377c47edbd48721ed724bd08/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/JkDD3bK.png&quot;); display: inline-block;" title="Panorama FM (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/pnc-drama/master.m3u8?ads.vf=S1kySuSK58S')" style="background-image: url(&quot;https://i.imgur.com/Hg34mg3.png&quot;); display: inline-block;" title="like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" group-title="Series" "="">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/pulse95live/pulse96/playlist.m3u8')" style="background-image: url(&quot;https://maraya.faulio.com/storage/mediagallery/60/26/fullhd_d5c3c81b0562a76bc63f073a5e0947f309b0215b.png&quot;); display: inline-block;" title="Pulse95 Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://customer-9vqui33qma2rownb.cloudflarestream.com/7792e558fe54e23bdd4b462ec275cdba/manifest/video.m3u8')" style="background-image: url(&quot;https://i.imgur.com/hrk7Uce.png&quot;); display: inline-block;" title="Qaf TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/qtv1live/qtv1.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/N5RB4sp.png&quot;); display: inline-block;" title="Qatar Television (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/qtv2live/qtv2.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/iWJxDUm.png&quot;); display: inline-block;" title="Qatar Television 2 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/sbrksaquranradiolive/srpksaquranradio/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/ut0kr4x.png&quot;); display: inline-block;" title="Quran Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/ea4275b6dc0840c198c17f6dc6f1ec49/index.m3u8')" style="background-image: url(&quot;https://shahid.mbc.net/mediaObject/b98b0635-c8ed-4a7c-9efa-5856e278f54b?type=png&quot;); display: inline-block;" title="Rabeh Saqer (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://streaming.zaytonatube.com:8080/radioalbalad/radioalbalad/playlist.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/commons/7/71/Nothing_whitespace_blank.png&quot;); display: inline-block;" title="Radio Albalad TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://45.63.116.205/hls2/stream1.m3u8')" style="background-image: url(&quot;https://cdn-profiles.tunein.com/s142626/images/logod.jpg&quot;); display: inline-block;" title="Radio Fann Jordan Studio (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://45.63.116.205/hls4/stream1.m3u8')" style="background-image: url(&quot;https://i.imgur.com/wHOQU0R.png&quot;); display: inline-block;" title="Radio Yaqeen Jordan City View (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mn-nl.mncdn.com/palabroad/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/6Cx22ya.png&quot;); display: inline-block;" title="Rajeen TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cloud.streamingconnect.tv/hls/rasdtv2/rasdtv.m3u8')" style="background-image: url(&quot;https://i.imgur.com/9Pb8806.png&quot;); display: inline-block;" title="RASD TV (1080i)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://dphwv2ufgnfsq.cloudfront.net/out/v1/59cd80dfe93a479eb8b4d79bc6f225ca/index.m3u8')" style="background-image: url(&quot;https://assets.mbcmood.com/channels/1720177618Rashid%20AlMajed.webp&quot;); display: inline-block;" title="Rashid AlMajed (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://htvmada.mada.ps:4443/raya/index.m3u8')" style="background-image: url(&quot;https://www.rayatv.ps/images/logo_tv.png&quot;); display: inline-block;" title="Raya 1 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/redtvlive/redtv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/bWwY885.png&quot;); display: inline-block;" title="Red TV Lebanon (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://hlspackager.akamaized.net/live/DB/ROJAVA_HD/HLS/ROJAVA_HD.m3u8')" style="background-image: url(&quot;https://i.imgur.com/42noysO.png&quot;); display: inline-block;" title="Rojava TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://hlspackager.akamaized.net/live/DB/RONAHI_TV/HLS/RONAHI_TV.m3u8')" style="background-image: url(&quot;https://i.imgur.com/JSvJpD8.png&quot;); display: inline-block;" title="Ronahi TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/rotana-aflam-plus/master.m3u8?ads.vf=sU-keyuh83m')" style="background-image: url(&quot;https://i.imgur.com/DLDfFpu.png&quot;); display: inline-block;" title="like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" group-title="Undefined" "="">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/cinemamasr_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/dGlKoLW.png&quot;); display: inline-block;" title="Rotana Cinema Egypt (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/cinema_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pGgp38I.png&quot;); display: inline-block;" title="Rotana Cinema KSA (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/classical_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pMMUvkt.png&quot;); display: inline-block;" title="Rotana Classic (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/clip_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/nhREk0o.png&quot;); display: inline-block;" title="Rotana Clip (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/comedy_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/IlT8U6S.png&quot;); display: inline-block;" title="Rotana Comedy (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/drama_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/btnhPjZ.png&quot;); display: inline-block;" title="Rotana Drama (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/khaleejiya_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/6HMluzv.png&quot;); display: inline-block;" title="Rotana Khalijia (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/music_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/2zFQbQi.png&quot;); display: inline-block;" title="Rotana Music (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://45.63.116.205/hls/stream1.m3u8')" style="background-image: url(&quot;https://i.imgur.com/xGDjlp5.png&quot;); display: inline-block;" title="Rotana Radio Jordan Studio (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://45.63.116.205/hls3/stream1.m3u8')" style="background-image: url(&quot;https://i.imgur.com/NjgOBts.png&quot;); display: inline-block;" title="Rotana Tarab Jordan City View (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/toa2uuhhygheuly7xtuqrg/roya-comedy/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/oIThcM8.png&quot;); display: inline-block;" title="Roya Comedy (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/a2le4pbpa6rpzv147haf4w/drama/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/V7I0MVf.png&quot;); display: inline-block;" title="Roya Drama (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/ptllxjd03j6g9oxxjdfapg/roya-kids/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/acuCGF8.png&quot;); display: inline-block;" title="Roya Kids">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/ptllxjd03j6g9oxxjdfapg/roya-kids-originals/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/acuCGF8.png&quot;); display: inline-block;" title="Roya Kids Originals (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://playlist.fasttvcdn.com/pl/toa2uuhhygheuly7xtuqrg/roya-kitchen/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/lWfh8pP.png&quot;); display: inline-block;" title="Roya Kitchen (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://royatv-live.daioncdn.net/royatv/royatv.m3u8')" style="background-image: url(&quot;https://i.imgur.com/WX80rty.png&quot;); display: inline-block;" title="Roya TV (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rt-arb.rttv.com/dvr/rtarab/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/G8vGrn1.png&quot;); display: inline-block;" title="RT Arabic (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://dvrfl05.bozztv.com/gin-rtddjibouti/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CERPj3J.png&quot;); display: inline-block;" title="RTD 4">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.relentlessinnovations.net:1936/sadaehaq/sadaehaq/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/J1pB59S.jpg&quot;); display: inline-block;" title="Sada-E-Haq TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn3.wowza.com/1/YStGZlJRdktzZkdK/VXROZWNW/hls/live/playlist.m3u8')" style="background-image: url(&quot;https://image.roku.com/developer_channels/prod/8389e15af8fe49ac7c36d201c24ebf62fbe5b22897c2879ca26ae936e0ed308d.png&quot;); display: inline-block;" title="Safeer TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/sat7arabiclive/sat7arabic.smil/playlist_dvr.m3u8')" style="background-image: url(&quot;https://i.imgur.com/BzDjQeQ.png&quot;); display: inline-block;" title="Sat 7 Arabic (240p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/sat7kidslive/sat7kids.smil/playlist_dvr.m3u8')" style="background-image: url(&quot;https://i.imgur.com/M0ik0i2.png&quot;); display: inline-block;" title="Sat 7 Kids (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-thaqafeyyah/28c0d2a20dbf1dc049ce15d3973f494b/index.m3u8')" style="background-image: url(&quot;https://shahid.mbc.net/mediaObject/55f69983-5b4b-47c7-9c25-06ed5ad860a4?height=auto&amp;width=512&amp;croppingPoint=&amp;version=1&amp;type=jpeg&quot;); display: inline-block;" title="Saudi Thaqafiya TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/sbrksasaudiaradiolive/srpksasaudiaradio/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CvrR7wW.png&quot;); display: inline-block;" title="Saudia Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-sbc/90e09c0c28db26435799b4a14892a167/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/9JSQglj.png&quot;); display: inline-block;" title="SBC (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://31.14.41.69:8080/hls/sensesonline/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/hnTx8eK.png&quot;); display: inline-block;" title="Senses TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://streaming.zaytonatube.com:8081/ShababFM/shabab/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/4Cyz4Bn.png&quot;); display: inline-block;" title="Shabab FM (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://stream.shams.tv/hls/stream.m3u8')" style="background-image: url(&quot;https://www.semakurd.net/sites/default/files/imagecache/400xY/shemis-tv.jpg&quot;); display: inline-block;" title="Shams TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/smc2live/smc2tv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Wd3Xvd1.png&quot;); display: inline-block;" title="Sharjah 2 (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/smcradiolive/smcradiolive/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/q7GGALe.png&quot;); display: inline-block;" title="Sharjah Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/smcquranlive/quranradiolive/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/MxZlOvc.png&quot;); display: inline-block;" title="Sharjah Radio Quran (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/smc4sportslive/smc4.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CsEElsJ.png&quot;); display: inline-block;" title="Sharjah Sports (1080p) [Geo-blocked]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/smc1live/smc1tv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/Oz2bPOt.png&quot;); display: inline-block;" title="Sharjah TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/SvjU4h6.png&quot;); display: inline-block;" title="Sky News Arabia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://stream.skynewsarabia.com/ott/ott.m3u8')" style="background-image: url(&quot;https://i.imgur.com/SvjU4h6.png&quot;); display: inline-block;" title="Sky News Arabia (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://stream.skynewsarabia.com/vertical/vertical.m3u8')" style="background-image: url(&quot;https://i.imgur.com/FjtzQQs.png&quot;); display: inline-block;" title="Sky News Arabia (Portrait) (1280p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-stream.skynewsarabia.com/c-vertical-channel/vertical-stream/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/FjtzQQs.png&quot;); display: inline-block;" title="Sky News Arabia Vertical (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-uae.spacetoongo.com/ST_Live_UAE/hls/index.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/en/2/2b/Spacetoon_logo.png&quot;); display: inline-block;" title="Spacetoon Arabic (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shls-live-enc.edgenextcdn.net/out/v1/18cffab0757d448ca6c1a686d330b346/index.m3u8')" style="background-image: url(&quot;https://shahid.mbc.net/mediaObject/b0016b19-b35b-4ea6-afb9-5b74a0aac825?height=auto&amp;width=512&amp;croppingPoint=&amp;version=1&amp;type=png&quot;); display: inline-block;" title="Spooky Nights (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://136044159.r.cdnsun.net/storychannel.m3u8')" style="background-image: url(&quot;https://i.imgur.com/ZBV6xph.png&quot;); display: inline-block;" title="StoryChannel TV (720p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn-globecast.akamaized.net/live/eds/sudan_tv/hls_roku/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/XUPAYAA.png&quot;); display: inline-block;" title="Sudan TV (360p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.syriaone.tv/live/syriaone.m3u8')" style="background-image: url(&quot;https://tv.syriaone.tv/SyriaONETVB.png&quot;); display: inline-block;" title="Syria One (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live.kwikmotion.com/syriatvlive/syriatv.smil/playlist_dvr.m3u8')" style="background-image: url(&quot;https://i.imgur.com/FjuVuXF.jpeg&quot;); display: inline-block;" title="Syria TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://media1.livaat.com/static/TAHA_TV/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/hdsrxvX.png&quot;); display: inline-block;" title="Taha TV">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ee/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/fm6S7we.png&quot;); display: inline-block;" title="Tamazight TV (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ah/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/fm6S7we.png&quot;); display: inline-block;" title="Tamazight TV HD (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://kilolink.pulsarstarsolutions.com/live/smil:tanasuhtv.smil/manifest.m3u8')" style="background-image: url(&quot;https://i.imgur.com/iBAhM2v.png&quot;); display: inline-block;" title="Tanasuh TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-amg-fast-btpls.shahid.net/tx002/playlist.m3u8')" style="background-image: url(&quot;https://assets.mbcmood.com/channels/1738059679TARAB_Logo.png&quot;); display: inline-block;" title="Tarab (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn.catiacast.video/abr/ed8f807e2548db4507d2a6f4ba0c4a06/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/5VPYxJi.png&quot;); display: inline-block;" title="Tele Liban (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0cb/index.m3u8')" style="background-image: url(&quot;https://freebox.cdn.scw.iliad.fr/medium_Tele_Maroc_900x800_ffdee4d2e4.png&quot;); display: inline-block;" title="Télé Maroc (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://strhlslb01.streamakaci.tv/str_tchad_tchad/str_tchad_multi/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/udSzfHD.png&quot;); display: inline-block;" title="Tele Tchad (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://tv-trtarabi.medya.trt.com.tr/master.m3u8')" style="background-image: url(&quot;https://i.imgur.com/dEfI2M9.png&quot;); display: inline-block;" title="TRT Arabi (1080p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://alpha.tv.online.tm/hls/ch007.m3u8')" style="background-image: url(&quot;https://i.imgur.com/iBBpBx4.png&quot;); display: inline-block;" title="Türkmenistan (406p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0eu/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/F0DOrxX.png&quot;); display: inline-block;" title="TV1 Algerian Television (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0em/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/VEb631f.png&quot;); display: inline-block;" title="TV2 Canal Algérie (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0eo/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/zQr0SDM.png&quot;); display: inline-block;" title="TV5 (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0ep/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/nu0CpJn.png&quot;); display: inline-block;" title="TV6 El-Chebabia (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0eq/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/40rR4hD.png&quot;); display: inline-block;" title="TV7 El-Maarifa (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0er/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/LlQcIWM.png&quot;); display: inline-block;" title="TV8 El-Dhakira (576p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://5.253.46.190:8000/play/a0es/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/fGO0WUa.png&quot;); display: inline-block;" title="TV9 El-Barlamaniya (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn.catiacast.video/abr/9436b5ab3c1171ab04a59af11951292f/playlist.m3u8')" style="background-image: url(&quot;https://www.lyngsat.com/logo/tv/uu/unews-lb.png&quot;); display: inline-block;" title="UNews">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mn-nl.mncdn.com/utviraqi2/64c80359/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/9qFHjnu.png&quot;); display: inline-block;" title="UTV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/vdltvlive/vdltv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/f8WcqRY.png&quot;); display: inline-block;" title="Voice of Lebanon (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-wanasah/13e82ea6232fa647c43b26e8a41f173d/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/nLtiXNf.png&quot;); display: inline-block;" title="Wanasah (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://alwasattv.hibridcdn.net/alwasattv/alwasat_abr/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/f9pL2NE.png&quot;); display: inline-block;" title="Wasat TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rp.tactivemedia.com/watantv_source/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pZyKaUH.png&quot;); display: inline-block;" title="Watan TV (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://svs.itworkscdn.net/smcwatarlive/smcwatar/playlist.m3u8')" style="background-image: url(&quot;https://sbauae.faulio.com/storage/mediagallery/d2/ad/fullhd_48adf2291d08266c05ed1b0c24f326c86b1095b7.png&quot;); display: inline-block;" title="Watar Radio (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'http://htvint.mada.ps:8889/orient/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/jdr22Sk.jpeg&quot;); display: inline-block;" title="Watar TV (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://stream.badinan.xyz/welat/tv/playlist.m3u8')" style="background-image: url(&quot;https://avatars.githubusercontent.com/u/213803648?s=400&amp;u=e27c09d39f813b9698de9c6559cbf7f196bf6fce&amp;v=4&quot;); display: inline-block;" title="Welat TV (1080i)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://starmenajo.com/hls/yemenshabab/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/H5Oi2NS.png&quot;); display: inline-block;" title="Yemen Shabab Channel (1080p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://video.yementdy.tv/hls/yementoday.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8TzcJu5.png&quot;); display: inline-block;" title="Yemen Today TV (480p)">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5a3ed7a72ed4b.streamlock.net/zagrostv/SMIL:myStream.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/9Mspf32.png&quot;); display: inline-block;" title="Zagros (720p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://fl1002.bozztv.com/gf-zarintv/index.m3u8')" style="background-image: url(&quot;https://www.lyngsat.com/logo/tv/zz/zarin_tv.png&quot;); display: inline-block;" title="Zarin TV">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a>
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://tgn.bozztv.com/gin-dvrfl05/ga-zeealwan/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/OLuCox7.png&quot;); display: inline-block;" title="Zee Alwan (576p) [Not 24/7]">
-                            <div class="fav-icon-star" title="المفضلة">★</div></a></div>
+        
+        <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=usa&amp;p=12&amp;token=82818e9f-0dba-4511-840f-28e4d3e5237a&amp;kt=1773585601')" class="cat-btn match-btn" style="display: inline-block;">⭐ usa network<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=espn1&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773587011')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=espn3&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773587193')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn 2 <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=dep&amp;p=12&amp;token=1806a641-90ce-467d-b175-63fe84aa3e93&amp;kt=1773587449')" class="cat-btn match-btn" style="display: inline-block;">⭐ espn 3 <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f70742f73706f72747476342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ sport <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=now2&amp;p=12&amp;token=753d6dd8-b7eb-491f-bc51-a6f3a281e98e&amp;kt=1773589094')" class="cat-btn match-btn" style="display: inline-block;">⭐ now<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67312f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=cricket&amp;p=12&amp;token=508d6d72-8008-4320-89b7-aa222300b80c&amp;kt=1773587981')" class="cat-btn match-btn" style="display: inline-block;">⭐ cricket<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67332f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f6272612f6272362e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=skypl&amp;p=12&amp;token=98692692-eae0-4156-bd63-4566d180e97b&amp;kt=1773588078')" class="cat-btn match-btn" style="display: inline-block;">⭐ skypl<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864352e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67322f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864382e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=prem1&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773588395')" class="cat-btn match-btn" style="display: inline-block;">⭐ prem1<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f68642f6864332e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67342f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
+ <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67342f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ stream2<div class="fav-icon-star" title="المفضلة">★</div></button>
 
-    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: none;">⬆</button>
+<button onclick="loadIPTVPlaylist('https://iptv-org.github.io/iptv/index.m3u')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">📡 سحب ملف IPTV كامل 1<div class="fav-icon-star" title="المفضلة">★</div></button>
+
+<button onclick="loadIPTVPlaylist('https://iptv-org.github.io/iptv/languages/ara.m3u')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">📡 سحب ملف IPTV كامل 2<div class="fav-icon-star" title="المفضلة">★</div></button>
+
+<button onclick="loadIPTVPlaylist('https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">📡 سحب ملف IPTV كامل 3<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="loadIPTVPlaylist('http://auziatv.com:8080/get.php?username=omarsalam2214&amp;password=ZMsd42d&amp;type=m3u&amp;output=mpegts')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">📡 سحب ملف IPTV كامل 4<div class="fav-icon-star" title="المفضلة">★</div></button> 
+  <button onclick="loadIPTVPlaylist('https://iptv-org.github.io/iptv/countries/eg.m3u')" class="cat-btn match-btn" style="background-color: rgb(255, 235, 59); color: rgb(0, 0, 0); border-color: rgb(255, 235, 59); display: inline-block;">📡 5سحب قنوات مصر<div class="fav-icon-star" title="المفضلة">★</div></button>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5b622f07944df.streamlock.net/aghapy.tv/aghapy.smil/playlist.m3u8')" style="background-image: url(&quot;https://upload.wikimedia.org/wikipedia/en/e/eb/AghapyTV.jpg&quot;); display: inline-block;" title="Aghapy TV (1080p) [Not 24/7]">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://eazyvwqssi.erbvr.com/alghadtv/alghadtv.m3u8')" style="background-image: url(&quot;https://i.imgur.com/ga6NXb9.png&quot;); display: inline-block;" title="Al Ghad TV (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://viamotionhsi.netplus.ch/live/eds/almasriyah/browser-HLS8/almasriyah.m3u8')" style="background-image: url(&quot;https://i.ibb.co/Kx7wmXCQ/almasriya.png&quot;); display: inline-block;" title="Al Masriyah [Geo-Blocked]">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://stream.atvsat.com/atvsatlive/smil:atvsatlive.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pwM5txv.png&quot;); display: inline-block;" title="ATVSat (1080p) [Not 24/7]">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://flu.systemnet.tv/CBC/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/8apNaLP.png&quot;); display: inline-block;" title="CBC (576p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://flu.systemnet.tv/CBCDrama/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/I8YdakH.png&quot;); display: inline-block;" title="CBC Drama (576p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://flu.systemnet.tv/CBCSofra/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/YAdk2WR.png&quot;); display: inline-block;" title="CBC Sofra (576p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://9090video.mobtada.com/hls/stream.m3u8')" style="background-image: url(&quot;https://www.9090.fm/images/logo.png&quot;); display: inline-block;" title="El Radio 9090 FM (480p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://cdn.bestream.io:19360/elfaro1/elfaro1.m3u8')" style="background-image: url(&quot;https://i.imgur.com/1UUjU26.png&quot;); display: inline-block;" title="Huda TV (720p) [Not 24/7]">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://5d658d7e9f562.streamlock.net/koogi.tv/koogi.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/zojMTP9.png&quot;); display: inline-block;" title="Koogi TV (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-1-na/eec141533c90dd34722c503a296dd0d8/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/CiA3plN.png&quot;); display: inline-block;" title="MBC 1 Egypt (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr/956eac069c78a35d47245db6cdbb1575/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/o2elx0u.png&quot;); display: inline-block;" title="MBC Masr (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-2/754931856515075b0aabf0e583495c68/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/KHo7Gtn.png&quot;); display: inline-block;" title="MBC Masr 2 (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://shd-gcp-live.edgenextcdn.net/live/bitmovin-mbc-masr-drama/567b703c19ede6598222de81b0e4508b/index.m3u8')" style="background-image: url(&quot;https://media0070.elcinema.com/tvguide/1399_1.png&quot;); display: inline-block;" title="MBC Masr Drama (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mn-nl.mncdn.com/mekameleen/smil:mekameleentv.smil/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/q7iVchl.png&quot;); display: inline-block;" title="Mekameleen TV (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://mumt03.tangotv.in/MELODYHITS/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/OOMkVrU.png&quot;); display: inline-block;" title="Melody Hits">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://ml-pull-hwc.myco.io/MixTV/hls/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/1ENdbZn.png&quot;); display: inline-block;" title="Mix Hollywood (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://nogoumtv.nrpstream.com/hls/stream.m3u8')" style="background-image: url(&quot;https://i.imgur.com/krp3kgv.png&quot;); display: inline-block;" title="NogoumFMTV (672p) [Not 24/7]">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/pnc-drama/master.m3u8?ads.vf=S1kySuSK58S')" style="background-image: url(&quot;https://i.imgur.com/Hg34mg3.png&quot;); display: inline-block;" title="like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" group-title="Series" "="">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/cinemamasr_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/dGlKoLW.png&quot;); display: inline-block;" title="Rotana Cinema Egypt (1080p) [Geo-blocked]">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a>
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-hls-apps-aja-fa.getaj.net/AJA/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/7bRVpnu.png&quot;); display: inline-block;" title="Al Jazeera (1080p)">
+            <div class="fav-icon-star" title="المفضلة">★</div></a>
+<a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-news.asharq.com/asharq.m3u8')" style="background-image: url(&quot;https://i.imgur.com/bqRC3sl.png&quot;); display: inline-block;" title="Asharq News (1080p)">
+            <div class="fav-icon-star" title="المفضلة">★</div></a>
+<a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-news.asharq.com/asharq.m3u8')" style="background-image: url(&quot;https://i.imgur.com/bqRC3sl.png&quot;); display: inline-block;" title="Asharq News (1080p)">
+            <div class="fav-icon-star" title="المفضلة">★</div></a>
+<a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://live-stream.skynewsarabia.com/c-horizontal-channel/horizontal-stream/index.m3u8')" style="background-image: url(&quot;https://i.imgur.com/SvjU4h6.png&quot;); display: inline-block;" title="Sky News Arabia (1080p)">
+            <div class="fav-icon-star" title="المفضلة">★</div></a>
+<a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rp.tactivemedia.com/watantv_source/live/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/pZyKaUH.png&quot;); display: inline-block;" title="Watan TV (1080p)">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a></div>
+
+    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: block;">⬆</button>
 
     <footer>
         <p style="font-size: 22px; font-weight: bold;">© 2026 ENG OMAR TV. All Rights Reserved.</p>
@@ -1058,14 +399,44 @@
         let currentPlayingUrl = '';
         let currentPlayingElement = null;
 
-        // --- دالة الفتح الخارجي للزرار الجديد ---
         function openExternalCurrent() {
             if(currentPlayingUrl) {
                 window.open(currentPlayingUrl, '_blank');
             }
         }
 
-        // --- بداية كود التحديث التلقائي للقنوات ---
+        // --- بداية المولد التلقائي لمواقع الأفلام والمسلسلات ---
+        const movieSites = [
+            { name: "وي سيما (WeCima)", url: "https://wecima.show/", logo: "https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg" },
+            { name: "أكوام (Akoam)", url: "https://akoam.io/", logo: "https://upload.wikimedia.org/wikipedia/ar/a/a2/Akoam_Logo.png" },
+            { name: "إيجي بست (EgyBest)", url: "https://egybest.land/", logo: "https://upload.wikimedia.org/wikipedia/ar/c/c8/Egybest_logo.png" },
+            { name: "عرب سيد (ArabSeed)", url: "https://arabseed.show/", logo: "https://arabseed.show/wp-content/themes/arabseed/assets/images/logo.png" },
+            { name: "ماي سيما (MyCima)", url: "https://mycima.band/", logo: "https://mycima.band/wp-content/themes/Mycima/images/logo.png" },
+            { name: "شاهد فور يو (Shahid4u)", url: "https://shahid4u.com/", logo: "https://shahid4u.com/wp-content/themes/shahid4u/assets/images/logo.png" },
+            { name: "سيما فور يو (Cima4u)", url: "https://cima4u.io/", logo: "https://cima4u.io/wp-content/themes/cima4u/assets/images/logo.png" },
+            { name: "ألوى تي في (AlooyTV)", url: "https://d.alooytv8.xyz", logo: "https://d.alooytv8.xyz/wp-content/themes/AlooyTV/assets/images/logo.png" },
+            { name: "سيما فيلمز (CimaFilms)", url: "https://eg.bahyfilms.com", logo: "https://eg.bahyfilms.com/wp-content/uploads/2023/05/logo.png" },
+            { name: "كوري (HiTV)", url: "https://www.hitv.vip/ar-ae/guide?frm&serialType=episodes", logo: "https://www.hitv.vip/favicon.ico" }
+        ];
+
+        function generateMovieIcons() {
+            let container = document.getElementById('main-list');
+            let moviesHtml = '';
+            
+            movieSites.forEach(site => {
+                moviesHtml += `
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" 
+                   onclick="playVideo(this, '${site.url}')" 
+                   style="background-image: url('${site.logo}'); background-color: #fff; display: inline-block;" 
+                   title="${site.name}">
+                </a>`;
+            });
+
+            // يضيف مواقع الأفلام في أول اللستة أو آخرها، هنحطها في الآخر عشان الترتيب
+            container.insertAdjacentHTML('beforeend', moviesHtml);
+        }
+        // --- نهاية المولد التلقائي لمواقع الأفلام ---
+
         const autoUpdatePlaylists = [
             'https://iptv-org.github.io/iptv/index.m3u',
             'https://iptv-org.github.io/iptv/languages/ara.m3u',
@@ -1135,7 +506,6 @@
                 autoUpdatePlaylists.forEach(fetchAndAddNewChannels);
             }, 21600000); 
         }
-        // --- نهاية كود التحديث التلقائي ---
 
         function showToast(msg) {
             let toast = document.getElementById("toast");
@@ -1195,6 +565,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             applySavedTheme();
+            generateMovieIcons(); // نكريت مواقع الأفلام أول حاجة
             injectFavStars();
             startAutoUpdate(); 
         });
@@ -1271,7 +642,6 @@
             let qualityBadge = document.getElementById('quality-badge'); 
             let streamStatus = document.getElementById('stream-status');
             
-            // نخفي زرار الفتح الخارجي كوضع افتراضي
             document.getElementById('external-open-btn').style.display = 'none';
             
             if (finalUrl.includes('.m3u8') || finalUrl.includes('.ts') || finalUrl.includes('.m3u')) {
@@ -1313,7 +683,6 @@
                         }
                     });
 
-                    // --- رادار اكتشاف الأعطال ---
                     hlsInstance.on(Hls.Events.ERROR, function(event, data) {
                         if (data.fatal) {
                             streamStatus.innerHTML = '❌ البث فاصل حالياً';
@@ -1338,7 +707,6 @@
                     };
                 }
             } else {
-                // لو كان لينك عادي لموقع هيفتح في Iframe
                 videoPlayer.classList.add('hidden'); 
                 iframeVideo.classList.remove('hidden');
                 qualityBadge.style.display = 'none'; 
@@ -1346,7 +714,6 @@
                 if (hlsInstance) { hlsInstance.destroy(); }
                 videoPlayer.pause();
                 
-                // إظهار زرار الإنقاذ
                 document.getElementById('external-open-btn').style.display = 'block';
                 
                 iframeVideo.src = url.replace("watch?v=", "embed/") + (url.includes("?") ? "&autoplay=1" : "?autoplay=1");
@@ -1369,67 +736,6 @@
             if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) scrollBtn.style.display = "block";
             else scrollBtn.style.display = "none";
         };
-
-        // دالة السحب اليدوي القديمة
-        async function loadIPTVPlaylist(url) {
-            let listContainer = document.getElementById('main-list');
-            
-            let loadingMsg = document.createElement('div');
-            loadingMsg.id = 'loading-iptv';
-            loadingMsg.style.cssText = "width: 100%; color: #4caac9; font-size: 18px; font-weight: bold; margin: 20px 0; grid-column: 1 / -1;";
-            loadingMsg.innerText = "جاري كسر الحماية وسحب القنوات... ⏳";
-            listContainer.prepend(loadingMsg);
-
-            let proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-
-            try {
-                let response = await fetch(proxyUrl);
-                let data = await response.text();
-                
-                let lines = data.split('\n');
-                let channelsHtml = '';
-                let currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
-                let currentName = 'قناة غير معروفة';
-
-                for (let i = 0; i < lines.length; i++) {
-                    let line = lines[i].trim();
-                    
-                    if (line.startsWith('#EXTINF')) {
-                        let logoMatch = line.match(/tvg-logo="([^"]+)"/);
-                        if(logoMatch && logoMatch[1]) {
-                            currentLogo = logoMatch[1];
-                        } else {
-                            currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
-                        }
-                        
-                        let parts = line.split(',');
-                        if(parts.length > 1) {
-                            currentName = parts[1].trim();
-                        }
-                    } 
-                    else if (line.startsWith('http')) {
-                        let streamUrl = line;
-                        channelsHtml += `
-                        <a href="javascript:void(0)" class="tv-box" data-category="sports" 
-                           onclick="playVideo(this, '${streamUrl}')" 
-                           style="background-image: url('${currentLogo}'); display: inline-block;" 
-                           title="${currentName}">
-                        </a>`;
-                    }
-                }
-
-                document.getElementById('loading-iptv').remove();
-                listContainer.innerHTML += channelsHtml;
-                
-                injectFavStars();
-                
-                alert('تم سحب القنوات بنجاح يا هندسة! انزل تحت هتلاقيهم ظهروا 🚀');
-
-            } catch (error) {
-                document.getElementById('loading-iptv').innerText = "فشل سحب القنوات حتى مع كاسر الحماية، اتأكد من النت أو اللينك.";
-                console.error(error);
-            }
-        }
     </script>
 
 </body></html>
