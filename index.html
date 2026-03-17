@@ -77,11 +77,11 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
-<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>undefined</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"></head>
+</head>
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٢:٤٣:٥٥ ص</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٣:١٣:٣٦ ص</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -89,7 +89,7 @@
         <button onclick="filterChannels('movies')" class="cat-btn">🎬 أفلام ومسلسلات</button>
         <button onclick="filterChannels('news')" class="cat-btn">🌍 أخبار</button>
         <button onclick="filterChannels('fav')" class="cat-btn" style="border-color: #ffeb3b; color: #ffeb3b;">⭐ مفضلتي</button>
-        <button id="themeToggleBtn" type="button" class="theme-toggle-btn" onclick="toggleTheme()">🌙 الوضع الداكن</button><button onclick="window.location.reload()" class="cat-btn">🔄 تحديث الصفحة</button>
+        <button id="themeToggleBtn" type="button" class="theme-toggle-btn" onclick="toggleTheme()">🌙 الوضع الداكن</button>
     </div>
     
     <button onclick="playVideo(null, 'https://www.filgoal.com/matches/')" class="cat-btn match-btn" style="display: inline-block;">⚽️ مباريات اليوم<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -106,7 +106,7 @@
     </div>
 
     <div id="media-wrapper" style="display: none;">
-        <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0, 0, 0, 0.7); color: rgb(0, 255, 204); border: 1px solid rgb(0, 255, 204); padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: 1080p</div>
+        <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0, 0, 0, 0.7); color: rgb(0, 255, 204); border: 1px solid rgb(0, 255, 204); padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: Auto</div>
         
         <div id="stream-status" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(0, 0, 0, 0.8); color: rgb(0, 255, 0); border: 1px solid rgb(0, 255, 0); padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 15px; display: none;">✅ البث شغال</div>
 
@@ -114,8 +114,8 @@
         
         <button id="external-open-btn" onclick="openExternalCurrent()" style="position: absolute; top: 15px; right: 65px; z-index: 9999; background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px; display: none;">🔗 فتح  </button>
         
-        <video id="my-player" class="hidden" controls="" style="background: #000;"></video>
-        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
+        <video id="my-player" class="" controls="" style="background: #000;"></video>
+        <iframe id="iframe-player" class="hidden" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
     </div>
 
     <div id="toast" class=""></div>
@@ -404,8 +404,7 @@
 
         // --- بداية المولد التلقائي لمواقع الأفلام والمسلسلات ---
         const movieSites = [
-            { name: "وي سيما (WeCima)", url: "https://mycima.band/", logo: "https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg" },
-            { name: "وي سيما (WeCima)", url: "https://wecima.surf/", logo: "https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg" },
+            { name: "وي سيما (WeCima)", url: "https://wecima.show/", logo: "https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg" },
             { name: "أكوام (Akoam)", url: "https://akoam.io/", logo: "https://upload.wikimedia.org/wikipedia/ar/a/a2/Akoam_Logo.png" },
             { name: "إيجي بست (EgyBest)", url: "https://egybest.land/", logo: "https://upload.wikimedia.org/wikipedia/ar/c/c8/Egybest_logo.png" },
             { name: "عرب سيد (ArabSeed)", url: "https://arabseed.show/", logo: "https://arabseed.show/wp-content/themes/arabseed/assets/images/logo.png" },
@@ -440,9 +439,13 @@
             'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8'
         ];
 
- 
-                    }
-                }
+        let loadedStreamUrls = new Set();
+
+        function showToast(msg) {
+            let toast = document.getElementById("toast");
+            toast.innerHTML = msg;
+            toast.className = "show";
+            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
         }
 
         function injectFavStars() {
