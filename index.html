@@ -88,10 +88,10 @@
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٥:٢٤:٤١ م</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٥:٢٧:٥٤ م</div>
 
     <div class="category-buttons">
-        <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
+        <button onclick="filterChannels('all')" class="cat-btn">🌐 الكل</button>
         <button onclick="filterChannels('sports')" class="cat-btn">⚽️ رياضة</button>
         <button onclick="filterChannels('movies')" class="cat-btn">🎬 أفلام ومسلسلات</button>
         <button onclick="filterChannels('news')" class="cat-btn">🌍 أخبار</button>
@@ -165,10 +165,10 @@
 
         <button onclick="closePlayer()" style="position: absolute; top: 15px; right: 15px; z-index: 9999; background: #ff4757; color: white; border: none; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: 0px 0px 5px rgba(0,0,0,0.5);">✖ </button>
         
-        <button id="external-open-btn" onclick="openExternalCurrent()" style="position: absolute; top: 15px; right: 65px; z-index: 9999; background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px; display: none;">🔗 فتح في صفحة خارجية</button>
+        <button id="external-open-btn" onclick="openExternalCurrent()" style="position: absolute; top: 15px; right: 65px; z-index: 9999; background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px; display: none;">🔗 فتح</button>
         
-        <video id="my-player" class="" controls="" style="background: #000;"></video>
-        <iframe id="iframe-player" class="hidden" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
+        <video id="my-player" class="hidden" controls="" style="background: #000;"></video>
+        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
     </div>
 
     <div id="toast" class="">تمت الإضافة للمفضلة ⭐</div>
@@ -547,6 +547,36 @@
                 <div class="fav-icon-star" title="المفضلة">★</div></a>
                 <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://www.hitv.vip/ar-ae/guide?frm&amp;serialType=episodes')" style="background-color: rgb(255, 71, 87); display: inline-block; align-items: center; justify-content: center; text-decoration: none;" title="كوري HiTV">
                    <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; text-shadow: 1px 1px 2px black;">كوري HiTV</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://wecima.show/')" style="background-color: #e74c3c; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="وي سيما">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">وي سيما</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://akoam.io/')" style="background-color: #3498db; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="أكوام">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">أكوام</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://egybest.land/')" style="background-color: #f1c40f; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="إيجي بست">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">إيجي بست</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://arabseed.show/')" style="background-color: #2ecc71; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="عرب سيد">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">عرب سيد</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://mycima.band/')" style="background-color: #9b59b6; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="ماي سيما">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">ماي سيما</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://shahid4u.com/')" style="background-color: #e67e22; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="شاهد 4U">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">شاهد 4U</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://cima4u.io/')" style="background-color: #1abc9c; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="سيما 4U">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">سيما 4U</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://d.alooytv8.xyz')" style="background-color: #34495e; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="ألوى TV">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">ألوى TV</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://eg.bahyfilms.com')" style="background-color: #8e44ad; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="سيما فيلمز">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">سيما فيلمز</span>
+                <div class="fav-icon-star" title="المفضلة">★</div></a>
+                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://www.hitv.vip/ar-ae/guide?frm&amp;serialType=episodes')" style="background-color: #ff4757; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="كوري HiTV">
+                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">كوري HiTV</span>
                 <div class="fav-icon-star" title="المفضلة">★</div></a></div>
 
     <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: none;">⬆</button>
