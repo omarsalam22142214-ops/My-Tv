@@ -1,7 +1,7 @@
 <html lang="ar" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIA Sports TV - VIP</title>
+    <title> MY TV - VIP</title>
     
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
@@ -97,7 +97,7 @@
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ١٢:١٠:٢٢ ص</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ١٢:٢٢:٢٣ ص</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn">🌐 الكل</button>
@@ -146,11 +146,71 @@
         <div class="modal-content">
             <h3 style="margin-top:0; color:#f39c12;">⚙️ إدارة قنواتك المضافة</h3>
             
-            <div id="manage-list" class="manage-list-container"><p style="color:#aaa;">مفيش قنوات إنت ضايفها يدوياً لسه.</p></div>
+            <div id="manage-list" class="manage-list-container">
+                <div class="manage-item">
+                    <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%;">
+                        <strong>KIMO TV</strong><br>
+                        <span style="font-size: 12px; color: #aaa;">القسم: ⚽ رياضة</span>
+                    </div>
+                    <div>
+                        <button onclick="startEditChannel(0)" style="background: #f39c12; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight:bold;">تعديل ✏️</button>
+                        <button onclick="deleteCustomChannel(0)" style="background: #ff4757; border: none; padding: 6px 12px; border-radius: 5px; color: white; cursor: pointer; font-weight:bold;">حذف 🗑️</button>
+                    </div>
+                </div>
+                <div class="manage-item">
+                    <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%;">
+                        <strong>akoam</strong><br>
+                        <span style="font-size: 12px; color: #aaa;">القسم: ⚽ رياضة</span>
+                    </div>
+                    <div>
+                        <button onclick="startEditChannel(1)" style="background: #f39c12; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight:bold;">تعديل ✏️</button>
+                        <button onclick="deleteCustomChannel(1)" style="background: #ff4757; border: none; padding: 6px 12px; border-radius: 5px; color: white; cursor: pointer; font-weight:bold;">حذف 🗑️</button>
+                    </div>
+                </div>
+                <div class="manage-item">
+                    <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%;">
+                        <strong>live 1</strong><br>
+                        <span style="font-size: 12px; color: #aaa;">القسم: ⚽ رياضة</span>
+                    </div>
+                    <div>
+                        <button onclick="startEditChannel(2)" style="background: #f39c12; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight:bold;">تعديل ✏️</button>
+                        <button onclick="deleteCustomChannel(2)" style="background: #ff4757; border: none; padding: 6px 12px; border-radius: 5px; color: white; cursor: pointer; font-weight:bold;">حذف 🗑️</button>
+                    </div>
+                </div>
+                <div class="manage-item">
+                    <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%;">
+                        <strong>tnt 2</strong><br>
+                        <span style="font-size: 12px; color: #aaa;">القسم: ⚽ رياضة</span>
+                    </div>
+                    <div>
+                        <button onclick="startEditChannel(3)" style="background: #f39c12; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight:bold;">تعديل ✏️</button>
+                        <button onclick="deleteCustomChannel(3)" style="background: #ff4757; border: none; padding: 6px 12px; border-radius: 5px; color: white; cursor: pointer; font-weight:bold;">حذف 🗑️</button>
+                    </div>
+                </div>
+                <div class="manage-item">
+                    <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%;">
+                        <strong>tnt 1</strong><br>
+                        <span style="font-size: 12px; color: #aaa;">القسم: ⚽ رياضة</span>
+                    </div>
+                    <div>
+                        <button onclick="startEditChannel(4)" style="background: #f39c12; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight:bold;">تعديل ✏️</button>
+                        <button onclick="deleteCustomChannel(4)" style="background: #ff4757; border: none; padding: 6px 12px; border-radius: 5px; color: white; cursor: pointer; font-weight:bold;">حذف 🗑️</button>
+                    </div>
+                </div>
+                <div class="manage-item">
+                    <div style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 65%;">
+                        <strong>prmeir 1</strong><br>
+                        <span style="font-size: 12px; color: #aaa;">القسم: ⚽ رياضة</span>
+                    </div>
+                    <div>
+                        <button onclick="startEditChannel(5)" style="background: #f39c12; border: none; padding: 6px 12px; border-radius: 5px; cursor: pointer; font-weight:bold;">تعديل ✏️</button>
+                        <button onclick="deleteCustomChannel(5)" style="background: #ff4757; border: none; padding: 6px 12px; border-radius: 5px; color: white; cursor: pointer; font-weight:bold;">حذف 🗑️</button>
+                    </div>
+                </div></div>
 
-            <div id="edit-form" style="display:none; border-top: 1px solid #4caac9; padding-top: 15px; margin-top: 15px;">
+            <div id="edit-form" style="display: none; border-top: 1px solid rgb(76, 170, 201); padding-top: 15px; margin-top: 15px;">
                 <h4 style="color:#f39c12; margin-top:0;">✏️ تعديل بيانات القناة</h4>
-                <input type="hidden" id="edit-index">
+                <input type="hidden" id="edit-index" value="3">
                 <input type="text" id="edit-name" placeholder="اسم القناة" data-ddg-inputtype="unknown">
                 <input type="text" id="edit-url" placeholder="رابط البث أو الموقع" data-ddg-inputtype="unknown">
                 <select id="edit-category" data-ddg-inputtype="unknown">
@@ -656,14 +716,81 @@
                 
                 
                 
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
                 <button onclick="playVideo(this, 'https://kimotv.weebly.com/')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">KIMO TV<div class="fav-icon-star" title="المفضلة">★</div></button>
                 <button onclick="playVideo(this, 'https://ak.sv/main')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">akoam<div class="fav-icon-star" title="المفضلة">★</div></button>
                 <button onclick="playVideo(this, 'https://koora-lives.space/')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">live 1<div class="fav-icon-star" title="المفضلة">★</div></button>
-                <button onclick="playVideo(this, 'https://ar.kora-top.zip/frame.php?ch=tnt2&amp;p=12&amp;token=cfa78593-29f0-4926-805d-6ed58c61325b&amp;kt=1773785243')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">tnt 2<div class="fav-icon-star" title="المفضلة">★</div></button>
+                <button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=tnt2&amp;p=12&amp;token=57c14509-c4fe-4543-acdf-ed92e5d79548&amp;kt=1773785741')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">tnt 2<div class="fav-icon-star" title="المفضلة">★</div></button>
                 <button onclick="playVideo(this, 'https://live.kora-top.zip/frame.php?ch=tnt1&amp;p=12&amp;token=8a9e4bb1-2c33-4b3a-847a-5978ad15a698&amp;kt=1773785276')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">tnt 1<div class="fav-icon-star" title="المفضلة">★</div></button>
-                <button onclick="playVideo(this, 'https://yalla.kora-top.zip/frame.php?ch=prem1&amp;p=12&amp;token=23df6392-f491-46c7-ad0c-84ea1c303c70&amp;kt=1773785317')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">prmeir 1<div class="fav-icon-star" title="المفضلة">★</div></button></div>
+                <button onclick="playVideo(this, 'https://yalla.kora-top.zip/frame.php?ch=prem1&amp;p=12&amp;token=23df6392-f491-46c7-ad0c-84ea1c303c70&amp;kt=1773785317')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">prmeir 1<div class="fav-icon-star" title="المفضلة">★</div></button>
+                <button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864342e706870&amp;s=1')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">ch cl 1<div class="fav-icon-star" title="المفضلة">★</div></button>
+                <button onclick="playVideo(this, 'https://yalla.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=57c14509-c4fe-4543-acdf-ed92e5d79548&amp;kt=1773785887')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">bn 1<div class="fav-icon-star" title="المفضلة">★</div></button>
+                <button onclick="playVideo(this, 'https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">bn 2<div class="fav-icon-star" title="المفضلة">★</div></button>
+                <button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773534340')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">bn3<div class="fav-icon-star" title="المفضلة">★</div></button>
+                <button onclick="playVideo(this, 'https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;">bn4<div class="fav-icon-star" title="المفضلة">★</div></button></div>
 
-    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: none;">⬆</button>
+    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: block;">⬆</button>
 
     <footer>
         <p style="font-size: 22px; font-weight: bold;">©  2027 _ 2026 ENG OMAR TV. All Rights Reserved.</p>
