@@ -81,7 +81,7 @@
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٧:٢٣:٤٣ ص</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٧:٢٩:٢١ ص</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -106,7 +106,7 @@
     </div>
 
     <div id="media-wrapper" style="display: none;">
-        <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0, 0, 0, 0.7); color: rgb(0, 255, 204); border: 1px solid rgb(0, 255, 204); padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: 404p</div>
+        <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0, 0, 0, 0.7); color: rgb(0, 255, 204); border: 1px solid rgb(0, 255, 204); padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: Auto</div>
         
         <div id="stream-status" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(0, 0, 0, 0.8); color: rgb(0, 255, 0); border: 1px solid rgb(0, 255, 0); padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 15px; display: none;">✅ البث شغال</div>
 
@@ -118,30 +118,11 @@
         <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
     </div>
 
-    <div id="toast" class="">تم الحذف من المفضلة ❌</div>
+    <div id="toast" class=""></div>
 
    <div class="tv-container" id="main-list">
         <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn is-fav" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn1/')" class="cat-btn match-btn" style="display: inline-block;">📺 1 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn2/')" class="cat-btn match-btn" style="display: inline-block;">📺 2 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn3/')" class="cat-btn match-btn" style="display: inline-block;">📺 3 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn4/')" class="cat-btn match-btn" style="display: inline-block;">📺 4 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn5/')" class="cat-btn match-btn" style="display: inline-block;">📺 5 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn6/')" class="cat-btn match-btn" style="display: inline-block;">📺 6 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn7/')" class="cat-btn match-btn" style="display: inline-block;">📺 7 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn8/')" class="cat-btn match-btn" style="display: inline-block;">📺 8 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn9/')" class="cat-btn match-btn" style="display: inline-block;">📺 9 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-<button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn10/')" class="cat-btn match-btn" style="display: inline-block;">📺 10 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-<button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=acf15b20-ed74-4f55-827b-41845d1614f2&amp;kt=1773512244')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 1<div class="fav-icon-star active-cat" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn is-fav" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=acf15b20-ed74-4f55-827b-41845d1614f2&amp;kt=1773512244')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 1<div class="fav-icon-star active-cat" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773510029')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 3<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 4<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -161,7 +142,7 @@
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch10.php')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 10<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch11.php')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Bein 11<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://koora-lives.space/', '_blank')" class="cat-btn match-btn" style="display: inline-block;">⭐ Live<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=ad1&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773509511')" class="cat-btn match-btn" style="display: inline-block;">⭐ Starzplay1<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://www.yallashoot.video/home4/', '_blank')" class="cat-btn match-btn" style="display: inline-block;">⭐ Live 2<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=ad1&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773509511')" class="cat-btn match-btn" style="display: inline-block;">⭐ Starzplay1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cc.repw.online/albaplayer/starz/')" class="cat-btn match-btn" style="width: 75px; height: 75px; padding: 5px; font-size: 11px; margin: 3px; border-radius: 15px; display: inline-block;">⭐ Starzplay1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777332e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f70742f656c6576656e312e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⭐ Dazn1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=daznit&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773509670')" class="cat-btn match-btn" style="display: inline-block;">⭐ Dazn1<div class="fav-icon-star" title="المفضلة">★</div></button>
