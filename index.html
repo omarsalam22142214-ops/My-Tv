@@ -404,7 +404,8 @@
 
         // --- بداية المولد التلقائي لمواقع الأفلام والمسلسلات ---
         const movieSites = [
-            { name: "وي سيما (WeCima)", url: "https://wecima.show/", logo: "https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg" },
+            { name: "وي سيما (WeCima)", url: "https://mycima.band/", logo: "https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg" },
+            { name: "وي سيما (WeCima)", url: "https://wecima.surf/", logo: "https://cdn.wecima.show/wp-content/themes/wecima/assets/images/logo.svg" },
             { name: "أكوام (Akoam)", url: "https://akoam.io/", logo: "https://upload.wikimedia.org/wikipedia/ar/a/a2/Akoam_Logo.png" },
             { name: "إيجي بست (EgyBest)", url: "https://egybest.land/", logo: "https://upload.wikimedia.org/wikipedia/ar/c/c8/Egybest_logo.png" },
             { name: "عرب سيد (ArabSeed)", url: "https://arabseed.show/", logo: "https://arabseed.show/wp-content/themes/arabseed/assets/images/logo.png" },
@@ -439,75 +440,9 @@
             'https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8'
         ];
 
-        let loadedStreamUrls = new Set();
-
-        async function fetchAndAddNewChannels(url) {
-            let proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-            try {
-                let response = await fetch(proxyUrl);
-                let data = await response.text();
-                
-                let lines = data.split('\n');
-                let channelsHtml = '';
-                let currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
-                let currentName = 'قناة جديدة (تلقائي)';
-
-                for (let i = 0; i < lines.length; i++) {
-                    let line = lines[i].trim();
-                    
-                    if (line.startsWith('#EXTINF')) {
-                        let logoMatch = line.match(/tvg-logo="([^"]+)"/);
-                        if(logoMatch && logoMatch[1]) {
-                            currentLogo = logoMatch[1];
-                        } else {
-                            currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
-                        }
-                        
-                        let parts = line.split(',');
-                        if(parts.length > 1) {
-                            currentName = parts[1].trim();
-                        }
-                    } 
-                    else if (line.startsWith('http')) {
-                        let streamUrl = line;
-                        
-                        if (!loadedStreamUrls.has(streamUrl)) {
-                            loadedStreamUrls.add(streamUrl);
-                            
-                            channelsHtml += `
-                            <a href="javascript:void(0)" class="tv-box" data-category="sports" 
-                               onclick="playVideo(this, '${streamUrl}')" 
-                               style="background-image: url('${currentLogo}'); display: inline-block;" 
-                               title="${currentName}">
-                            </a>`;
-                        }
+ 
                     }
                 }
-
-                if (channelsHtml !== '') {
-                    let listContainer = document.getElementById('main-list');
-                    listContainer.insertAdjacentHTML('beforeend', channelsHtml);
-                    injectFavStars();
-                    console.log("تم سحب قنوات جديدة تلقائياً من: " + url);
-                }
-
-            } catch (error) {
-                console.error("فشل التحديث التلقائي من: " + url, error);
-            }
-        }
-
-        function startAutoUpdate() {
-            autoUpdatePlaylists.forEach(fetchAndAddNewChannels);
-            setInterval(() => {
-                autoUpdatePlaylists.forEach(fetchAndAddNewChannels);
-            }, 21600000); 
-        }
-
-        function showToast(msg) {
-            let toast = document.getElementById("toast");
-            toast.innerHTML = msg;
-            toast.className = "show";
-            setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
         }
 
         function injectFavStars() {
