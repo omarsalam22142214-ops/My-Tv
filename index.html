@@ -88,7 +88,7 @@
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٥:٢٧:٥٤ م</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٥:٤٠:٤٧ م</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn">🌐 الكل</button>
@@ -159,9 +159,9 @@
     </div>
 
     <div id="media-wrapper" style="display: none;">
-        <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0, 0, 0, 0.7); color: rgb(0, 255, 204); border: 1px solid rgb(0, 255, 204); padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: 360p</div>
+        <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0, 0, 0, 0.7); color: rgb(0, 255, 204); border: 1px solid rgb(0, 255, 204); padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: جاري التحقق...</div>
         
-        <div id="stream-status" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(0, 0, 0, 0.8); color: rgb(0, 255, 0); border: 1px solid rgb(0, 255, 0); padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 15px; display: none;">✅ البث شغال</div>
+        <div id="stream-status" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(0, 0, 0, 0.8); color: rgb(255, 235, 59); border: 1px solid rgb(255, 235, 59); padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 15px; display: none;">⏳ جاري الفحص...</div>
 
         <button onclick="closePlayer()" style="position: absolute; top: 15px; right: 15px; z-index: 9999; background: #ff4757; color: white; border: none; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: 0px 0px 5px rgba(0,0,0,0.5);">✖ </button>
         
@@ -175,7 +175,7 @@
 
    <div class="tv-container" id="main-list">
         <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn is-fav" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn1/')" class="cat-btn match-btn" style="display: inline-block;">📺 1 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-block;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn1/')" class="cat-btn match-btn" style="display: inline-block;">📺 1 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
 
 <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn2/')" class="cat-btn match-btn" style="display: inline-block;">📺 2 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
 
@@ -234,7 +234,8 @@
         <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=alwan1&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773533547')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Alwan 1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=alwan2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773528934')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Alwan 2<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f31312e73706f72747375726765732e63632f616c6261706c617965722f61642d7072656d69756d2d312f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;">⚽️ Alwan 3<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-1/?serv=1/')" style="background-image: url(&quot;https://i.imgur.com/Vtk2cGI.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.net/ar/channels?tz=-120')" style="background-image: url(&quot;https://i.imgur.com/dGlKoLW.png&quot;); display: inline-block;" title="Rotana Cinema Egypt (1080p) [Geo-blocked]">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-1/?serv=1/')" style="background-image: url(&quot;https://i.imgur.com/Vtk2cGI.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-2/?serv=1/')" style="background-image: url(&quot;https://i.imgur.com/vUJZSvs.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://aa.yallashoot2026.com/albaplayer/sports-3/')" style="background-image: url(&quot;https://i.imgur.com/UYSMao3.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://aa.yallashoot2026.com/albaplayer/sports-4/')" style="background-image: url(&quot;https://i.imgur.com/vwAgJNi.png&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -251,7 +252,7 @@
 
 
 
-        <button onclick="window.open('https://www.sofascore.com/ar', '_blank')" class="cat-btn match-btn" style="display: inline-block;">مباريات اليوم ⚽<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://www.btolat.com/video/type/10/home', '_blank')" class="cat-btn match-btn" style="display: inline-block;"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://www.sofascore.com/ar', '_blank')" class="cat-btn match-btn is-fav" style="display: inline-block;">مباريات اليوم ⚽<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://www.btolat.com/video/type/10/home', '_blank')" class="cat-btn match-btn is-fav" style="display: inline-block;"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://www.beinsports.com/ar-mena/%D9%81%D9%8A%D8%AF%D9%8A%D9%88', '_blank')" class="cat-btn match-btn" style="display: inline-block;"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.yallakora.com/match-center')" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXR5f7PCbYx1NfkGARgKgsj8UDi7jeI9tFw&amp;s&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.filgoal.com/matches/?date=2026-03-14')" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXR5f7PCbYx1NfkGARgKgsj8UDi7jeI9tFw&amp;s&quot;); display: inline-block;"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -453,7 +454,7 @@
                         <div class="fav-icon-star" title="المفضلة">★</div></a>
                         <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://d35j504z0x2vu2.cloudfront.net/v1/master/0bc8e8376bd8417a1b6761138aa41c26c7309312/pnc-drama/master.m3u8?ads.vf=S1kySuSK58S')" style="background-image: url(&quot;https://i.imgur.com/Hg34mg3.png&quot;); display: inline-block;" title="like Gecko) Chrome/145.0.0.0 Safari/537.36 Edg/145.0.0.0" group-title="Series" "="">
                         <div class="fav-icon-star" title="المفضلة">★</div></a>
-                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/cinemamasr_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/dGlKoLW.png&quot;); display: inline-block;" title="Rotana Cinema Egypt (1080p) [Geo-blocked]">
+                        <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.net/ar/channels?tz=-120')" style="background-image: url(&quot;https://i.imgur.com/dGlKoLW.png&quot;); display: inline-block;" title="Rotana Cinema Egypt (1080p) [Geo-blocked]">
                         <div class="fav-icon-star" title="المفضلة">★</div></a>
                         
                 
@@ -506,7 +507,8 @@
                 
                 
                 
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://wecima.show/')" style="background-color: rgb(231, 76, 60); display: inline-block; align-items: center; justify-content: center; text-decoration: none;" title="وي سيما">
+                <a href="javascript:void(0)" class="tv-box" data-category="sports" onclick="playVideo(this, 'https://rotana.hibridcdn.net/rotananet/cinemamasr_net-7Y83PP5adWixDF93/playlist.m3u8')" style="background-image: url(&quot;https://i.imgur.com/dGlKoLW.png&quot;); display: inline-block;" title="Rotana Cinema Egypt (1080p) [Geo-blocked]">
+                        <div class="fav-icon-star" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://wecima.show/')" style="background-color: rgb(231, 76, 60); display: inline-block; align-items: center; justify-content: center; text-decoration: none;" title="وي سيما">
                    <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; text-shadow: 1px 1px 2px black;">وي سيما</span>
                 <div class="fav-icon-star" title="المفضلة">★</div></a>
                 
@@ -545,41 +547,29 @@
                 <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://eg.bahyfilms.com')" style="background-color: rgb(142, 68, 173); display: inline-block; align-items: center; justify-content: center; text-decoration: none;" title="سيما فيلمز">
                    <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; text-shadow: 1px 1px 2px black;">سيما فيلمز</span>
                 <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://www.hitv.vip/ar-ae/guide?frm&amp;serialType=episodes')" style="background-color: rgb(255, 71, 87); display: inline-block; align-items: center; justify-content: center; text-decoration: none;" title="كوري HiTV">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; text-shadow: 1px 1px 2px black;">كوري HiTV</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://wecima.show/')" style="background-color: #e74c3c; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="وي سيما">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">وي سيما</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://akoam.io/')" style="background-color: #3498db; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="أكوام">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">أكوام</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://egybest.land/')" style="background-color: #f1c40f; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="إيجي بست">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">إيجي بست</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://arabseed.show/')" style="background-color: #2ecc71; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="عرب سيد">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">عرب سيد</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://mycima.band/')" style="background-color: #9b59b6; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="ماي سيما">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">ماي سيما</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://shahid4u.com/')" style="background-color: #e67e22; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="شاهد 4U">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">شاهد 4U</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://cima4u.io/')" style="background-color: #1abc9c; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="سيما 4U">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">سيما 4U</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://d.alooytv8.xyz')" style="background-color: #34495e; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="ألوى TV">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">ألوى TV</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://eg.bahyfilms.com')" style="background-color: #8e44ad; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="سيما فيلمز">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">سيما فيلمز</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a>
-                <a href="javascript:void(0)" class="tv-box" data-category="movies" onclick="playVideo(this, 'https://www.hitv.vip/ar-ae/guide?frm&amp;serialType=episodes')" style="background-color: #ff4757; display: inline-flex; align-items: center; justify-content: center; text-decoration: none; border: 2px solid transparent; position: relative;" title="كوري HiTV">
-                   <span style="color: white; font-weight: bold; font-size: 10px; text-align: center; padding: 2px; text-shadow: 1px 1px 2px black;">كوري HiTV</span>
-                <div class="fav-icon-star" title="المفضلة">★</div></a></div>
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                
+                </div>
 
-    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: none;">⬆</button>
+    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: block;">⬆</button>
 
     <footer>
         <p style="font-size: 22px; font-weight: bold;">© 2026 ENG OMAR TV. All Rights Reserved.</p>
