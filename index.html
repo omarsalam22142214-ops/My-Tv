@@ -82,11 +82,11 @@
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
         @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
-<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>undefined</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"></head>
+<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>undefined</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٤:٢٩:٣٦ ص</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٤:٣٦:٠١ ص</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -109,7 +109,7 @@
     
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." data-ddg-inputtype="unknown">
-        <select id="sortSelect" onchange="sortChannels()">
+        <select id="sortSelect" onchange="sortChannels()" data-ddg-inputtype="unknown">
             <option value="default">📌 الترتيب الافتراضي</option>
             <option value="az">🔤 ترتيب أبجدي (أ - ي)</option>
             <option value="za">🔤 ترتيب أبجدي (ي - أ)</option>
@@ -117,7 +117,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1;">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا</span>
+        <span id="adhkar-text" style="opacity: 1;">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -129,8 +129,8 @@
         
         <button id="external-open-btn" onclick="openExternalCurrent()" style="position: absolute; top: 15px; right: 65px; z-index: 9999; background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px; display: none;">🔗  </button>
         
-        <video id="my-player" class="" controls="" style="background: #000;"></video>
-        <iframe id="iframe-player" class="hidden" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
+        <video id="my-player" class="hidden" controls="" style="background: #000;"></video>
+        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
     </div>
 
     <div id="toast" class="">تمت الإضافة للمفضلة ⭐</div>
@@ -152,7 +152,7 @@
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein8/')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="13">⚽️ Bein 8<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein9/')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="14">⚽️ Bein 9<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein10/')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="15">⚽️ Bein 10<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=acf15b20-ed74-4f55-827b-41845d1614f2&amp;kt=1773512244')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="16">⚽️ Bein 1<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=acf15b20-ed74-4f55-827b-41845d1614f2&amp;kt=1773512244')" class="cat-btn match-btn is-fav" style="display: inline-block;" data-original-index="16">⚽️ Bein 1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="17">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773510029')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="18">⚽️ Bein 3<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="19">⚽️ Bein 4<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -231,12 +231,12 @@
         <button onclick="window.open('https://www.speedtest.net/', '_blank')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="91">Speed Test<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://dnsspeedtest.github.io/')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="92">Dns Test<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://www.chess.com/', '_blank')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="93">♟️ Chess<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://wecima.click/', '_blank')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="94">We Cima<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://mycima.band')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="95">MY Cima<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://wecima.click/', '_blank')" class="cat-btn match-btn is-fav" style="display: inline-block;" data-original-index="94">We Cima<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://mycima.band')" class="cat-btn match-btn is-fav" style="display: inline-block;" data-original-index="95">MY Cima<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://d.alooytv8.xyz')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="96">Alooy<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://eg.bahyfilms.com')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="97">Cima FilmsTv<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://egibest.one')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="98">EgyBest<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://asd.pics/')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="99">Arabseed<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://egibest.one')" class="cat-btn match-btn is-fav" style="display: inline-block;" data-original-index="98">EgyBest<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://asd.pics/')" class="cat-btn match-btn is-fav" style="display: inline-block;" data-original-index="99">Arabseed<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://www.hitv.vip/ar-ae/guide?frm&amp;serialType=episodes')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="100">Kory<div class="fav-icon-star" title="المفضلة">★</div></button>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://1max.top/')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;" data-original-index="101"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('http://anisfm.pp.ua/1L', '_blank')" style="background-image: url(&quot;https://cdn-icons-png.flaticon.com/512/3011/3011403.png&quot;); display: inline-block;" data-original-index="102"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -425,7 +425,7 @@
 <button onclick="playVideo(this, 'https://yalla.kora-top.zip/frame.php?ch=b1&amp;p=12&amp;token=57c14509-c4fe-4543-acdf-ed92e5d79548&amp;kt=1773785887')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="261">bn 1<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="262">bn 2<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773534340')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="263">bn3<div class="fav-icon-star" title="المفضلة">★</div></button>
-<button onclick="playVideo(this, 'https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="264">bn4<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="265">bn5<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f316d336d2e636f6d2f312f3f6373676f3d34&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="266">📺 CBS SPORT<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f73747265616d732e63656e7465722f656d6265642f6368342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="267">📺 CBS SPORT<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f73747265616d732e63656e7465722f656d6265642f6368362e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="268">📺 CBS SPORT<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f61382e7369612d6b6f6f72612e6c6976652f616c6261706c617965722f6265696e2d322f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="269">📺 CBS SPORT<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=9f7fac40-961b-4a2a-9c09-a41c6ee42bd3&amp;kt=1773778470')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="270">📺 CBS SPORT<div class="fav-icon-star" title="المفضلة">★</div></button>
+<button onclick="playVideo(this, 'https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="264">bn4<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="265">bn5<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f316d336d2e636f6d2f312f3f6373676f3d34&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="266">📺 اجنبي <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f73747265616d732e63656e7465722f656d6265642f6368342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="267">📺 اجنبي  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f73747265616d732e63656e7465722f656d6265642f6368362e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="268">📺 اجنبي <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f61382e7369612d6b6f6f72612e6c6976652f616c6261706c617965722f6265696e2d322f&amp;s=1')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="269">📺 اجنبي <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=9f7fac40-961b-4a2a-9c09-a41c6ee42bd3&amp;kt=1773778470')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="270">📺اجنبي <div class="fav-icon-star" title="المفضلة">★</div></button>
                  </div>
 
     <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: none;">⬆</button>
@@ -816,5 +816,6 @@
             }
         }
     </script>
+
 
 </body></html>
