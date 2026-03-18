@@ -1,7 +1,7 @@
 <html lang="ar" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VIA Sports TV - VIP</title>
+    <title> MY TV - VIP</title>
     
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
@@ -21,6 +21,8 @@
         #sortSelect { padding: 12px; border-radius: 25px; border: 2px solid #4caac9; background: #222; color: white; text-align: center; font-size: 16px; outline: none; cursor: pointer; }
 
         #adhkar-ticker { background: linear-gradient(90deg, #111, #222, #111); color: #ffeb3b; padding: 12px; margin: 15px auto; width: 90%; max-width: 600px; border-radius: 8px; border: 1px solid #4caac9; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.5); }
+        /* تأثير الانتقال الناعم للأذكار */
+        #adhkar-text { display: inline-block; transition: opacity 0.5s ease-in-out; opacity: 1; }
 
         /* تنسيق مكان المشغل */
         #media-wrapper { position: relative; max-width: 1000px; margin: 20px auto; aspect-ratio: 16 / 9; background: #000; display: none; box-shadow: 0 0 20px rgba(0,0,0,0.8); border-radius: 10px; overflow: hidden; border: 2px solid #4caac9; }
@@ -84,7 +86,7 @@
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٤:٠٢:١٠ ص</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٤:٢٩:٣٦ ص</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -115,7 +117,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <marquee direction="right" scrollamount="5" id="adhkar-text">الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ</marquee>
+        <span id="adhkar-text" style="opacity: 1;">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -131,7 +133,7 @@
         <iframe id="iframe-player" class="hidden" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
     </div>
 
-    <div id="toast" class="">تم الحذف من المفضلة ❌</div>
+    <div id="toast" class="">تمت الإضافة للمفضلة ⭐</div>
 
    <div class="tv-container" id="main-list">
         <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-block;" data-original-index="0"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -438,6 +440,39 @@
         let currentPlayingUrl = '';
         let currentPlayingElement = null;
 
+        // مصفوفة الأذكار
+        const adhkarList = [
+            "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ",
+            "لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ",
+            "اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ",
+            "أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ وَأَتُوبُ إِلَيْهِ",
+            "لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ",
+            "الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ",
+            "رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا",
+            "سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ",
+            "حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ"
+        ];
+        let currentDhikrIndex = 0;
+
+        function startAdhkarTicker() {
+            setInterval(() => {
+                const adhkarElement = document.getElementById('adhkar-text');
+                if(!adhkarElement) return;
+
+                // نخفي النص الأول بتأثير fade
+                adhkarElement.style.opacity = 0;
+                
+                setTimeout(() => {
+                    // نغير النص بعد ما يختفي
+                    currentDhikrIndex = (currentDhikrIndex + 1) % adhkarList.length;
+                    adhkarElement.innerText = adhkarList[currentDhikrIndex];
+                    
+                    // نظهر النص من تاني
+                    adhkarElement.style.opacity = 1;
+                }, 500); // بنستنى نص ثانية لحد ما تأثير الاختفاء يخلص
+            }, 7000); // بيغير الذكر كل 7 ثواني
+        }
+
         // --- دالة الفتح الخارجي للزرار الجديد ---
         function openExternalCurrent() {
             if(currentPlayingUrl) {
@@ -544,7 +579,8 @@
         document.addEventListener('DOMContentLoaded', () => {
             applySavedTheme();
             injectFavStars();
-            initChannelsIndex(); // بنفهرس القنوات أول ما الصفحة تفتح
+            initChannelsIndex();
+            startAdhkarTicker(); // تشغيل شريط الأذكار أول ما الصفحة تفتح
         });
 
         function filterChannels(category) {
