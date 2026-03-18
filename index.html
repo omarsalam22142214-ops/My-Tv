@@ -103,11 +103,11 @@
         .manage-item { display: flex; justify-content: space-between; align-items: center; background: #333; padding: 12px; margin-bottom: 8px; border-radius: 8px; border-right: 4px solid #4caac9; }
         body.light-theme .manage-item { background: #f0f0f0; }
     </style>
-<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"></head>
+<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
 <body class="">
 
     <h2>📺 MY TV</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٩:٤٦:٢٠ م</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ١٠:٢٨:٤٢ م</div>
 
     <div class="category-buttons">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -137,7 +137,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1;">أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ وَأَتُوبُ إِلَيْهِ</span>
+        <span id="adhkar-text" style="opacity: 1;">الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -150,24 +150,24 @@
             
             <button onclick="refreshPlayer()" style="background: #2ecc71; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: 0px 0px 5px rgba(0,0,0,0.5);" title="تحديث البث">🔄</button>
             
-            <button id="external-open-btn" onclick="openExternalCurrent()" style="background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px; display: none;" title="فتح في نافذة خارجية">🔗</button>
+            <button id="external-open-btn" onclick="openExternalCurrent()" style="background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: rgba(0, 0, 0, 0.5) 0px 0px 5px; display: none;" title="فتح في نافذة خارجية">🔗</button>
             
             <button onclick="closePlayer()" style="background: #ff4757; color: white; border: none; padding: 8px 15px; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 15px; box-shadow: 0px 0px 5px rgba(0,0,0,0.5);" title="إغلاق المشغل">✖</button>
         </div>
 
-        <video id="my-player" class="" controls="" style="background: #000;" src="https://anisfm.pp.ua/1/;"></video>
-        <iframe id="iframe-player" class="hidden" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
+        <video id="my-player" class="hidden" controls="" style="background: #000;" src="https://anisfm.pp.ua/1/;"></video>
+        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red; border-radius: 8px;"></iframe>
     </div>
 
     <div id="addModal" class="modal-overlay" style="display: none;">
         <div class="modal-content">
             <h3 style="text-align: center; margin-top: 0; color: #4caac9;">➕ إضافة قناة جديدة</h3>
             <label>اسم القناة:</label>
-            <input type="text" id="newChName" placeholder="اكتب اسم القناة هنا...">
+            <input type="text" id="newChName" placeholder="اكتب اسم القناة هنا..." data-ddg-inputtype="unknown">
             <label>رابط البث (m3u8, mp4, iframe):</label>
-            <input type="text" id="newChUrl" placeholder="https://...">
+            <input type="text" id="newChUrl" placeholder="https://..." data-ddg-inputtype="unknown">
             <label>رابط لوجو القناة (اختياري):</label>
-            <input type="text" id="newChLogo" placeholder="https://...">
+            <input type="text" id="newChLogo" placeholder="https://..." data-ddg-inputtype="unknown">
             <div class="modal-actions">
                 <button class="modal-btn save-btn" onclick="saveNewChannel()">حفظ القناة</button>
                 <button class="modal-btn close-btn" onclick="closeAddModal()">إلغاء</button>
@@ -175,11 +175,10 @@
         </div>
     </div>
 
-    <div id="manageModal" class="modal-overlay">
+    <div id="manageModal" class="modal-overlay" style="display: none;">
         <div class="modal-content">
             <h3 style="text-align: center; margin-top: 0; color: #ffeb3b;">⚙️ إدارة القنوات المضافة</h3>
-            <div id="manageList" class="manage-list">
-                </div>
+            <div id="manageList" class="manage-list"><p style="text-align: center; color: #ccc;">مفيش قنوات متضافة يدوياً لحد دلوقتي.</p></div>
             <div style="text-align: center;">
                 <button class="modal-btn close-btn" style="width: 100%;" onclick="closeManageModal()">إغلاق</button>
             </div>
@@ -262,8 +261,8 @@
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://dailypudding.com/category/alpha.php?cache=15y6sumR&amp;minify=sr&amp;live=ch84_LQ&amp;meu=84-85')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;" data-original-index="70"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.sawlivenow.com/embed/ch85_LQ/')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-block;" data-original-index="71"><div class="fav-icon-star" title="المفضلة">★</div></a>
 
-        <button onclick="window.open('https://www.sofascore.com/ar', '_blank')" class="cat-btn match-btn is-fav" style="display: inline-block;" data-original-index="72">مباريات اليوم ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://www.btolat.com/video/type/10/home', '_blank')" class="cat-btn match-btn is-fav" style="display: inline-block;" data-original-index="73"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://www.sofascore.com/ar', '_blank')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="72">مباريات اليوم ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://www.btolat.com/video/type/10/home', '_blank')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="73"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://www.beinsports.com/ar-mena/%D9%81%D9%8A%D8%AF%D9%8A%D9%88', '_blank')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="74"> ملخصات مباريات ⚽<div class="fav-icon-star" title="المفضلة">★</div></button>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.yallakora.com/match-center')" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXR5f7PCbYx1NfkGARgKgsj8UDi7jeI9tFw&amp;s&quot;); display: inline-block;" data-original-index="75"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.filgoal.com/matches/?date=2026-03-14')" style="background-image: url(&quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIXR5f7PCbYx1NfkGARgKgsj8UDi7jeI9tFw&amp;s&quot;); display: inline-block;" data-original-index="76"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -471,7 +470,7 @@
                         <div class="fav-icon-star" title="المفضلة">★</div></a>                         <button onclick="playVideo(this, 'https://kimotv.weebly.com/')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="254">KIMO TV<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://ak.sv/main')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="255">akoam<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://koora-lives.space/')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="256">live 1<div class="fav-icon-star" title="المفضلة">★</div></button>
-<button onclick="playVideo(this, 'https://live.kora-top.zip/frame.php?ch=tnt1&amp;p=12&amp;token=8a9e4bb1-2c33-4b3a-847a-5978ad15a698&amp;kt=1773785276')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="257">tnt 1<div class="fav-icon-star" title="المفضلة">★</div></button>
+<button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=tnt1&amp;p=12&amp;token=e81a0694-f95d-4154-9ada-299a1eb8ead6&amp;kt=1773865548')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="285">📻 TNT 1<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=tnt2&amp;p=12&amp;token=57c14509-c4fe-4543-acdf-ed92e5d79548&amp;kt=1773785741')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="258">tnt 2<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://yalla.kora-top.zip/frame.php?ch=prem1&amp;p=12&amp;token=23df6392-f491-46c7-ad0c-84ea1c303c70&amp;kt=1773785317')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="259">prmeir 1<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864342e706870&amp;s=1')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-block;" data-original-index="260">ch cl 1<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -494,7 +493,7 @@
 <button onclick="playVideo(this, 'http://anisfm.dpdns.org/2')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="282">📻 راديو Ir 2 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'http://anisfm.dpdns.org/3')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="283">📻 راديو Ir 3 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'http://anisfm.dpdns.org/4')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="284">📻 راديو Ir 4 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
-<button onclick="playVideo(this, 'http://anisfm.dpdns.org/5')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="285">📻 راديو Ir 5 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
+<button onclick="playVideo(this, 'http://anisfm.dpdns.org/5')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="285">📻 راديو Ir 5 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=tnt1&amp;p=12&amp;token=e81a0694-f95d-4154-9ada-299a1eb8ead6&amp;kt=1773865548')" class="cat-btn match-btn" style="display: inline-block;" data-original-index="285">📻 TNT 1<div class="fav-icon-star" title="المفضلة">★</div></button>
 
 
 
@@ -1053,5 +1052,6 @@
             }
         }
     </script>
+
 
 </body></html>
