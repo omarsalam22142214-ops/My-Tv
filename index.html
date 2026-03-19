@@ -75,7 +75,7 @@
 <body class="">
 
     <h2>📺 MY TV VIP</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٦:٣٨:٥٤ م</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: ٦:٤٧:٢٧ م</div>
 
     <div class="control-group">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -105,10 +105,10 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1;">سُبْحَانَ اللَّهِ وَبِحَمْدِهِ ، سُبْحَانَ اللَّهِ الْعَظِيمِ</span>
+        <span id="adhkar-text" style="opacity: 1;">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</span>
     </div>
 
-    <div id="media-wrapper" style="display: none;">
+    <div id="media-wrapper" style="display: none;" class="">
         <div id="quality-badge" style="position: absolute; top: 15px; left: 15px; z-index: 9999; background: rgba(0,0,0,0.7); color: #00ffcc; border: 1px solid #00ffcc; padding: 6px 12px; border-radius: 6px; font-weight: bold; font-size: 14px; display: none;">📺 الجودة: Auto</div>
         
         <div id="stream-status" style="position: absolute; top: 15px; left: 50%; transform: translateX(-50%); z-index: 9999; background: rgba(0,0,0,0.8); padding: 6px 15px; border-radius: 20px; font-weight: bold; font-size: 15px; display: none;"></div>
@@ -116,7 +116,7 @@
         <div style="position: absolute; top: 15px; right: 15px; z-index: 9999; display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; max-width: 70%;">
             <button onclick="toggleTheater()" style="background: #9b59b6; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="وضع السينما">💡</button>
             <button onclick="toggleFullScreen()" style="background: #f39c12; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="تكبير الشاشة">⛶</button>
-            <button onclick="reportChannel()" style="background: #e67e22; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="الإبلاغ عن عطل">⚠️</button>
+            
             <button id="pip-btn" onclick="togglePiP()" style="background: #3498db; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="صورة في صورة">🔲</button>
             <button onclick="refreshPlayer()" style="background: #2ecc71; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="تحديث البث">🔄</button>
             <button id="external-open-btn" onclick="openExternalCurrent()" style="background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="فتح في نافذة خارجية">🔗</button>
@@ -164,10 +164,10 @@
         </div>
     </div>
 
-    <div id="toast"></div>
+    <div id="toast" class="">تم إغلاق وضع السينما 💡</div>
 
     <div class="tv-container" id="main-list">
-        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-flex;" data-original-index="0"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-flex;" data-original-index="0"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="1">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="2">📺 1 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/bn222/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="3">📺 2 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -194,7 +194,7 @@
         <button onclick="window.open('https://t.me/cccammgen_bot', '_blank')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="24">gencccambot<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="25">⚽️ Bein 1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch2.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="26">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch3.php')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="27">⚽️ Bein 3<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="27">⚽️ Bein 3<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch4.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="28">⚽️ Bein 4<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch5.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="29">⚽️ Bein 5<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch6.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="30">⚽️ Bein 6<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -202,7 +202,7 @@
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch8.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="32">⚽️ Bein 8<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch9.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="33">⚽️ Bein 9<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch10.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="34">⚽️ Bein 10<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch11.php')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="35">⚽️ Bein 11<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://cdn40.yalla-online.click/chtv/ch11.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="35">⚽️ Bein 11<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://www.yallashoot.video/home4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="36">⭐️ Live<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://koora-lives.space/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="37">⭐️ Live<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=ad1&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773509511')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="38">⭐ Starzplay1<div class="fav-icon-star" title="المفضلة">★</div></button>
