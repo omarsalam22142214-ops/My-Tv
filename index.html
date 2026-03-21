@@ -13,7 +13,6 @@
     <style>
         body { margin: 0; background-color: #1a1a1a; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; transition: 0.3s; color: #fff; }
         
-        /* --- تنسيق الحاويات والزراير لضمان عدم تداخلها --- */
         .control-group { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 15px; padding: 0 10px; }
         
         .cat-btn { background-color: #222; color: #fff; border: 1px solid #4caac9; padding: 10px 15px; border-radius: 25px; cursor: pointer; font-weight: bold; transition: all 0.3s; font-size: 14px; white-space: nowrap; }
@@ -23,7 +22,6 @@
         .tool-btn { border-color: #f39c12 !important; color: #f39c12; }
         .tool-btn:hover { background-color: #f39c12 !important; color: #000 !important; }
 
-        /* --- تنسيق حاوية البحث والترتيب والزرار الجديد --- */
         .search-sort-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 0 auto 20px auto; width: 90%; max-width: 600px; align-items: center; }
         #searchInput { flex: 1; min-width: 150px; padding: 12px; border-radius: 25px; border: 2px solid #4caac9; background: #222; color: white; text-align: center; font-size: 16px; outline: none; }
         #sortSelect { padding: 12px; border-radius: 25px; border: 2px solid #4caac9; background: #222; color: white; text-align: center; font-size: 16px; outline: none; cursor: pointer; }
@@ -33,7 +31,6 @@
         #adhkar-ticker { background: linear-gradient(90deg, #111, #222, #111); color: #ffeb3b; padding: 12px; margin: 15px auto; width: 90%; max-width: 600px; border-radius: 8px; border: 1px solid #4caac9; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.5); }
         #adhkar-text { display: inline-block; transition: opacity 0.5s ease-in-out; opacity: 1; }
 
-        /* --- المشغل وزراير التحكم --- */
         #media-wrapper { 
             position: relative; 
             max-width: 1000px; 
@@ -71,7 +68,6 @@
         
         .hidden { display: none !important; }
 
-        /* --- تنسيق شارة الجودة وقايمة الجودة --- */
         #quality-badge, #stream-status, #quality-selector {
             position: absolute;
             z-index: 9999;
@@ -97,7 +93,6 @@
         }
         #quality-selector option { background: #222; color: #fff; }
 
-        /* وضع السينما */
         body.theater-active { overflow: hidden; }
         .theater-mode { 
             position: fixed !important; top: 0 !important; left: 0 !important; 
@@ -114,12 +109,10 @@
             height: 100vh !important; border-radius: 0 !important; border: none !important;
         }
 
-        /* المشغل المصغر */
         .pinned-player { position: fixed !important; bottom: 20px !important; right: 20px !important; left: auto !important; top: auto !important; width: 350px !important; height: auto !important; z-index: 999999 !important; margin: 0 !important; }
         @media (max-width: 480px) { .pinned-player { width: 250px !important; } }
         .pinned-player .player-controls { display: none !important; } 
 
-        /* --- شبكة القنوات (الوضع الافتراضي) --- */
         .tv-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; padding: 20px; background-color: #000200; justify-items: center; max-width: 100%; margin: 0 auto; border-radius: 10px; }
         .tv-box { width: 70px !important; height: 70px !important; border-radius: 50%; background-size: contain; background-color: white; background-repeat: no-repeat; background-position: center; box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); transition: transform 0.3s; border: 2px solid transparent; display: inline-flex; justify-content: center; align-items: center; cursor: pointer; position: relative; text-decoration: none; color: #000; font-size: 11px; font-weight: bold; overflow: hidden;}
         .tv-box:hover { transform: scale(1.1); z-index: 2; }
@@ -130,7 +123,6 @@
         .is-fav { border-color: #ffcc00 !important; }
         .is-fav .fav-icon-star { color: #ffcc00; border-color: #ffcc00; }
 
-        /* --- طريقة عرض القائمة الطولية (List View) --- */
         .tv-container.list-view {
             display: flex !important;
             flex-direction: column;
@@ -172,7 +164,6 @@
             right: auto;
         }
 
-        /* --- الوضع الفاتح --- */
         .theme-toggle-btn { background: rgba(255,255,255,0.08); color: #fff; border: 2px solid #4caac9; border-radius: 12px; padding: 10px 16px; cursor: pointer; font-weight: bold; transition: 0.3s ease; }
         body.light-theme { background: linear-gradient(180deg, #f6fbff 0%, #eaf4fb 100%); color: #111; }
         body.light-theme h2, body.light-theme #live-clock { color: #111 !important; text-shadow: none !important; }
@@ -181,7 +172,6 @@
         body.light-theme .tv-container { background-color: rgba(255,255,255,0.7) !important; }
         body.light-theme .tv-box { color: #111; }
 
-        /* --- رسائل الإشعارات والنوافذ --- */
         #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 8px; padding: 16px; position: fixed; z-index: 9999999; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 16px; font-weight: bold; box-shadow: 0px 4px 10px rgba(0,0,0,0.5); border: 1px solid #4caac9; }
         #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
         @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
@@ -201,7 +191,7 @@
 <body class="">
 
     <h2 style="direction: rtl;">📺 MY TV VIP</h2>
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 7:41:20 PM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 11:07:05 PM</div>
 
     <div class="control-group">
         <button onclick="filterChannels('all')" class="cat-btn active-cat" style="direction: rtl;">🌐 الكل</button>
@@ -220,6 +210,7 @@
         <button onclick="openFetcherModal()" class="cat-btn tool-btn" style="border-color: rgb(46, 204, 113); color: rgb(46, 204, 113); direction: rtl;">🧲 جلب Iframes</button>
         <button onclick="openAddModal()" class="cat-btn tool-btn" style="border-color: rgb(52, 152, 219); color: rgb(52, 152, 219); direction: rtl;">➕ إضافة قناة</button>
         <button id="deleteModeBtn" onclick="toggleDeleteMode()" class="cat-btn tool-btn" style="border-color: rgb(231, 76, 60); color: rgb(231, 76, 60); direction: rtl; background: transparent;">🗑️ وضع الحذف</button>
+        <button id="duplicateModeBtn" onclick="toggleDuplicateMode()" class="cat-btn tool-btn" style="border-color: rgb(155, 89, 182); color: rgb(155, 89, 182); direction: rtl; background: transparent;">📋 وضع النسخ</button>
         <button onclick="openManageModal()" class="cat-btn tool-btn" style="direction: rtl;">⚙️ إدارة القنوات</button>
         <button onclick="openMatchesModal()" class="cat-btn tool-btn" style="border-color: rgb(0, 210, 211); color: rgb(0, 210, 211); direction: rtl;">📅 جدول المباريات</button>
         <button onclick="openChatModal()" class="cat-btn tool-btn" style="border-color: rgb(232, 67, 147); color: rgb(232, 67, 147); direction: rtl;">💬 شات مباشر</button>
@@ -239,7 +230,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</span>
+        <span id="adhkar-text" style="opacity: 0; direction: rtl;">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;" class="">
@@ -332,10 +323,10 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تمت الإضافة للمفضلة ⭐</div>
+    <div id="toast" class="" style="direction: rtl;">تم إيقاف وضع النسخ ✅</div>
 
     <div class="tv-container" id="main-list">
-        <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-flex;" data-original-index="0"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-flex;" data-original-index="0"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="1">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="2">📺 1 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/bee2/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 داخلي 2 <div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -452,12 +443,12 @@
         <button onclick="window.open('https://www.speedtest.net/', '_blank')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="91">Speed Test<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://dnsspeedtest.github.io/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="92">Dns Test<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://www.chess.com/', '_blank')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="93">♟️ Chess<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://wecima.click/', '_blank')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="94">We Cima<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://mycima.band')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="95">MY Cima<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://wecima.click/', '_blank')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="94">We Cima<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://mycima.band')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="95">MY Cima<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://d.alooytv8.xyz')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="96">Alooy<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://eg.bahyfilms.com')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="97">Cima FilmsTv<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://egibest.one')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="98">EgyBest<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://asd.pics/')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="99">Arabseed<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://egibest.one')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="98">EgyBest<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://asd.pics/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="99">Arabseed<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://www.hitv.vip/ar-ae/guide?frm&amp;serialType=episodes')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="100">Kory<div class="fav-icon-star" title="المفضلة">★</div></button>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://1max.top/')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-flex;" data-original-index="101"><div class="fav-icon-star" title="المفضلة">★</div></a>
         
@@ -574,7 +565,7 @@
         <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=espn3&amp;p=12&amp;token=a8a1770a-def7-441b-b237-9856b816afa5&amp;kt=1773587193')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="212">⭐ espn 2<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=dep&amp;p=12&amp;token=1806a641-90ce-467d-b175-63fe84aa3e93&amp;kt=1773587449')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="213">⭐ espn 3<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f777777342e73706f7274736e6c696e652e636c69636b2f6368616e6e656c732f70742f73706f72747476342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="214">⭐ sport<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=now2&amp;p=12&amp;token=753d6dd8-b7eb-491f-bc51-a6f3a281e98e&amp;kt=1773589094')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="215">⭐ now<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=now2&amp;p=12&amp;token=753d6dd8-b7eb-491f-bc51-a6f3a281e98e&amp;kt=1773589094')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="215">⭐ now<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67312f&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="216">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=cricket&amp;p=12&amp;token=508d6d72-8008-4320-89b7-aa222300b80c&amp;kt=1773587981')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="217">⭐ cricket<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f323473746172742e6e65742f686f6d65732f626c6f67332f&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="218">⭐ stream0<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -649,7 +640,7 @@
 <button onclick="playVideo(this, 'https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-flex;" data-original-index="264">bn4<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545')" class="cat-btn match-btn my-added-ch" data-category="sports" style="display: inline-flex;" data-original-index="265">bn5<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f316d336d2e636f6d2f312f3f6373676f3d34&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="266">📺 اجنبي <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f73747265616d732e63656e7465722f656d6265642f6368342e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="267">📺 اجنبي  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f73747265616d732e63656e7465722f656d6265642f6368362e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="268">📺 اجنبي <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f61382e7369612d6b6f6f72612e6c6976652f616c6261706c617965722f6265696e2d322f&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="269">📺 اجنبي <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=9f7fac40-961b-4a2a-9c09-a41c6ee42bd3&amp;kt=1773778470')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="270">📺اجنبي <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://anis.pp.ua/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="270">📺Anis FM <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://anisfm.pp.ua/1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="271">📻 راديو 1 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://anisfm.pp.ua/2')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="272">📻 راديو 2 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://anisfm.pp.ua/3')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="273">📻 راديو 3 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
-<button onclick="playVideo(this, 'https://anisfm.pp.ua/4')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="274">📻 راديو 4 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
+<button onclick="playVideo(this, 'https://anisfm.pp.ua/4')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="274">📻 راديو 4 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://anisfm.pp.ua/5')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="275">📻 راديو 5 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
 
 <button onclick="playVideo(this, 'https://anisfm.pp.ua/1L')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="276">📻 راديو ضعيف 1 أنيس<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -683,7 +674,7 @@
         <button onclick="playVideo(this, 'https://gopst.link/ch?id=15')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="305">⚽️ sky sport 15<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://gopst.link/ch?id=16')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="306">⚽️ sky sport 16<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://gopst.link/ch?id=17')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="307">⚽️ sky sport 17<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(this, 'https://gopst.link/ch?id=18')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ sky sport 18<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-1/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 1<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-2/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 2<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-3/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 3<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-4/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 4<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-5/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 5<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-1/?serv=6/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 6<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-7/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 7<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-8/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 8<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-9/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 9<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-10/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 10<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 1  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-2/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 2  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-3/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 3  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 4  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-5/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 5  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-6/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 6  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/pemium-1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 7  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/pemium-2/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 8  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/pemium-3/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 9  <div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(this, 'https://gopst.link/ch?id=18')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ sky sport 18<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-1/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 1<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-2/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 2<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-3/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 3<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-4/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 4<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-5/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 5<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-1/?serv=6/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 6<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-7/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 7<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-8/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 8<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-9/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 9<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://16.wwwkoora.com/albaplayer/bein-sports-hd-10/?serv=1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️ سيمو 10<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 1  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-2/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 2  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-3/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 3  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 4  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-5/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 5  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/bein-6/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 6  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/pemium-1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 7  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/pemium-2/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 8  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/pemium-3/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 9  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://a8.sia-koora.live/albaplayer/pemium-3/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="308">⚽️  لايف 10  <div class="fav-icon-star" title="المفضلة">★</div></button>
 
 
 
@@ -696,9 +687,9 @@
         let currentPlayingElement = null;
 
         let isDeleteMode = false;
+        let isDuplicateMode = false;
         let deletedChannels = JSON.parse(localStorage.getItem('deletedChannels')) || [];
 
-        // متغير لدرع الإعلانات
         let isAdBlockActive = false;
 
         const adhkarList = [
@@ -730,10 +721,20 @@
         function toggleDeleteMode() {
             isDeleteMode = !isDeleteMode;
             let btn = document.getElementById("deleteModeBtn");
+            let dupBtn = document.getElementById("duplicateModeBtn");
+            
             if(isDeleteMode) {
                 btn.style.background = "#c0392b";
                 btn.style.color = "#fff";
                 btn.innerText = "🛑 إيقاف الحذف";
+                
+                if(isDuplicateMode) {
+                    isDuplicateMode = false;
+                    dupBtn.style.background = "transparent";
+                    dupBtn.style.color = "#9b59b6";
+                    dupBtn.innerText = "📋 وضع النسخ";
+                }
+                
                 showToast("وضع الحذف شغال: دوس على أي قناة عشان تمسحها نهائياً! ❌");
             } else {
                 btn.style.background = "transparent";
@@ -743,8 +744,34 @@
             }
         }
 
+        function toggleDuplicateMode() {
+            isDuplicateMode = !isDuplicateMode;
+            let btn = document.getElementById("duplicateModeBtn");
+            let delBtn = document.getElementById("deleteModeBtn");
+            
+            if(isDuplicateMode) {
+                btn.style.background = "#9b59b6";
+                btn.style.color = "#fff";
+                btn.innerText = "🛑 إيقاف النسخ";
+                
+                if(isDeleteMode) {
+                    isDeleteMode = false;
+                    delBtn.style.background = "transparent";
+                    delBtn.style.color = "#e74c3c";
+                    delBtn.innerText = "🗑️ وضع الحذف";
+                }
+                
+                showToast("وضع النسخ شغال: دوس على أي قناة لنسخها مؤقتاً! 📋");
+            } else {
+                btn.style.background = "transparent";
+                btn.style.color = "#9b59b6";
+                btn.innerText = "📋 وضع النسخ";
+                showToast("تم إيقاف وضع النسخ ✅");
+            }
+        }
+
         function applyDeletedChannels() {
-            document.querySelectorAll('#main-list .tv-box, #main-list .match-btn').forEach(ch => {
+            document.querySelectorAll('.tv-box, .match-btn').forEach(ch => {
                 let onclickStr = ch.getAttribute('onclick') || '';
                 let urlMatch = onclickStr.match(/['"](http.*?)['"]/);
                 if (urlMatch && deletedChannels.includes(urlMatch[1])) {
@@ -753,27 +780,53 @@
             });
         }
 
-        document.getElementById('main-list').addEventListener('click', function(e) {
-            if (!isDeleteMode) return;
+        // نقلنا المستمع (Listener) للصفحة كلها عشان يلقط أي قناة من أي مكان
+        document.addEventListener('click', function(e) {
             let channelBtn = e.target.closest('.tv-box') || e.target.closest('.match-btn');
-            if (channelBtn) {
-                e.preventDefault();
-                e.stopPropagation(); 
-                if(confirm("متأكد إنك عايز تحذف القناة دي بشكل نهائي؟")) {
-                    let onclickStr = channelBtn.getAttribute('onclick') || '';
-                    let urlMatch = onclickStr.match(/['"](http.*?)['"]/);
-                    if (urlMatch && urlMatch[1]) {
-                        deletedChannels.push(urlMatch[1]);
-                        localStorage.setItem('deletedChannels', JSON.stringify(deletedChannels));
+            
+            // التأكد إن العنصر اللي اتداس عليه قناة حقيقية مش زرار تحكم
+            if (channelBtn && !channelBtn.closest('.control-group') && channelBtn.id !== 'themeToggleBtn' && channelBtn.id !== 'last-channel-container') {
+                
+                if (isDeleteMode || isDuplicateMode) {
+                    e.preventDefault();
+                    e.stopPropagation(); 
+                    
+                    if (isDeleteMode) {
+                        if(confirm("متأكد إنك عايز تحذف القناة دي بشكل نهائي؟")) {
+                            let onclickStr = channelBtn.getAttribute('onclick') || '';
+                            let urlMatch = onclickStr.match(/['"](http.*?)['"]/);
+                            if (urlMatch && urlMatch[1]) {
+                                deletedChannels.push(urlMatch[1]);
+                                localStorage.setItem('deletedChannels', JSON.stringify(deletedChannels));
+                            }
+                            channelBtn.remove();
+                            showToast("تم الحذف بنجاح 🗑️");
+                        }
+                    } 
+                    else if (isDuplicateMode) {
+                        // الكود ده بينسخ العنصر مباشرة بدون ما يسأل عن الرابط عشان يشتغل في كل الحالات
+                        let clonedNode = channelBtn.cloneNode(true);
+                        
+                        // إزالة نجمة المفضلة الميتة من النسخة الجديدة
+                        let deadStar = clonedNode.querySelector('.fav-icon-star');
+                        if (deadStar) deadStar.remove();
+
+                        // وضع النسخة جنب القناة الأصلية
+                        channelBtn.parentNode.insertBefore(clonedNode, channelBtn.nextSibling);
+
+                        // تفعيل النجمة للنسخة الجديدة وضبط الترتيب
+                        injectFavStars();
+                        initChannelsIndex();
+
+                        showToast("تم نسخ القناة بنجاح (نسخة مؤقتة) 📋✅");
                     }
-                    channelBtn.remove();
-                    showToast("تم الحذف بنجاح 🗑️");
                 }
             }
         }, true);
 
         function toggleViewMode() {
             const container = document.getElementById('main-list');
+            if(!container) return;
             const btn = document.getElementById('viewToggleBtn');
             container.classList.toggle('list-view');
             const isListView = container.classList.contains('list-view');
@@ -847,9 +900,9 @@
             } else {
                 customChannels.forEach((ch, index) => {
                     list.innerHTML += `
-                        <div class="manage-item">
+                        <div class="manage-item" style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid #444; padding:8px 0;">
                             <span style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 70%; font-weight: bold;" title="${ch.name}">${ch.name}</span>
-                            <button class="del-btn" onclick="deleteCustomChannel(${index})">حذف 🗑</button>
+                            <button class="del-btn" style="background:#e74c3c; border:none; padding:5px 10px; border-radius:5px; color:#fff; cursor:pointer;" onclick="deleteCustomChannel(${index})">حذف 🗑</button>
                         </div>
                     `;
                 });
@@ -897,7 +950,6 @@
             }
         }
 
-        // --- دالة البث للشاشة (Cast) 📺 ---
         function toggleCast() {
             const video = document.getElementById('my-player');
             if (video && video.remote && video.remote.state !== 'disconnected') {
@@ -909,7 +961,6 @@
             }
         }
 
-        // --- دالة درع الإعلانات 🛡️ ---
         function toggleAdBlock() {
             isAdBlockActive = !isAdBlockActive;
             let btn = document.getElementById('adblock-btn');
@@ -992,7 +1043,7 @@
 
         function injectFavStars() {
             document.querySelectorAll('.tv-box, .match-btn').forEach(ch => {
-                if (ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn' || ch.id === 'deleteModeBtn') return;
+                if (ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn' || ch.id === 'deleteModeBtn' || ch.id === 'duplicateModeBtn') return;
                 
                 let onclickStr = ch.getAttribute('onclick') || '';
                 let urlMatch = onclickStr.match(/['"](.*?)['"]/);
@@ -1051,6 +1102,7 @@
         function sortChannels() {
             let sortType = document.getElementById('sortSelect').value;
             let container = document.getElementById('main-list');
+            if(!container) return;
             let channels = Array.from(container.querySelectorAll('.tv-box, .match-btn'));
             let validChannels = channels.filter(ch => ch.hasAttribute('data-original-index'));
             validChannels.sort((a, b) => {
@@ -1094,7 +1146,7 @@
             document.querySelectorAll('.category-buttons .cat-btn').forEach(b => b.classList.remove('active-cat'));
             event.currentTarget.classList.add('active-cat');
             document.querySelectorAll('.tv-box, .match-btn').forEach(ch => {
-                if (ch.closest('.category-buttons') || ch.closest('#last-channel-container') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn' || ch.id === 'deleteModeBtn') return;
+                if (ch.closest('.category-buttons') || ch.closest('#last-channel-container') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn' || ch.id === 'deleteModeBtn' || ch.id === 'duplicateModeBtn') return;
                 if (category === 'all') {
                     ch.style.display = "inline-flex";
                 } else if (category === 'fav') {
@@ -1108,7 +1160,7 @@
         function searchChannels() { 
             let input = document.getElementById('searchInput').value.toLowerCase(); 
             document.querySelectorAll('.tv-box, .match-btn').forEach(ch => { 
-                if(ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn' || ch.id === 'deleteModeBtn') return;
+                if(ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn' || ch.id === 'deleteModeBtn' || ch.id === 'duplicateModeBtn') return;
                 ch.style.display = (ch.getAttribute('title') || ch.textContent || "").toLowerCase().includes(input) ? "inline-flex" : "none"; 
             }); 
         }
@@ -1126,7 +1178,8 @@
             const themeBtn = document.getElementById('themeToggleBtn');
             if (themeBtn) themeBtn.textContent = isLight ? '☀️ الوضع الفاتح' : '🌙 الوضع الداكن';
             const viewBtn = document.getElementById('viewToggleBtn');
-            if(document.getElementById('main-list').classList.contains('list-view')) {
+            const mainList = document.getElementById('main-list');
+            if(mainList && mainList.classList.contains('list-view')) {
                 if(isLight) {
                     viewBtn.style.background = '#fff';
                     viewBtn.style.color = '#111';
@@ -1159,7 +1212,7 @@
 
         function autoPlayNextServer() {
             if (!currentPlayingElement) return;
-            let allChannels = Array.from(document.querySelectorAll('.tv-box, .match-btn')).filter(ch => !ch.closest('.control-group') && ch.id !== 'themeToggleBtn' && ch.id !== 'scrollTopBtn' && ch.id !== 'viewToggleBtn' && ch.id !== 'deleteModeBtn');
+            let allChannels = Array.from(document.querySelectorAll('#main-list .tv-box, #main-list .match-btn'));
             let currentIndex = allChannels.indexOf(currentPlayingElement);
             if (currentIndex > -1 && currentIndex + 1 < allChannels.length) {
                 let nextCh = allChannels[currentIndex + 1];
@@ -1186,7 +1239,6 @@
             }
         }
 
-        // --- دالة إرسال معلومات القناة لشاشة القفل (Background Audio) 📻 ---
         function updateMediaSession(title, poster) {
             if ('mediaSession' in navigator) {
                 navigator.mediaSession.metadata = new MediaMetadata({
@@ -1209,7 +1261,6 @@
             currentPlayingElement = element || findElementByUrl(url);
             if(currentPlayingElement) currentPlayingElement.classList.add('active-channel');
             
-            // استخراج اسم ولوجو القناة عشان يظهروا في شاشة القفل بتاعة الموبايل
             let chName = currentPlayingElement ? (currentPlayingElement.getAttribute('title') || currentPlayingElement.innerText.replace('★', '').trim()) : 'قناة مباشرة';
             let chLogo = currentPlayingElement ? (currentPlayingElement.style.backgroundImage.slice(5, -2).replace(/"/g, "")) : 'icon-192.png';
             updateMediaSession(chName, chLogo);
@@ -1416,7 +1467,6 @@
         function openChatModal() { document.getElementById('chatModal').style.display = 'flex'; }
         function closeChatModal() { document.getElementById('chatModal').style.display = 'none'; }
 
-        // --- دوال الأداة الجديدة (جلب Iframes) ---
         function openFetcherModal() { document.getElementById('fetcherModal').style.display = 'flex'; }
         function closeFetcherModal() { 
             document.getElementById('fetcherModal').style.display = 'none'; 
@@ -1513,7 +1563,6 @@
             }
         }
 
-        // --- دوال التقليب اليدوي (التالي والسابق) ---
         function playNextServerManual() {
             if (!currentPlayingElement) return showToast("شغل قناة الأول ❌");
             let allChannels = Array.from(document.querySelectorAll('#main-list .tv-box, #main-list .match-btn'));
@@ -1548,7 +1597,6 @@
             }
         }
 
-        // --- دالة سحب ملفات IPTV (M3U) اليدوية وتجهيزها ---
         async function loadIPTVPlaylist(url) {
             showToast("جاري سحب ملف القنوات، لحظات... ⏳");
             try {
@@ -1585,12 +1633,10 @@
                 showToast(`عاش! تم سحب ${newChannels.length} قناة ✅`);
                 
                 let container = document.getElementById('main-list');
-                // مسح القنوات اللي اتسحبت قبل كده عشان الزحمة
                 document.querySelectorAll('.fetched-iptv-ch, .fetched-title').forEach(el => el.remove()); 
                 
                 container.insertAdjacentHTML('beforeend', '<div class="fetched-title" style="width: 100%; text-align: center; margin-top: 30px; margin-bottom: 10px; color: #ffeb3b;"><h3 style="margin:0;">📡 القنوات المسحوبة من الملف</h3><hr style="border-color:#ffeb3b; width:50%;"></div>');
 
-                // حماية المتصفح من التهنيج (هنعرض أول 500 قناة بس)
                 let limit = Math.min(newChannels.length, 500); 
                 for(let i=0; i<limit; i++) {
                     let ch = newChannels[i];
@@ -1616,4 +1662,5 @@
             }
         }
     </script>
+
 </body></html>
