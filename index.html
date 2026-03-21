@@ -200,7 +200,7 @@
 <body class="">
 
     <h2>📺 MY TV VIP</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: 9:27:39 AM</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: 10:06:14 AM</div>
 
     <div class="control-group">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -216,6 +216,7 @@
     </div>
 
     <div class="control-group">
+        <button onclick="openFetcherModal()" class="cat-btn tool-btn" style="border-color: #2ecc71; color: #2ecc71;">🧲 جلب Iframes</button>
         <button onclick="openAddModal()" class="cat-btn tool-btn">➕ إضافة قناة</button>
         <button onclick="openManageModal()" class="cat-btn tool-btn">⚙️ إدارة القنوات</button>
         <button onclick="openMatchesModal()" class="cat-btn tool-btn" style="border-color: #00d2d3; color: #00d2d3;">📅 جدول المباريات</button>
@@ -232,11 +233,11 @@
             <option value="az">🔤 ترتيب أبجدي (أ - ي)</option>
             <option value="za">🔤 ترتيب أبجدي (ي - أ)</option>
         </select>
-        <button id="viewToggleBtn" onclick="toggleViewMode()" title="تغيير طريقة العرض" style="background: rgb(34, 34, 34); color: rgb(255, 255, 255);">🔣 قايمة</button>
+        <button id="viewToggleBtn" onclick="toggleViewMode()" title="تغيير طريقة العرض">🔣 قايمة</button>
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1;">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا</span>
+        <span id="adhkar-text" style="opacity: 1;">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;" class="">
@@ -252,12 +253,12 @@
             <button onclick="closePlayer()" style="background: #ff4757; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="إغلاق المشغل">✖</button>
         </div>
 
-        <div id="quality-badge" style="display: none;">📻 راديو مباشر</div>
+        <div id="quality-badge" style="display: none;">📺 الجودة: جاري التحقق...</div>
         <select id="quality-selector" style="display: none;" onchange="changeVideoQuality(this.value)">
             <option value="-1">📺 الجودة: Auto</option>
         </select>
         
-        <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ مشغل الصوت جاهز</div>
+        <div id="stream-status" style="display: none;">✅ مشغل الصوت جاهز</div>
 
         <video id="my-player" class="hidden" controls="" style="background: #000;"></video>
         <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red;"></iframe>
@@ -300,7 +301,30 @@
         </div>
     </div>
 
-    <div id="toast" class="">تم الحذف من المفضلة ❌</div>
+    <div id="fetcherModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" style="max-height: 85vh; overflow-y: auto;">
+            <h3 style="text-align: center; color: #2ecc71; margin-top:0;">🧲 آلة جلب Iframes</h3>
+            
+            <p style="font-size: 13px; color: #ccc; text-align: center;">الطريقة 1: سحب مباشر (للمواقع العادية)</p>
+            <input type="text" id="fetcherUrl" placeholder="حط رابط الصفحة هنا...">
+            <button class="modal-btn" style="background: #3498db; color: white; width: 100%; margin-bottom: 10px;" onclick="fetchIframes()">جلب الروابط الآن 🚀</button>
+            <div id="fetcherLoading" style="display:none; color: #f39c12; text-align: center; margin: 10px 0; font-weight: bold;">جاري تجربة أكثر من مسار للكسر... ⏳</div>
+            <div id="fetcherResults" style="text-align: right; margin-top: 10px;"></div>
+            
+            <hr style="border-color: #4caac9; margin: 15px 0;">
+            
+            <h4 style="text-align: center; color: #f39c12; margin-top:0;">الطريقة 2: للمواقع المحمية (زي hd44)</h4>
+            <p style="font-size: 12px; color: #fff; text-align: center;">اسحب الزرار الأخضر ده بالماوس وارميه في شريط المتصفح فوق (Bookmarks). ولما تفتح أي موقع مقفول، دوس عليه من فوق هيسحبلك السيرفرات غصب عنه!</p>
+            
+            <div style="text-align: center; margin-bottom: 15px;">
+                <a href="javascript:(function(){let iframes=document.querySelectorAll('iframe');let links=[];iframes.forEach(i=&gt;{let s=i.src||i.getAttribute('data-src');if(s&amp;&amp;!s.includes('google')&amp;&amp;!s.includes('ads')&amp;&amp;!s.includes('taboola')&amp;&amp;!s.includes('analytics')){if(s.startsWith('//'))s='https:'+s;else if(s.startsWith('/'))s=window.location.origin+s;links.push(s);}});let uniqueLinks=[...new Set(links)];if(uniqueLinks.length===0){alert('❌ مفيش سيرفرات هنا!');return;}let out=`&lt;div id='magic-fetcher-overlay' style='position:fixed;top:10%;left:50%;transform:translateX(-50%);background:#222;color:#fff;padding:20px;border:2px solid #4caac9;z-index:999999999;border-radius:12px;text-align:center;min-width:350px;box-shadow:0 10px 30px rgba(0,0,0,0.9);'&gt;&lt;h3 style='color:#2ecc71;margin-top:0;'&gt;✅ تم سحب ${uniqueLinks.length} سيرفر&lt;/h3&gt;&lt;textarea id='magicCopyArea' style='width:100%;height:150px;margin-bottom:15px;direction:ltr;background:#111;color:#00ffcc;border:1px solid #4caac9;padding:10px;border-radius:6px;font-family:monospace;' readonly&gt;`;let counter=300;uniqueLinks.forEach(l=&gt;{out+=`&lt;button onclick=\x22playVideo(this, '${l}')\x22 class=\x22cat-btn match-btn\x22 style=\x22display: inline-flex;\x22 data-original-index=\x22${counter}\x22&gt;📺 سيرفر ${counter-299}&lt;div class=\x22fav-icon-star\x22 title=\x22المفضلة\x22&gt;★&lt;/div&gt;&lt;/button&gt;\n`;counter++;});out+=`&lt;/textarea&gt;&lt;br&gt;&lt;button onclick=\x22document.getElementById('magicCopyArea').select();document.execCommand('copy');alert('✅ تم النسخ! روح الزقهم في موقعك.');document.getElementById('magic-fetcher-overlay').remove();\x22 style='background:#f39c12;color:#000;padding:10px;border:none;cursor:pointer;font-weight:bold;border-radius:6px;'&gt;نسخ الزراير 📋&lt;/button&gt; &lt;button onclick=\x22document.getElementById('magic-fetcher-overlay').remove()\x22 style='background:#ff4757;color:#fff;padding:10px;border:none;cursor:pointer;font-weight:bold;border-radius:6px;'&gt;إغلاق ✖&lt;/button&gt;&lt;/div&gt;`;document.body.insertAdjacentHTML('beforeend',out);})();" style="background: #2ecc71; color: #000; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: bold; display: inline-block; cursor: grab;" title="اسحبني لشريط الإشارات المرجعية فوق">🧲 آلة السحب السحرية</a>
+            </div>
+
+            <button class="modal-btn" style="background: #ff4757; color: white; width: 100%; margin-top: 5px;" onclick="closeFetcherModal()">إغلاق ✖</button>
+        </div>
+    </div>
+
+    <div id="toast" class="">جاري تحديث البث... 🔄</div>
 
     <div class="tv-container" id="main-list">
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-flex;" data-original-index="0"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -315,7 +339,7 @@
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="9">⚽️ Bein 4<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein5/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="10">⚽️ Bein 5<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein6/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="11">⚽️ Bein 6<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein7/')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="12">⚽️ Bein 7<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein7/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="12">⚽️ Bein 7<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein8/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="13">⚽️ Bein 8<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein9/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="14">⚽️ Bein 9<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein10/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="15">⚽️ Bein 10<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -642,9 +666,10 @@
 
 
 
-                 <button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=tv2&amp;p=12&amp;token=59c9463b-0f2d-4e38-8c77-71a2142a62e8&amp;kt=1773867430')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻   SPORT 2 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://can.yalla--shoots.live/bein-premium1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻   BN  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/live.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/at.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 1  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/bt.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 2  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/br.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 3  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/tha1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 4  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/tha3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 5  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'http://egyfilm.online/Egy_film1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 6  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/Egy_film2.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 7  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/Egy_film3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 8  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://ostora.tv/', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 تحميل تطبيق الأسطورة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=uno&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943552', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 sky uno  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=cosm3&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943714', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 costme 3 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864382e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 costme 1 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f686431302e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 sky austra  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b1tr&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943927', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 bein 1 tr  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864352e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 copa 1   <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f6272612f6272312e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 copa 2   <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://online.hd44.com/p/mbc-masr-live-tv.html')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286"> قنوات نايلسات    <div class="fav-icon-star" title="المفضلة">★</div></button></div>
+                 <button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=tv2&amp;p=12&amp;token=59c9463b-0f2d-4e38-8c77-71a2142a62e8&amp;kt=1773867430')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻   SPORT 2 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://can.yalla--shoots.live/bein-premium1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻   BN  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/live.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/at.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 1  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/bt.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 2  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/br.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 3  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/tha1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 4  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/tha3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 5  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'http://egyfilm.online/Egy_film1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 6  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/Egy_film2.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 7  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/Egy_film3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 8  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://ostora.tv/', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 تحميل تطبيق الأسطورة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=uno&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943552', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 sky uno  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=cosm3&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943714', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 costme 3 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864382e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 costme 1 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f686431302e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 sky austra  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b1tr&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943927', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 bein 1 tr  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864352e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 copa 1   <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f6272612f6272312e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 copa 2   <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://online.hd44.com/p/mbc-masr-live-tv.html')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286"> قنوات نايلسات    <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://www.elahmad.com/tv/radiant.php?id=rotana_cinema')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 الاحمد  1<div class="fav-icon-star" title="المفضلة">★</div></button>
+</div>
 
-    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: block;">⬆</button>
+    <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: none;">⬆</button>
 
     <footer>
         <p style="font-size: 22px; font-weight: bold;">© 2027 _ 2026 ENG OMAR TV. All Rights Reserved.</p>
@@ -683,7 +708,6 @@
             }, 7000); 
         }
 
-        // --- دالة تغيير طريقة العرض (قائمة/شبكة) ---
         function toggleViewMode() {
             const container = document.getElementById('main-list');
             const btn = document.getElementById('viewToggleBtn');
@@ -707,7 +731,6 @@
             }
         }
 
-        // --- دالة تطبيق العرض المحفوظ عند فتح الموقع ---
         function applySavedViewMode() {
             const savedMode = localStorage.getItem('viewMode');
             const container = document.getElementById('main-list');
@@ -965,7 +988,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             applySavedTheme();
-            applySavedViewMode(); // تطبيق طريقة العرض المحفوظة
+            applySavedViewMode();
             renderCustomChannels(); 
             startAdhkarTicker();
 
@@ -1025,7 +1048,6 @@
             const themeBtn = document.getElementById('themeToggleBtn');
             if (themeBtn) themeBtn.textContent = isLight ? '☀️ الوضع الفاتح' : '🌙 الوضع الداكن';
             
-            // تحديث لون زرار العرض بناءً على الثيم
             const viewBtn = document.getElementById('viewToggleBtn');
             if(document.getElementById('main-list').classList.contains('list-view')) {
                 if(isLight) {
@@ -1295,5 +1317,102 @@
         function closeMatchesModal() { document.getElementById('matchesModal').style.display = 'none'; }
         function openChatModal() { document.getElementById('chatModal').style.display = 'flex'; }
         function closeChatModal() { document.getElementById('chatModal').style.display = 'none'; }
+
+        // --- دوال الأداة الجديدة (جلب Iframes) ---
+        function openFetcherModal() { document.getElementById('fetcherModal').style.display = 'flex'; }
+        function closeFetcherModal() { 
+            document.getElementById('fetcherModal').style.display = 'none'; 
+            document.getElementById('fetcherResults').innerHTML = ''; 
+            document.getElementById('fetcherUrl').value = '';
+        }
+
+        async function fetchIframes() {
+            let url = document.getElementById('fetcherUrl').value.trim();
+            if(!url) return showToast("حط رابط الصفحة الأول ❌");
+            
+            let resultsDiv = document.getElementById('fetcherResults');
+            let loadingDiv = document.getElementById('fetcherLoading');
+            
+            resultsDiv.innerHTML = '';
+            loadingDiv.style.display = 'block';
+            
+            const proxies = [
+                'https://api.allorigins.win/raw?url=',
+                'https://corsproxy.io/?',
+                'https://api.codetabs.com/v1/proxy?quest='
+            ];
+
+            let htmlText = null;
+            let success = false;
+
+            for (let proxy of proxies) {
+                try {
+                    let response = await fetch(proxy + encodeURIComponent(url));
+                    if (response.ok) {
+                        htmlText = await response.text();
+                        success = true;
+                        break; 
+                    }
+                } catch (e) {
+                    console.log("فشل مسار: " + proxy);
+                }
+            }
+            
+            if (!success || !htmlText) {
+                loadingDiv.style.display = 'none';
+                resultsDiv.innerHTML = '<p style="color: #ff4757; text-align: center; font-weight: bold;">الموقع محمي جداً، استخدم "الزرار الأخضر" (الطريقة التانية) اللي فوق واسحبه لشريط المتصفح ❌</p>';
+                return;
+            }
+
+            try {
+                let parser = new DOMParser();
+                let doc = parser.parseFromString(htmlText, 'text/html');
+                let iframes = doc.querySelectorAll('iframe');
+                let foundLinks = [];
+                
+                iframes.forEach(ifr => {
+                    let src = ifr.getAttribute('src') || ifr.getAttribute('data-src');
+                    if(src && !src.includes('google') && !src.includes('ads') && !src.includes('taboola') && !src.includes('analytics')) {
+                        if(src.startsWith('//')) {
+                            src = 'https:' + src;
+                        } else if(src.startsWith('/')) {
+                            let urlObj = new URL(url);
+                            src = urlObj.origin + src;
+                        }
+                        if(!src.startsWith('http')) src = 'https://' + src; 
+                        foundLinks.push(src);
+                    }
+                });
+
+                loadingDiv.style.display = 'none';
+                foundLinks = [...new Set(foundLinks)];
+
+                if(foundLinks.length === 0) {
+                    resultsDiv.innerHTML = '<p style="color: #ff4757; text-align: center; font-weight: bold;">ملقيناش أي Iframes للسيرفرات جواه ❌</p>';
+                    return;
+                }
+
+                let htmlOut = `<p style="color: #2ecc71; text-align: center; font-weight: bold;">عاش! تم سحب ${foundLinks.length} سيرفر/رابط بنجاح ✅</p>`;
+                
+                foundLinks.forEach((link, idx) => {
+                    htmlOut += `
+                        <div style="background: #333; padding: 10px; border-radius: 8px; margin-bottom: 8px; border: 1px solid #4caac9;">
+                            <input type="text" value="${link}" readonly style="width: 100%; margin-bottom: 8px; padding: 8px; border-radius: 4px; border: none; background: #222; color: #fff; font-size: 13px;" dir="ltr">
+                            <div style="display: flex; gap: 8px;">
+                                <button onclick="closeFetcherModal(); playVideo(null, '${link}')" style="flex: 1; background: #2ecc71; border: none; padding: 8px; border-radius: 4px; color: white; cursor: pointer; font-weight: bold;">تجربة في المشغل ▶️</button>
+                                <button onclick="navigator.clipboard.writeText('${link}'); showToast('تم النسخ 📋')" style="flex: 1; background: #f39c12; border: none; padding: 8px; border-radius: 4px; color: white; cursor: pointer; font-weight: bold;">نسخ الرابط 📋</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                resultsDiv.innerHTML = htmlOut;
+
+            } catch(e) {
+                loadingDiv.style.display = 'none';
+                resultsDiv.innerHTML = '<p style="color: #ff4757; text-align: center; font-weight: bold;">حصلت مشكلة في تحليل الروابط. ❌</p>';
+                console.error(e);
+            }
+        }
     </script>
 </body></html>
