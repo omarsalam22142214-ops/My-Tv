@@ -22,10 +22,12 @@
         .tool-btn { border-color: #f39c12 !important; color: #f39c12; }
         .tool-btn:hover { background-color: #f39c12 !important; color: #000 !important; }
 
-        /* --- تنسيق حاوية البحث والترتيب --- */
-        .search-sort-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 0 auto 20px auto; width: 90%; max-width: 600px; }
-        #searchInput { flex: 1; min-width: 200px; padding: 12px; border-radius: 25px; border: 2px solid #4caac9; background: #222; color: white; text-align: center; font-size: 16px; outline: none; }
+        /* --- تنسيق حاوية البحث والترتيب والزرار الجديد --- */
+        .search-sort-container { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 0 auto 20px auto; width: 90%; max-width: 600px; align-items: center; }
+        #searchInput { flex: 1; min-width: 150px; padding: 12px; border-radius: 25px; border: 2px solid #4caac9; background: #222; color: white; text-align: center; font-size: 16px; outline: none; }
         #sortSelect { padding: 12px; border-radius: 25px; border: 2px solid #4caac9; background: #222; color: white; text-align: center; font-size: 16px; outline: none; cursor: pointer; }
+        #viewToggleBtn { padding: 12px 20px; border-radius: 25px; border: 2px solid #4caac9; background: #222; color: white; outline: none; cursor: pointer; font-size: 16px; font-weight: bold; transition: 0.3s; }
+        #viewToggleBtn:hover { background: #4caac9; color: #000; }
 
         #adhkar-ticker { background: linear-gradient(90deg, #111, #222, #111); color: #ffeb3b; padding: 12px; margin: 15px auto; width: 90%; max-width: 600px; border-radius: 8px; border: 1px solid #4caac9; font-size: 18px; font-weight: bold; box-shadow: 0 4px 8px rgba(0,0,0,0.5); }
         #adhkar-text { display: inline-block; transition: opacity 0.5s ease-in-out; opacity: 1; }
@@ -92,10 +94,7 @@
             -moz-appearance: none;
             appearance: none;
         }
-        #quality-selector option {
-            background: #222;
-            color: #fff;
-        }
+        #quality-selector option { background: #222; color: #fff; }
 
         /* وضع السينما */
         body.theater-active { overflow: hidden; }
@@ -114,12 +113,12 @@
             height: 100vh !important; border-radius: 0 !important; border: none !important;
         }
 
-        /* المشغل المصغر (Floating Player) */
+        /* المشغل المصغر */
         .pinned-player { position: fixed !important; bottom: 20px !important; right: 20px !important; left: auto !important; top: auto !important; width: 350px !important; height: auto !important; z-index: 999999 !important; margin: 0 !important; }
         @media (max-width: 480px) { .pinned-player { width: 250px !important; } }
         .pinned-player .player-controls { display: none !important; } 
 
-        /* --- شبكة القنوات --- */
+        /* --- شبكة القنوات (الوضع الافتراضي) --- */
         .tv-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px; padding: 20px; background-color: #000200; justify-items: center; max-width: 100%; margin: 0 auto; border-radius: 10px; }
         .tv-box { width: 70px !important; height: 70px !important; border-radius: 50%; background-size: contain; background-color: white; background-repeat: no-repeat; background-position: center; box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.5); transition: transform 0.3s; border: 2px solid transparent; display: inline-flex; justify-content: center; align-items: center; cursor: pointer; position: relative; text-decoration: none; color: #000; font-size: 11px; font-weight: bold; overflow: hidden;}
         .tv-box:hover { transform: scale(1.1); z-index: 2; }
@@ -130,11 +129,53 @@
         .is-fav { border-color: #ffcc00 !important; }
         .is-fav .fav-icon-star { color: #ffcc00; border-color: #ffcc00; }
 
+        /* --- طريقة عرض القائمة الطولية (List View) --- */
+        .tv-container.list-view {
+            display: flex !important;
+            flex-direction: column;
+            padding: 10px;
+            background-color: transparent !important;
+        }
+        .tv-container.list-view .tv-box, 
+        .tv-container.list-view .match-btn {
+            width: 100% !important;
+            height: auto !important;
+            min-height: 60px;
+            border-radius: 10px;
+            display: flex !important;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 10px 20px;
+            box-sizing: border-box;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+        .tv-container.list-view .tv-box {
+            background-position: right 15px center !important;
+            background-size: 40px !important;
+            background-color: #222 !important;
+            border: 1px solid #4caac9;
+            color: #fff !important; 
+        }
+        body.light-theme .tv-container.list-view .tv-box { background-color: #fff !important; color: #111 !important; }
+        .tv-container.list-view .tv-box::after {
+            content: attr(title);
+            margin-right: 60px; 
+            font-weight: bold;
+        }
+        .tv-container.list-view .match-btn { text-align: right; padding-right: 20px; }
+        .tv-container.list-view .fav-icon-star {
+            top: 50%;
+            transform: translateY(-50%);
+            left: 15px;
+            right: auto;
+        }
+
         /* --- الوضع الفاتح --- */
         .theme-toggle-btn { background: rgba(255,255,255,0.08); color: #fff; border: 2px solid #4caac9; border-radius: 12px; padding: 10px 16px; cursor: pointer; font-weight: bold; transition: 0.3s ease; }
         body.light-theme { background: linear-gradient(180deg, #f6fbff 0%, #eaf4fb 100%); color: #111; }
         body.light-theme h2, body.light-theme #live-clock { color: #111 !important; text-shadow: none !important; }
-        body.light-theme .cat-btn, body.light-theme .theme-toggle-btn, body.light-theme #searchInput, body.light-theme #sortSelect { background: #fff !important; color: #111 !important; border-color: #4caac9 !important; }
+        body.light-theme .cat-btn, body.light-theme .theme-toggle-btn, body.light-theme #searchInput, body.light-theme #sortSelect, body.light-theme #viewToggleBtn { background: #fff !important; color: #111 !important; border-color: #4caac9 !important; }
         body.light-theme .active-cat { background: #4caac9 !important; color: #000 !important; }
         body.light-theme .tv-container { background-color: rgba(255,255,255,0.7) !important; }
         body.light-theme .tv-box { color: #111; }
@@ -159,7 +200,7 @@
 <body class="">
 
     <h2>📺 MY TV VIP</h2>
-    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: 9:06:48 AM</div>
+    <div id="live-clock" style="color: #4caac9; font-size: 18px; font-weight: bold; margin-bottom: 15px;">⏱ توقيت البث: 9:27:39 AM</div>
 
     <div class="control-group">
         <button onclick="filterChannels('all')" class="cat-btn active-cat">🌐 الكل</button>
@@ -191,10 +232,11 @@
             <option value="az">🔤 ترتيب أبجدي (أ - ي)</option>
             <option value="za">🔤 ترتيب أبجدي (ي - أ)</option>
         </select>
+        <button id="viewToggleBtn" onclick="toggleViewMode()" title="تغيير طريقة العرض" style="background: rgb(34, 34, 34); color: rgb(255, 255, 255);">🔣 قايمة</button>
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1;">سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ</span>
+        <span id="adhkar-text" style="opacity: 1;">رَضِيتُ بِاللَّهِ رَبًّا، وَبِالْإِسْلَامِ دِينًا، وَبِمُحَمَّدٍ نَبِيًّا</span>
     </div>
 
     <div id="media-wrapper" style="display: none;" class="">
@@ -210,13 +252,15 @@
             <button onclick="closePlayer()" style="background: #ff4757; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="إغلاق المشغل">✖</button>
         </div>
 
-        <div id="quality-badge" style="display: none;">📺 الجودة: جاري التحقق...</div>
-        <select id="quality-selector" style="display: none;" onchange="changeVideoQuality(this.value)"><option value="-1">📺 الجودة: Auto</option><option value="0">360p</option><option value="1">480p</option><option value="2">720p</option><option value="3">1080p</option></select>
+        <div id="quality-badge" style="display: none;">📻 راديو مباشر</div>
+        <select id="quality-selector" style="display: none;" onchange="changeVideoQuality(this.value)">
+            <option value="-1">📺 الجودة: Auto</option>
+        </select>
         
-        <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ البث شغال</div>
+        <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ مشغل الصوت جاهز</div>
 
-        <video id="my-player" class="" controls="" style="background: #000;"></video>
-        <iframe id="iframe-player" class="hidden" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red;"></iframe>
+        <video id="my-player" class="hidden" controls="" style="background: #000;"></video>
+        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-forms allow-presentation" src="" style="border: 10px solid red;"></iframe>
     </div>
 
     <div id="addModal" class="modal-overlay" style="display: none;">
@@ -256,14 +300,14 @@
         </div>
     </div>
 
-    <div id="toast" class="">تم تغيير الجودة إلى 360p 📺</div>
+    <div id="toast" class="">تم الحذف من المفضلة ❌</div>
 
     <div class="tv-container" id="main-list">
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-flex;" data-original-index="0"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="1">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="2">📺 1 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/bn222/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="3">📺 2 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn3/')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="4">📺 3 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn3/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="4">📺 3 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/1bnnn4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="5">📺 4 داخلي<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="6">⚽️ Bein 1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein2/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="7">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -271,7 +315,7 @@
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="9">⚽️ Bein 4<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein5/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="10">⚽️ Bein 5<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein6/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="11">⚽️ Bein 6<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein7/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="12">⚽️ Bein 7<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein7/')" class="cat-btn match-btn is-fav" style="display: inline-flex;" data-original-index="12">⚽️ Bein 7<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein8/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="13">⚽️ Bein 8<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein9/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="14">⚽️ Bein 9<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein10/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="15">⚽️ Bein 10<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -598,7 +642,7 @@
 
 
 
-                 <button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=tv2&amp;p=12&amp;token=59c9463b-0f2d-4e38-8c77-71a2142a62e8&amp;kt=1773867430')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻   SPORT 2 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://can.yalla--shoots.live/bein-premium1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻   BN  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/live.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/at.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 1  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/bt.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 2  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/br.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 3  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/tha1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 4  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/tha3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 5  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'http://egyfilm.online/Egy_film1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 6  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/Egy_film2.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 7  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/Egy_film3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 8  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://ostora.tv/', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 تحميل تطبيق الأسطورة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=uno&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943552', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 sky uno  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=cosm3&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943714', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 costme 3 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864382e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 costme 1 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f686431302e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 sky austra  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b1tr&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943927', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 bein 1 tr  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864352e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 copa 1   <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f6272612f6272312e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 copa 2   <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://online.hd44.com/p/mbc-masr-live-tv.html', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286"> قنوات نايلسات    <div class="fav-icon-star" title="المفضلة">★</div></button></div>
+                 <button onclick="playVideo(this, 'https://vsys.kora-top.zip/frame.php?ch=tv2&amp;p=12&amp;token=59c9463b-0f2d-4e38-8c77-71a2142a62e8&amp;kt=1773867430')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻   SPORT 2 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://can.yalla--shoots.live/bein-premium1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻   BN  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/live.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/at.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 1  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/bt.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 2  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/br.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 3  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/tha1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 4  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://on-tv.site/tha3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 5  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'http://egyfilm.online/Egy_film1.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 6  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/Egy_film2.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 7  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://egyfilm.online/Egy_film3.php')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="285">📻  EGY SPORRTT 8  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://ostora.tv/', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 تحميل تطبيق الأسطورة<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=uno&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943552', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 sky uno  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=cosm3&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943714', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 costme 3 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864382e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 costme 1 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f686431302e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 sky austra  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b1tr&amp;p=12&amp;token=20db5534-5016-4ae0-b4e7-67daacb97d0f&amp;kt=1773943927', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 bein 1 tr  <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f68642f6864352e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 copa 1   <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="window.open('https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77312e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f6272612f6272312e706870&amp;s=1', '_blank')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286">📱 copa 2   <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://online.hd44.com/p/mbc-masr-live-tv.html')" class="cat-btn match-btn" style="display: inline-flex; border-color: rgb(46, 204, 113); color: rgb(46, 204, 113);" data-original-index="286"> قنوات نايلسات    <div class="fav-icon-star" title="المفضلة">★</div></button></div>
 
     <button id="scrollTopBtn" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" style="display: block;">⬆</button>
 
@@ -637,6 +681,44 @@
                     adhkarElement.style.opacity = 1;
                 }, 500);
             }, 7000); 
+        }
+
+        // --- دالة تغيير طريقة العرض (قائمة/شبكة) ---
+        function toggleViewMode() {
+            const container = document.getElementById('main-list');
+            const btn = document.getElementById('viewToggleBtn');
+            
+            container.classList.toggle('list-view');
+            const isListView = container.classList.contains('list-view');
+            
+            localStorage.setItem('viewMode', isListView ? 'list' : 'grid');
+            
+            if (isListView) {
+                btn.innerHTML = '🔲 شبكة';
+                if(document.body.classList.contains('light-theme')) {
+                    btn.style.background = '#fff';
+                    btn.style.color = '#111';
+                } else {
+                    btn.style.background = '#222';
+                    btn.style.color = '#fff';
+                }
+            } else {
+                btn.innerHTML = '🔣 قايمة';
+            }
+        }
+
+        // --- دالة تطبيق العرض المحفوظ عند فتح الموقع ---
+        function applySavedViewMode() {
+            const savedMode = localStorage.getItem('viewMode');
+            const container = document.getElementById('main-list');
+            const btn = document.getElementById('viewToggleBtn');
+            
+            if (savedMode === 'list' && container) {
+                container.classList.add('list-view');
+                if(btn) {
+                    btn.innerHTML = '🔲 شبكة';
+                }
+            }
         }
 
         function renderCustomChannels() {
@@ -803,7 +885,7 @@
 
         function injectFavStars() {
             document.querySelectorAll('.tv-box, .match-btn').forEach(ch => {
-                if (ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn') return;
+                if (ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn') return;
                 
                 let onclickStr = ch.getAttribute('onclick') || '';
                 let urlMatch = onclickStr.match(/['"](.*?)['"]/);
@@ -883,6 +965,7 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             applySavedTheme();
+            applySavedViewMode(); // تطبيق طريقة العرض المحفوظة
             renderCustomChannels(); 
             startAdhkarTicker();
 
@@ -909,7 +992,7 @@
             event.currentTarget.classList.add('active-cat');
             
             document.querySelectorAll('.tv-box, .match-btn').forEach(ch => {
-                if (ch.closest('.category-buttons') || ch.closest('#last-channel-container') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn') return;
+                if (ch.closest('.category-buttons') || ch.closest('#last-channel-container') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn') return;
                 
                 if (category === 'all') {
                     ch.style.display = "inline-flex";
@@ -924,7 +1007,7 @@
         function searchChannels() { 
             let input = document.getElementById('searchInput').value.toLowerCase(); 
             document.querySelectorAll('.tv-box, .match-btn').forEach(ch => { 
-                if(ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn') return;
+                if(ch.closest('.category-buttons') || ch.id === 'themeToggleBtn' || ch.id === 'scrollTopBtn' || ch.id === 'favBtn' || ch.id === 'viewToggleBtn') return;
                 ch.style.display = (ch.getAttribute('title') || ch.textContent || "").toLowerCase().includes(input) ? "inline-flex" : "none"; 
             }); 
         }
@@ -941,6 +1024,18 @@
             localStorage.setItem('site-theme', isLight ? 'light' : 'dark');
             const themeBtn = document.getElementById('themeToggleBtn');
             if (themeBtn) themeBtn.textContent = isLight ? '☀️ الوضع الفاتح' : '🌙 الوضع الداكن';
+            
+            // تحديث لون زرار العرض بناءً على الثيم
+            const viewBtn = document.getElementById('viewToggleBtn');
+            if(document.getElementById('main-list').classList.contains('list-view')) {
+                if(isLight) {
+                    viewBtn.style.background = '#fff';
+                    viewBtn.style.color = '#111';
+                } else {
+                    viewBtn.style.background = '#222';
+                    viewBtn.style.color = '#fff';
+                }
+            }
         }
 
         setInterval(() => { 
@@ -965,7 +1060,7 @@
 
         function autoPlayNextServer() {
             if (!currentPlayingElement) return;
-            let allChannels = Array.from(document.querySelectorAll('.tv-box, .match-btn')).filter(ch => !ch.closest('.control-group') && ch.id !== 'themeToggleBtn' && ch.id !== 'scrollTopBtn');
+            let allChannels = Array.from(document.querySelectorAll('.tv-box, .match-btn')).filter(ch => !ch.closest('.control-group') && ch.id !== 'themeToggleBtn' && ch.id !== 'scrollTopBtn' && ch.id !== 'viewToggleBtn');
             let currentIndex = allChannels.indexOf(currentPlayingElement);
             
             if (currentIndex > -1 && currentIndex + 1 < allChannels.length) {
@@ -982,7 +1077,6 @@
             }
         }
 
-        // --- دالة تغيير الجودة يدوياً ---
         function changeVideoQuality(levelIndex) {
             if (hlsInstance) {
                 hlsInstance.currentLevel = parseInt(levelIndex);
@@ -1017,7 +1111,6 @@
             let pipBtn = document.getElementById('pip-btn');
             if (pipBtn) pipBtn.style.display = 'none';
             
-            // 1. لو اللينك فيديو HLS (m3u8)
             if (finalUrl.includes('.m3u8') || finalUrl.includes('.ts') || finalUrl.includes('.m3u')) {
                 iframeVideo.classList.add('hidden'); 
                 videoPlayer.classList.remove('hidden');
@@ -1047,11 +1140,9 @@
                         streamStatus.style.color = '#00ff00';
                         streamStatus.style.borderColor = '#00ff00';
 
-                        // برمجة قايمة الجودة بعد ما يقرأ البث
                         if (hlsInstance.levels && hlsInstance.levels.length > 1) {
                             qualityBadge.style.display = 'none'; 
                             qualitySelector.innerHTML = '<option value="-1">📺 الجودة: Auto</option>'; 
-                            
                             hlsInstance.levels.forEach((level, index) => {
                                 qualitySelector.innerHTML += `<option value="${index}">${level.height}p</option>`;
                             });
@@ -1093,7 +1184,6 @@
                     };
                 }
             } 
-            // 2. لو اللينك راديو أو صوت 
             else if (finalUrl.includes('anisfm') || finalUrl.includes('dpdns') || finalUrl.includes('.mp3') || finalUrl.includes('radiojar')) {
                 videoPlayer.classList.add('hidden'); 
                 iframeVideo.classList.remove('hidden');
@@ -1128,7 +1218,6 @@
                 iframeVideo.src = 'data:text/html;charset=utf-8,' + encodeURIComponent(audioHtml);
                 document.getElementById('external-open-btn').style.display = 'inline-block';
             }
-            // 3. لو كان لينك عادي لموقع هيفتح في Iframe
             else {
                 videoPlayer.classList.add('hidden'); 
                 iframeVideo.classList.remove('hidden');
@@ -1206,66 +1295,5 @@
         function closeMatchesModal() { document.getElementById('matchesModal').style.display = 'none'; }
         function openChatModal() { document.getElementById('chatModal').style.display = 'flex'; }
         function closeChatModal() { document.getElementById('chatModal').style.display = 'none'; }
-        
-        async function loadIPTVPlaylist(url) {
-            let listContainer = document.getElementById('main-list');
-            
-            let loadingMsg = document.createElement('div');
-            loadingMsg.id = 'loading-iptv';
-            loadingMsg.style.cssText = "width: 100%; color: #4caac9; font-size: 18px; font-weight: bold; margin: 20px 0; grid-column: 1 / -1;";
-            loadingMsg.innerText = "جاري سحب القنوات... ⏳";
-            listContainer.prepend(loadingMsg);
-
-            let proxyUrl = 'https://api.allorigins.win/raw?url=' + encodeURIComponent(url);
-
-            try {
-                let response = await fetch(proxyUrl);
-                let data = await response.text();
-                
-                let lines = data.split('\n');
-                let channelsHtml = '';
-                let currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
-                let currentName = 'قناة غير معروفة';
-
-                for (let i = 0; i < lines.length; i++) {
-                    let line = lines[i].trim();
-                    
-                    if (line.startsWith('#EXTINF')) {
-                        let logoMatch = line.match(/tvg-logo="([^"]+)"/);
-                        if(logoMatch && logoMatch[1]) {
-                            currentLogo = logoMatch[1];
-                        } else {
-                            currentLogo = 'https://cdn-icons-png.flaticon.com/512/1006/1006517.png';
-                        }
-                        
-                        let parts = line.split(',');
-                        if(parts.length > 1) {
-                            currentName = parts[1].trim();
-                        }
-                    } 
-                    else if (line.startsWith('http')) {
-                        let streamUrl = line;
-                        channelsHtml += `
-                        <a href="javascript:void(0)" class="tv-box" data-category="sports" 
-                           onclick="playVideo(this, '${streamUrl}')" 
-                           style="background-image: url('${currentLogo}'); display: inline-flex;" 
-                           title="${currentName}">
-                        </a>`;
-                    }
-                }
-
-                document.getElementById('loading-iptv').remove();
-                listContainer.innerHTML += channelsHtml;
-                
-                injectFavStars();
-                initChannelsIndex();
-                
-                alert('تم سحب القنوات بنجاح يا هندسة! 🚀');
-
-            } catch (error) {
-                document.getElementById('loading-iptv').innerText = "فشل سحب القنوات.";
-                console.error(error);
-            }
-        }
     </script>
 </body></html>
