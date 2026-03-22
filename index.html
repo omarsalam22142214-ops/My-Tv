@@ -187,11 +187,11 @@
         footer { background-color: #333; padding: 20px; text-align: center; color: #fff; margin-top: 40px; border-top: 3px solid #4caac9; }
         #scrollTopBtn { display: none; position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: #4caac9; color: #000; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 24px; cursor: pointer; }
     </style>
-<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
+<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>undefined</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"></head>
 <body class="">
 
     <h2 style="direction: rtl;">📺 MY TV VIP</h2>
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 8:36:04 AM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 5:13:54 PM</div>
 
     <div class="control-group">
         <button onclick="filterChannels('all')" class="cat-btn active-cat" style="direction: rtl;">🌐 الكل</button>
@@ -220,7 +220,7 @@
 
     <div id="last-channel-container" style="margin-bottom: 15px;"><button class="cat-btn match-btn" style="background:#2ecc71; color:#fff;" onclick="playLast()">▶️ تشغيل آخر قناة وقفت عليها</button></div>
 
-    <div class="search-sort-container">
+    <div id="last-channel-container" style="margin-bottom: 15px;"><button class="cat-btn match-btn" style="background:#2ecc71; color:#fff;" onclick="playLast()">▶️ تشغيل آخر قناة وقفت عليها</button></div><div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." _mstplaceholder="13745225" style="direction: rtl;" data-ddg-inputtype="unknown">
         <select id="sortSelect" onchange="sortChannels()" data-ddg-inputtype="unknown">
             <option value="default" style="direction: rtl;">📌 الترتيب الافتراضي</option>
@@ -231,7 +231,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ</span>
+        <span id="adhkar-text" style="opacity: 0; direction: rtl;">سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;" class="">
@@ -285,7 +285,7 @@
             <input type="text" id="editChName" placeholder="اكتب الاسم هنا..." data-ddg-inputtype="unknown">
             
             <label style="display:block; text-align:right; margin-bottom:5px; color:#fff;">حجم الأيقونة (بالبيكسل):</label>
-            <input type="number" id="editChSize" placeholder="الافتراضي 70" value="70">
+            <input type="number" id="editChSize" placeholder="الافتراضي 70" value="70" data-ddg-inputtype="unknown">
             
             <div class="modal-actions" style="display: flex; gap: 10px; margin-top: 10px;">
                 <button class="modal-btn" style="background: #2ecc71; color: white; width: 50%;" onclick="saveChannelEdit()">حفظ التعديل</button>
@@ -341,7 +341,7 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تم إيقاف وضع التعديل ✅</div>
+    <div id="toast" class="" style="direction: rtl;">تمت الإضافة مؤقتاً وهتتلغي مع التحديث ✅</div>
 
     <div class="tv-container" id="main-list">
         <a href="javascript:void(0)" class="tv-box is-fav" onclick="playVideo(this, 'https://surahquran.com/')" style="background-image: url(&quot;https://e7.pngegg.com/pngimages/706/613/png-clipart-quran-quran.png&quot;); display: inline-flex;" data-original-index="0"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -351,7 +351,8 @@
 
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/bn3/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="4" title="📺 3">📺 3<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/bn4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="5" title="📺 4">📺 4<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="6">⚽️ Bein 1<div class="fav-icon-star" title="المفضلة">★</div></button>
+        <button onclick="playVideo(this, 'https://plir.bein4kora.com/albaplayer/bn4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="5" title="📺 4">📺 5 <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://vip.kora-top.zip/frame.php?ch=b6&amp;p=12&amp;token=9d65007f-e5b3-40ce-9fc8-9c197deca427&amp;kt=1774189929')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺6 <div class="fav-icon-star" title="المفضلة">★</div></button>
+<button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein1/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="6">⚽️ Bein 1<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein2/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="7">⚽️ Bein 2<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein3/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="8">⚽️ Bein 3<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://top.coooss.online/albaplayer/bein4/')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="9">⚽️ Bein 4<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -490,8 +491,8 @@
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://ar.kora-top.zip/frame.php?ch=b2&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773511591', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-flex;" data-original-index="120"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vsys.kora-top.zip/frame.php?ch=b3&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773534340', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-flex;" data-original-index="121"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b4&amp;p=12&amp;token=161d6761-a147-4e94-8bc8-eabf372367ec&amp;kt=1773586545', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-flex;" data-original-index="122"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://yalla.kora-top.zip/frame.php?ch=b5&amp;p=12&amp;token=de5abe12-ce15-47b2-9588-f16cb3889188&amp;kt=1773586485', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-flex;" data-original-index="123"><div class="fav-icon-star" title="المفضلة">★</div></a>
-        <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://streamcrichd.com/update/wwe.php')" style="background-image: url(&quot;https://i.imgur.com/SmAq8yM.png&quot;); display: inline-flex;" data-original-index="124"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b6&amp;p=12&amp;token=9d65007f-e5b3-40ce-9fc8-9c197deca427&amp;kt=1774189929', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-flex;" data-original-index="123"><div class="fav-icon-star" title="المفضلة">★</div></a>
+        <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://vip.kora-top.zip/frame.php?ch=b6&amp;p=12&amp;token=9d65007f-e5b3-40ce-9fc8-9c197deca427&amp;kt=1774189929', '_blank')" style="background-image: url(&quot;https://i.imgur.com/TTxh9tZ.png&quot;); display: inline-flex;" data-original-index="123"><div class="fav-icon-star" title="المفضلة">★</div></a><a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://streamcrichd.com/update/wwe.php')" style="background-image: url(&quot;https://i.imgur.com/SmAq8yM.png&quot;); display: inline-flex;" data-original-index="124"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="window.open('https://live4m.com/livetv.php?channel=a29_USA_Network_Orig&amp;heading=USA_Network', '_blank')" style="background-image: url(&quot;https://assets.bein.com/mena/sites/3/2015/06/bein_SPORTS_FTA_DIGITAL_Mono.png&quot;); display: inline-flex;" data-original-index="125"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://16.wwwkoora.com/albaplayer/bein-sports-hd-6/?serv=1/')" style="background-image: url(&quot;https://assets.bein.com/mena/sites/3/2015/06/bein_SPORTS_FTA_DIGITAL_Mono.png&quot;); display: inline-flex;" data-original-index="126"><div class="fav-icon-star" title="المفضلة">★</div></a>
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://www.sawlivenow.com/embed/ch85_HD/')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-flex;" data-original-index="127"><div class="fav-icon-star" title="المفضلة">★</div></a>
@@ -725,6 +726,7 @@
 
 
 
+<button onclick="playVideo(this, 'https://www.elahmad.com/tv/radiant.php?id=zamalek')" class="cat-btn match-btn custom-user-ch" data-category="all" style="display: inline-flex;" title="Zam" data-original-index="309">Zam<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://www.elahmad.com/tv/radiant.php?id=MasperoZaman')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300"> Maspero Zaman  <div class="fav-icon-star" title="المفضلة">★</div></button>
 </div>
 
     <script>
@@ -1809,5 +1811,6 @@
             }
         }
     </script>
+
 
 </body></html>
