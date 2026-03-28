@@ -269,7 +269,7 @@
         <div class="netflix-logo">MY TV</div>
     </div>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 3:21:19 AM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 3:38:44 AM</div>
 
     <div class="control-group">
         <button onclick="filterChannels('all')" class="cat-btn active-cat" style="direction: rtl;">🌐 الكل</button>
@@ -1242,26 +1242,29 @@
             }
         }
 
-        function toggleAdBlock() {
-            isAdBlockActive = !isAdBlockActive;
-            let btn = document.getElementById('adblock-btn');
-            let iframe = document.getElementById('iframe-player');
-            
-            if (isAdBlockActive) {
-                btn.style.background = "#e74c3c";
-                iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-presentation');
-                showToast("تم تشغيل درع الإعلانات 🛡️ (لو البث علق، اطفيه)");
-            } else {
-                btn.style.background = "#34495e";
-                iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-forms allow-presentation');
-                showToast("تم إيقاف درع الإعلانات ⚠️");
-            }
-            
-            if(iframe.src && iframe.src !== "" && !iframe.classList.contains('hidden')){
-                let tempSrc = iframe.src;
-                iframe.src = tempSrc;
-            }
-        }
+        
+          function toggleAdBlock() {
+    isAdBlockActive = !isAdBlockActive;
+    let btn = document.getElementById('adblock-btn');
+    let iframe = document.getElementById('iframe-player');
+    
+    if (isAdBlockActive) {
+        btn.style.background = "#e74c3c";
+        // هنا الحماية شغالة (مفيش popups)
+        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-presentation');
+        showToast("تم تشغيل درع الإعلانات 🛡️ (لو البث علق، اطفيه)");
+    } else {
+        btn.style.background = "#34495e";
+        // هنا الحماية مطفية (مسموح بالـ popups عشان السيرفرات تفتح)
+        iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-presentation allow-top-navigation-by-user-activation');
+        showToast("تم إيقاف درع الإعلانات ⚠️");
+    }
+    
+    if(iframe.src && iframe.src !== "" && !iframe.classList.contains('hidden')){
+        let tempSrc = iframe.src;
+        iframe.src = tempSrc;
+    }
+}
 
         function copyChannelLink() {
             if(currentPlayingUrl) {
