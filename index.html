@@ -262,14 +262,14 @@
         footer { background-color: #333; padding: 20px; text-align: center; color: #fff; margin-top: 40px; border-top: 3px solid #4caac9; }
         #scrollTopBtn { display: none; position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: #4caac9; color: #000; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 24px; cursor: pointer; }
     </style>
-<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
+<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><link rel="preconnect" href="https://fonts.googleapis.com" crossorigin="use-credentials"><link rel="preconnect" href="https://fonts.gstatic.com"><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&amp;display=swa"></head>
 <body class="">
 
     <div style="text-align: center; direction: ltr;">
         <div class="netflix-logo">MY TV</div>
     </div>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 2:09:15 PM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 2:40:13 PM</div>
 
     <div class="control-group">
         <button onclick="filterChannels('all')" class="cat-btn active-cat" style="direction: rtl;">🌐 الكل</button>
@@ -297,7 +297,7 @@
         
         <button onclick="openExternalModal()" class="cat-btn tool-btn" style="border-color: #ff9f43; color: #ff9f43; direction: rtl; background: transparent;">🔗 تشغيل رابط خارجي</button>
 
-        
+        <button onclick="openTop50Modal()" class="cat-btn tool-btn" style="border-color: #ff9f43; color: #ff9f43; direction: rtl; background: transparent;">🌐 أشهر 50 موقع بث</button>
 
         <button id="themeToggleBtn" type="button" class="theme-toggle-btn" onclick="toggleTheme()" style="direction: rtl;">🌙 الوضع الداكن</button>
 
@@ -318,7 +318,7 @@
 </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 0; direction: rtl;">سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ</span>
+        <span id="adhkar-text" style="opacity: 1; direction: rtl;">الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;" class="">
@@ -889,19 +889,83 @@
         </div>
     </div>
 
-    <div id="topSitesModal" class="modal-overlay" style="display: none;">
-        <div class="modal-content" style="border-color: #ff4757; box-shadow: 0 10px 25px rgba(255, 71, 87, 0.3);">
-            <h3 style="text-align: center; color: #ff4757; margin-top:0;">🔥 أقوى مواقع البث</h3>
-            <p style="text-align: center; color: #ccc; font-size: 13px;">(تقدر تستخدم آلة سحب الـ Iframes وتحط الروابط هنا في الكود)</p>
+    <div id="top50Modal" class="modal-overlay" style="display: none;">
+        <div class="modal-content" style="max-height: 85vh; overflow-y: auto; width: 95%; max-width: 650px; border-color: #ff9f43;">
+            <h3 style="text-align: center; color: #ff9f43; margin-top:0;">🔥 أشهر 50 موقع ومنصة بث مباشر</h3>
+            <p style="text-align: center; color: #ccc; font-size: 13px;">(اضغط على اسم الموقع للبحث عنه مباشرة وسحب أحدث الروابط)</p>
             
-            <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 15px;">
-                <button onclick="playVideo(this, 'حط_رابط_يلا_شوت_هنا')" class="cat-btn match-btn" style="background: rgb(34, 34, 34); border-color: rgb(46, 204, 113); text-align: right; padding-right: 20px; display: inline-flex;">⚽ يلا شوت (Yalla Shoot)<div class="fav-icon-star" title="المفضلة">★</div></button>
-                <button onclick="playVideo(this, 'حط_رابط_كورة_لايف_هنا')" class="cat-btn match-btn" style="background: rgb(34, 34, 34); border-color: rgb(52, 152, 219); text-align: right; padding-right: 20px; display: inline-flex;">⚽ كورة لايف (Koora Live)<div class="fav-icon-star" title="المفضلة">★</div></button>
-                <button onclick="playVideo(this, 'حط_رابط_الاسطورة_هنا')" class="cat-btn match-btn" style="background: rgb(34, 34, 34); border-color: rgb(241, 196, 15); text-align: right; padding-right: 20px; display: inline-flex;">⚽ الأسطورة لايف (Livehd7)<div class="fav-icon-star" title="المفضلة">★</div></button>
-                <button onclick="playVideo(this, 'حط_رابط_كورة_سيتي_هنا')" class="cat-btn match-btn" style="background: rgb(34, 34, 34); border-color: rgb(155, 89, 182); text-align: right; padding-right: 20px; display: inline-flex;">⚽ كورة سيتي (Koora City)<div class="fav-icon-star" title="المفضلة">★</div></button>
+            <div style="text-align: right; margin-top: 15px;">
+                
+                <h4 style="color: #4caac9; margin-bottom: 10px; border-bottom: 1px solid #4caac9; padding-bottom: 5px;">⚽ مواقع مباريات رياضية (12 موقع)</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start;">
+                    <a href="https://www.google.com/search?q=موقع+يلا+شوت+بث+مباشر" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">يلا شوت (Yalla Shoot)</a>
+                    <a href="https://www.google.com/search?q=موقع+كورة+لايف+بث+مباشر" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">كورة لايف</a>
+                    <a href="https://www.google.com/search?q=موقع+الاسطورة+لبث+المباريات" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">الأسطورة لايف</a>
+                    <a href="https://www.google.com/search?q=موقع+كورة+سيتي" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">كورة سيتي</a>
+                    <a href="https://www.google.com/search?q=موقع+كورة+ستار" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">كورة ستار</a>
+                    <a href="https://www.google.com/search?q=موقع+ايجي+لايف+مباريات" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">إيجي لايف</a>
+                    <a href="https://www.google.com/search?q=موقع+جول+العرب" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">جول العرب</a>
+                    <a href="https://www.google.com/search?q=موقع+يلا+كورة+لايف" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">يلا كورة لايف</a>
+                    <a href="https://www.google.com/search?q=ياسين+تيفي+بث+مباشر" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">ياسين تيفي (Yacine)</a>
+                    <a href="https://www.google.com/search?q=كورة+اون+لاين" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">كورة اون لاين</a>
+                    <a href="https://www.google.com/search?q=موقع+كورة+365" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">كورة 365</a>
+                    <a href="https://www.google.com/search?q=يلا+شوت+توداي" target="_blank" class="cat-btn match-btn" style="background:#222; text-decoration:none;">يلا شوت توداي</a>
+                </div>
+
+                <h4 style="color: #e84393; margin-top: 15px; margin-bottom: 10px; border-bottom: 1px solid #e84393; padding-bottom: 5px;">🎬 مواقع أفلام ومسلسلات (8 مواقع)</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start;">
+                    <a href="https://www.google.com/search?q=موقع+ايجي+بست+الاصلي" target="_blank" class="cat-btn tool-btn" style="background:#222; text-decoration:none;">إيجي بست (EgyBest)</a>
+                    <a href="https://www.google.com/search?q=موقع+وي+سيما" target="_blank" class="cat-btn tool-btn" style="background:#222; text-decoration:none;">وي سيما (WeCima)</a>
+                    <a href="https://www.google.com/search?q=موقع+اكوام" target="_blank" class="cat-btn tool-btn" style="background:#222; text-decoration:none;">أكوام (Akoam)</a>
+                    <a href="https://www.google.com/search?q=موقع+عرب+سيد" target="_blank" class="cat-btn tool-btn" style="background:#222; text-decoration:none;">عرب سيد</a>
+                    <a href="https://www.google.com/search?q=موقع+شاهد+فور+يو" target="_blank" class="cat-btn tool-btn" style="background:#222; text-decoration:none;">شاهد فور يو</a>
+                    <a href="https://www.google.com/search?q=موقع+سيما+كلوب" target="_blank" class="cat-btn tool-btn" style="background:#222; text-decoration:none;">سيما كلوب</a>
+                    <a href="https://www.google.com/search?q=موقع+فاصل+اعلاني" target="_blank" class="cat-btn tool-btn" style="background:#222; text-decoration:none;">فاصل إعلاني</a>
+                    <a href="https://www.google.com/search?q=موقع+سيما+فور+يو" target="_blank" class="cat-btn tool-btn" style="background:#222; text-decoration:none;">سيما فور يو</a>
+                </div>
+
+                <h4 style="color: #2ecc71; margin-top: 15px; margin-bottom: 10px; border-bottom: 1px solid #2ecc71; padding-bottom: 5px;">🏆 المنصات العربية الرسمية (10 منصات)</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start;">
+                    <a href="https://shahid.mbc.net/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">شاهد (Shahid)</a>
+                    <a href="https://www.tod.tv/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">تود (TOD)</a>
+                    <a href="https://connect.bein.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">بي إن كونكت</a>
+                    <a href="https://www.starzplay.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">ستارز بلاي</a>
+                    <a href="https://osnplus.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">OSN+</a>
+                    <a href="https://www.watchit.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">واتش إت (Watch IT)</a>
+                    <a href="https://adsports.ae/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">أبوظبي الرياضية</a>
+                    <a href="https://www.ssc.sa/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">الرياضية السعودية (SSC)</a>
+                    <a href="https://www.alkass.net/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">قنوات الكاس</a>
+                    <a href="https://www.dubaisports.ae/" target="_blank" class="cat-btn" style="background:#222; border-color:#2ecc71; color:#2ecc71; text-decoration:none;">دبي الرياضية</a>
+                </div>
+
+                <h4 style="color: #9b59b6; margin-top: 15px; margin-bottom: 10px; border-bottom: 1px solid #9b59b6; padding-bottom: 5px;">🌍 المنصات العالمية والجيمنج (20 منصة)</h4>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px; justify-content: flex-start;">
+                    <a href="https://www.youtube.com/live" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">يوتيوب لايف</a>
+                    <a href="https://www.twitch.tv/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">تويتش (Twitch)</a>
+                    <a href="https://kick.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">كيك (Kick)</a>
+                    <a href="https://www.facebook.com/gaming/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">فيسبوك جيمنج</a>
+                    <a href="https://www.dailymotion.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">ديليموشن</a>
+                    <a href="https://www.dazn.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">دي أيه زد إن (DAZN)</a>
+                    <a href="https://plus.espn.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">ESPN+</a>
+                    <a href="https://www.netflix.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">نتفليكس</a>
+                    <a href="https://www.primevideo.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">أمازون برايم</a>
+                    <a href="https://www.disneyplus.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">ديزني بلس</a>
+                    <a href="https://www.max.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">إتش بي أو ماكس (HBO)</a>
+                    <a href="https://www.hulu.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">هولو (Hulu)</a>
+                    <a href="https://tv.apple.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">أبل تيفي بلس</a>
+                    <a href="https://www.paramountplus.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">باراماونت بلس</a>
+                    <a href="https://www.peacocktv.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">بيكوك (Peacock)</a>
+                    <a href="https://www.fubo.tv/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">فوبو تيفي (fuboTV)</a>
+                    <a href="https://www.sonyliv.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">سوني ليف</a>
+                    <a href="https://www.hotstar.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">هوت ستار</a>
+                    <a href="https://tubitv.com/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">توبي (Tubi)</a>
+                    <a href="https://pluto.tv/" target="_blank" class="cat-btn" style="background:#222; border-color:#9b59b6; color:#9b59b6; text-decoration:none;">بلوتو تيفي (Pluto TV)</a>
+                </div>
+                
+                <p style="text-align: center; color: #7f8c8d; font-size: 11px; margin-top: 15px;">(المواقع الغير رسمية مبرمجة لفتح بحث جوجل المباشر لضمان الحصول على الدومين الشغال دائماً)</p>
             </div>
 
-            <button class="modal-btn" style="background: #ff4757; color: white; width: 100%; margin-top: 15px;" onclick="closeTopSitesModal()">إغلاق ✖</button>
+            <button class="modal-btn" style="background: #ff4757; color: white; width: 100%; margin-top: 15px;" onclick="closeTop50Modal()">إغلاق ✖</button>
         </div>
     </div>
 
@@ -1256,13 +1320,9 @@
             }
         }
 
-        // --- أكواد نافذة أقوى مواقع البث ---
-        function openTopSitesModal() { 
-            document.getElementById('topSitesModal').style.display = 'flex'; 
-        }
-        function closeTopSitesModal() { 
-            document.getElementById('topSitesModal').style.display = 'none'; 
-        }
+        // --- أكواد نافذة أشهر 50 موقع ---
+        function openTop50Modal() { document.getElementById('top50Modal').style.display = 'flex'; }
+        function closeTop50Modal() { document.getElementById('top50Modal').style.display = 'none'; }
 
         function openExternalCurrent() {
             if(currentPlayingUrl) { window.open(currentPlayingUrl, '_blank'); }
@@ -2050,15 +2110,14 @@
             }
             
             showToast(`تم إضافة ${addedCount} قناة من الملف بنجاح ✅`);
-        }
+        }
 
-    </script>
+    </script>
 
-&nbsp; &nbsp; <footer>
-&nbsp; &nbsp; &nbsp; &nbsp; <p style="font-size: 22px; font-weight: bold;">© 2027 _ 2026 ENG OMAR TV. All Rights Reserved.</p>
-&nbsp; &nbsp; &nbsp; &nbsp; <p>اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ ﷺ</p>
-&nbsp; &nbsp; </footer>
-
+    <footer>
+        <p style="font-size: 22px; font-weight: bold;">© 2027 _ 2026 ENG OMAR TV. All Rights Reserved.</p>
+        <p>اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ ﷺ</p>
+    </footer>
 
 
 </body></html>
