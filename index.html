@@ -334,7 +334,7 @@
         <div class="netflix-logo">MY TV</div>
     </div>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 12:45:21 AM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 1:11:09 AM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -348,7 +348,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلَا إِلَهَ إِلَّا اللَّهُ، وَاللَّهُ أَكْبَرُ</span>
+        <span id="adhkar-text" style="opacity: 0; direction: rtl;">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -356,11 +356,12 @@
 
         <div class="player-controls">
             <button id="editModeBtn" onclick="toggleEditMode()" class="cat-btn tool-btn" style="border-color: rgb(241, 196, 15); color: rgb(241, 196, 15); direction: rtl; background: transparent;">✏️ وضع التعديل</button>
+            <button onclick="editCurrentChannelLink()" class="cat-btn tool-btn" style="border-color: rgb(241, 196, 15); color: rgb(241, 196, 15); direction: rtl; background: transparent;">🔗 تعديل اللينك</button>
             <button onclick="playPrevServerManual()" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="السيرفر السابق">السابق ⏮️</button>
             <button onclick="playNextServerManual()" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="السيرفر التالي">⏭️التالي </button>
             
             <button id="cast-btn" onclick="toggleCast()" style="background: rgb(9, 132, 227); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="بث للشاشة (Cast)">📺</button>
-            <button id="adblock-btn" onclick="toggleAdBlock()" style="background: rgb(231, 76, 60); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="درع الإعلانات المنبثقة">اعلانات 🛡️</button>
+            <button id="adblock-btn" onclick="toggleAdBlock()" style="background: rgb(52, 73, 94); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="درع الإعلانات المنبثقة">اعلانات 🛡️</button>
             
             <button onclick="copyChannelLink()" style="background: #8e44ad; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="مشاركة رابط القناة">📤مشاركة </button>
             <button id="sleep-timer-btn" onclick="setSleepTimer()" style="background: rgb(52, 73, 94); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="مؤقت إغلاق البث (النوم)">⏱</button>
@@ -369,7 +370,7 @@
             <button onclick="toggleFullScreen()" style="background: #f39c12; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="تكبير الشاشة">⛶تكبير </button>
             <button id="pip-btn" onclick="togglePiP()" style="background: rgb(52, 152, 219); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="صورة في صورة">🔲</button>
             <button onclick="refreshPlayer()" style="background: #2ecc71; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="تحديث البث">🔄</button>
-            <button id="external-open-btn" onclick="openExternalCurrent()" style="background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="فتح في نافذة خارجية">فتح خارجي🔗</button>  
+            <button id="external-open-btn" onclick="openExternalCurrent()" style="background: rgb(255, 235, 59); color: rgb(0, 0, 0); border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="فـــتــح خـــــارجـــي في نافذة خارجية">فـــتــح خـــــارجـــي 🔗</button>  
             <button onclick="closePlayer()" style="background: #ff4757; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="إغلاق المشغل فورا X"> إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق المشغل ✖ </button>
         </div>
 
@@ -379,7 +380,7 @@
         <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ البث شغال</div>
 
         <video id="my-player" class="hidden" controls="" style="background: #000;" x-webkit-airplay="allow"></video>
-        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" referrerpolicy="no-referrer" src="" style="border: 10px solid red;"></iframe>
+        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-presentation allow-top-navigation-by-user-activation" referrerpolicy="no-referrer" src="" style="border: 10px solid red;"></iframe>
     </div>
 
     <div id="main-list" class="tv-container list-view" style="display: none !important;"><button onclick="playVideo(this, 'https://surahquran.com/?autoplay=1')" class="cat-btn match-btn" style="display: inline-flex; background-image: url(&quot;https://surahquran.com/img/logo2.svg&quot;) !important;" data-original-index="300" title="📺 القران الكريم">📺 القران الكريم<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://radioe.ct.ws/app/index.html?i=1#station')" class="cat-btn match-btn" style="display: inline-flex; background-image: url(&quot;https://radioe.ct.ws/app/icons/icon500.webp?i=1&quot;) !important;" data-original-index="300" title="راديو و اذاعة">راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -550,7 +551,7 @@
         <button onclick="playVideo(null, 'https://eg.bahyfilms.com')" class="cat-btn match-btn" style="border-color: rgb(0, 210, 211); color: rgb(0, 210, 211); display: inline-flex;" data-original-index="97"> bahyfilms <div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(null, 'https://r.cimalight.co/main16')" class="cat-btn match-btn" style="border-color: rgb(0, 210, 211); color: rgb(0, 210, 211); display: inline-flex;" data-original-index="97">Cima FilmsTv<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://egibest.one')" class="cat-btn match-btn" style="border-color: rgb(0, 210, 211); color: rgb(0, 210, 211); display: inline-flex;" data-original-index="98">EgyBest<div class="fav-icon-star" title="المفضلة">★</div></button>
         <button onclick="playVideo(null, 'https://asd.pics/')" class="cat-btn match-btn" style="border-color: rgb(0, 210, 211); color: rgb(0, 210, 211); display: inline-flex;" data-original-index="99">Arabseed<div class="fav-icon-star" title="المفضلة">★</div></button>
-        <button onclick="window.open('https://www.hitv.vip/ar-ae/guide?frm&amp;serialType=episodes')" class="cat-btn match-btn" style="border-color: rgb(0, 210, 211); color: rgb(0, 210, 211); display: inline-flex;" data-original-index="100">Kory<div class="fav-icon-star" title="المفضلة">★</div></button>
+        
         <a href="javascript:void(0)" class="tv-box" onclick="playVideo(this,'https://1max.top/')" style="background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;); display: inline-flex;" data-original-index="101"><div class="fav-icon-star" title="المفضلة">★</div></a>
         
         
@@ -842,11 +843,7 @@
 <button onclick="playVideo(this, 'https://ar.kora-top.zip/frame.php?ch=on1&amp;p=12&amp;token=ebd424eb-3ac5-497c-bef5-f59cd42766b5&amp;kt=1774984647')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 سيرفر 1<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f31352e7777776b6f6f72612e636f6d2f616c6261706c617965722f6265696e2d73706f7274732d787472612d312f&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 سيرفر 1<div class="fav-icon-star" title="المفضلة">★</div></button>
 <button onclick="playVideo(this, 'https://score808.app/share/stream0.php?token=68747470733a2f2f687265662e6c692f3f68747470733a2f2f77322e73706f72747a736f6e6c696e652e636c69636b2f6368616e6e656c732f6272612f6272332e706870&amp;s=1')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 سيرفر 1<div class="fav-icon-star" title="المفضلة">★</div></button>
-<button onclick="playVideo(this, 'https://ar.kora-top.zip/frame.php?ch=tv3&amp;p=12&amp;token=ebd424eb-3ac5-497c-bef5-f59cd42766b5&amp;kt=1774984737')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 سيرفر 1<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://ar.kora-top.zip/frame.php?ch=tv3&amp;p=12&amp;token=ebd424eb-3ac5-497c-bef5-f59cd42766b5&amp;kt=1774984737')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 سيرفر 1<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'http://172.110.216.170:2095/live/462738737337/352672622626/433744.ts?token=zUXzzX.cafXf.X.fXdyU.ydzXzHfcfd.X.y.EG.ts.bd9dc06329196ad1a475762071976ccd93e8de44e25f4741c4ae7fc4ef541377.8452.VGVsZWNvbSBFZ3lwdA==.c3VwYWFwcC54eXo=')" class="cat-btn match-btn" style="display: inline-flex; background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;) !important;" data-original-index="300" title="📺 Wwe Alwan">📺 Wwe Alwan<div class="fav-icon-star" title="المفضلة">★</div></button>
-
-
-
-</div>
+<button onclick="playVideo(this, 'https://ar.kora-top.zip/frame.php?ch=tv3&amp;p=12&amp;token=ebd424eb-3ac5-497c-bef5-f59cd42766b5&amp;kt=1774984737')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 سيرفر 1<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://ar.kora-top.zip/frame.php?ch=tv3&amp;p=12&amp;token=ebd424eb-3ac5-497c-bef5-f59cd42766b5&amp;kt=1774984737')" class="cat-btn match-btn" style="display: inline-flex;" data-original-index="300">📺 سيرفر 1<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'http://172.110.216.170:2095/live/462738737337/352672622626/433744.ts?token=zUXzzX.cafXf.X.fXdyU.ydzXzHfcfd.X.y.EG.ts.bd9dc06329196ad1a475762071976ccd93e8de44e25f4741c4ae7fc4ef541377.8452.VGVsZWNvbSBFZ3lwdA==.c3VwYWFwcC54eXo=')" class="cat-btn match-btn" style="display: inline-flex; background-image: url(&quot;https://go.crichd.tv/assets/uploads/categories/9.png&quot;) !important;" data-original-index="300" title="📺 Wwe Alwan">📺 Wwe Alwan<div class="fav-icon-star" title="المفضلة">★</div></button></div>
     
     <div id="multiScreenModal" class="modal-overlay" style="display: none;">
         <div style="width: 98%; height: 95vh; background: #111; padding: 15px; border-radius: 12px; display: flex; flex-direction: column; border: 2px solid #e84393;">
@@ -1078,7 +1075,7 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تم إخفاء قائمة القنوات 🙈</div>
+    <div id="toast" class="" style="direction: rtl;">تم تحميل ملف الموقع بنجاح 💾</div>
 
     <script>
         let favChannels = JSON.parse(localStorage.getItem('favChannels')) || [];
@@ -1259,6 +1256,14 @@
         function closeEditModal() {
             document.getElementById('editModal').style.display = 'none';
             currentEditElement = null;
+        }
+
+        function editCurrentChannelLink() {
+            if (currentPlayingElement) {
+                openEditModal(currentPlayingElement);
+            } else {
+                showToast("شغل قناة الأول عشان تعدلها ❌");
+            }
         }
 
         function copyCurrentLogo() {
@@ -1524,10 +1529,10 @@
             if (isAdBlockActive) {
                 btn.style.background = "#e74c3c";
                 iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-forms allow-presentation');
-                showToast("تم تشغيل درع الإعلانات 🛡️ (لو البث علق، اطفيه)");
+                showToast("تم تشغيل درع الإعلانات 🛡️ (لو الموقع مش بيفتح زراير، اطفيه)");
             } else {
                 btn.style.background = "#34495e";
-                iframe.setAttribute('sandbox', 'allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-presentation allow-top-navigation-by-user-activation');
+                iframe.removeAttribute('sandbox');
                 showToast("تم إيقاف درع الإعلانات ⚠️");
             }
             
@@ -2393,6 +2398,7 @@
         <p style="font-size: 22px; font-weight: bold;">© 2027 _ 2026 ENG OMAR TV. All Rights Reserved.</p>
         <p>اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ ﷺ</p>
     </footer>
+
 
 
 
