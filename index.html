@@ -334,7 +334,7 @@
         <div class="netflix-logo">MY TV</div>
     </div>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 1:11:09 AM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 1:18:12 AM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -348,7 +348,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 0; direction: rtl;">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</span>
+        <span id="adhkar-text" style="opacity: 1; direction: rtl;">أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ وَأَتُوبُ إِلَيْهِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -361,7 +361,7 @@
             <button onclick="playNextServerManual()" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="السيرفر التالي">⏭️التالي </button>
             
             <button id="cast-btn" onclick="toggleCast()" style="background: rgb(9, 132, 227); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="بث للشاشة (Cast)">📺</button>
-            <button id="adblock-btn" onclick="toggleAdBlock()" style="background: rgb(52, 73, 94); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="درع الإعلانات المنبثقة">اعلانات 🛡️</button>
+            <button id="adblock-btn" onclick="toggleAdBlock()" style="background: rgb(231, 76, 60); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="درع الإعلانات المنبثقة">اعلانات 🛡️</button>
             
             <button onclick="copyChannelLink()" style="background: #8e44ad; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="مشاركة رابط القناة">📤مشاركة </button>
             <button id="sleep-timer-btn" onclick="setSleepTimer()" style="background: rgb(52, 73, 94); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="مؤقت إغلاق البث (النوم)">⏱</button>
@@ -380,7 +380,7 @@
         <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ البث شغال</div>
 
         <video id="my-player" class="hidden" controls="" style="background: #000;" x-webkit-airplay="allow"></video>
-        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox allow-forms allow-presentation allow-top-navigation-by-user-activation" referrerpolicy="no-referrer" src="" style="border: 10px solid red;"></iframe>
+        <iframe id="iframe-player" class="" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" referrerpolicy="no-referrer" src="" style="border: 10px solid red;"></iframe>
     </div>
 
     <div id="main-list" class="tv-container list-view" style="display: none !important;"><button onclick="playVideo(this, 'https://surahquran.com/?autoplay=1')" class="cat-btn match-btn" style="display: inline-flex; background-image: url(&quot;https://surahquran.com/img/logo2.svg&quot;) !important;" data-original-index="300" title="📺 القران الكريم">📺 القران الكريم<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://radioe.ct.ws/app/index.html?i=1#station')" class="cat-btn match-btn" style="display: inline-flex; background-image: url(&quot;https://radioe.ct.ws/app/icons/icon500.webp?i=1&quot;) !important;" data-original-index="300" title="راديو و اذاعة">راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -1075,7 +1075,7 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تم تحميل ملف الموقع بنجاح 💾</div>
+    <div id="toast" class="" style="direction: rtl;">تم إخفاء قائمة القنوات 🙈</div>
 
     <script>
         let favChannels = JSON.parse(localStorage.getItem('favChannels')) || [];
