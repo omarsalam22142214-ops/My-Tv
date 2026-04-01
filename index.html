@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="ar" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -351,7 +352,7 @@
         <div class="netflix-logo">MY TV</div>
     </div>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 6:57:35 AM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 2:56:27 PM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -361,7 +362,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">أَسْتَغْفِرُ اللَّهَ الْعَظِيمَ وَأَتُوبُ إِلَيْهِ</span>
+        <span id="adhkar-text" style="opacity: 1; direction: rtl;">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -387,10 +388,10 @@
             <button onclick="closePlayer()" style="background: #ff4757; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="إغلاق المشغل فورا X"> إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق المشغل ✖ </button>
         </div>
 
-        <div id="quality-badge" style="display: none;">📺 الجودة: جاري التحقق...</div>
+        <div id="quality-badge" style="display: none;">📺 الجودة: Auto</div>
         <select id="quality-selector" style="display: none;" onchange="changeVideoQuality(this.value)"><option value="-1">📺 الجودة: Auto</option><option value="0">360p</option><option value="1">480p</option><option value="2">720p</option><option value="3">1080p</option></select>
         
-        <div id="stream-status" style="display: none; color: rgb(255, 71, 87); border-color: rgb(255, 71, 87);">❌ البث فاصل حالياً</div>
+        <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ البث شغال</div>
 
         <video id="my-player" class="" controls="" style="background: #000;" x-webkit-airplay="allow"></video>
         <iframe id="iframe-player" class="hidden" allowfullscreen="true" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation" referrerpolicy="no-referrer" src="" style="border: 10px solid red;"></iframe>
@@ -1115,7 +1116,7 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تم إخفاء قائمة القنوات 🙈</div>
+    <div id="toast" class="show" style="direction: rtl;">تم إخفاء قائمة القنوات 🙈</div>
 
     <script>
         let favChannels = JSON.parse(localStorage.getItem('favChannels')) || [];
@@ -1737,6 +1738,7 @@
                 }
                 btnContainer.innerHTML = `<button class="cat-btn match-btn" style="background:#2ecc71; color:#fff;" onclick="playLast()">▶️ تشغيل آخر قناة وقفت عليها</button>`;
             }
+//
         });
 
         function playLast() {
@@ -1856,6 +1858,12 @@
         }
 
         function playVideo(element, url) {
+if(!url) return;
+    
+    // السطرين دول هيحولوا أي صيغة ts لصيغة m3u8 المدعومة في المتصفح
+    if (url.endsWith('.ts')) {
+        url = url.replace('.ts', '.m3u8');
+    }
             if(!url) return;
             document.querySelectorAll('.tv-box, .match-btn').forEach(box => box.classList.remove('active-channel'));
             
