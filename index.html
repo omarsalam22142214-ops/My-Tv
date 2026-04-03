@@ -343,14 +343,14 @@
             
             <button onclick="exportFavToM3U()" class="cat-btn tool-btn" style="border-color: #3498db; color: #3498db; direction: rtl; background: transparent;">📥 تصدير المفضلة M3U</button>
             
-            <button onclick="playRandomLiveChannel()" class="cat-btn tool-btn" style="border-color: #ff007f; color: #ff007f; direction: rtl; background: transparent; font-weight: bold;">🎲 اكتشف قناة (حظك اليوم)</button><button onclick="openMultiScreenModal()" class="cat-btn tool-btn" style="border-color: #e84393; color: #e84393; direction: rtl; background: transparent;">🖥️ شاشات متعددة</button><button onclick="exportFullHTML()" class="cat-btn tool-btn" style="border-color: #2ecc71; color: #2ecc71; direction: rtl; background: transparent; font-size: 15px;">💾 حفظ ونسخ ملف الموقع</button>
+            <div id="last-channel-container" style="text-align: center;"><button class="cat-btn match-btn" style="background:#2ecc71; color:#fff;" onclick="playLast()">▶️ تشغيل آخر قناة وقفت عليها</button></div><button onclick="openMultiScreenModal()" class="cat-btn tool-btn" style="border-color: #e84393; color: #e84393; direction: rtl; background: transparent;">🖥️ شاشات متعددة</button><button onclick="exportFullHTML()" class="cat-btn tool-btn" style="border-color: #2ecc71; color: #2ecc71; direction: rtl; background: transparent; font-size: 15px;">💾 حفظ ونسخ ملف الموقع</button>
             
             <input type="file" id="bgFileInput" accept="image/*" style="display: none;" onchange="handleBackgroundUpload(event)">
             <button onclick="document.getElementById('bgFileInput').click()" class="cat-btn tool-btn" style="border-color: #00cec9; color: #00cec9; direction: rtl; background: transparent; font-size: 15px;">🖼️ تغيير الخلفية</button>
             <button onclick="resetBackground()" id="resetBgBtn" class="cat-btn tool-btn" style="border-color: #ff7675; color: #ff7675; direction: rtl; background: transparent; font-size: 15px; display: none;">🗑️ حذف الخلفية</button>
         </div>
 
-        <div id="last-channel-container" style="text-align: center;"><button class="cat-btn match-btn" style="background:#2ecc71; color:#fff;" onclick="playLast()">▶️ تشغيل آخر قناة وقفت عليها</button></div>
+        <button onclick="playRandomLiveChannel()" class="cat-btn tool-btn" style="border-color: #ff007f; color: #ff007f; direction: rtl; background: transparent; font-weight: bold;">🎲 اكتشف قناة (حظك اليوم)</button>
     </div>
 
     <div style="text-align: center; direction: ltr; padding-top: 15px;">
@@ -359,7 +359,7 @@
 
     <button id="toggleNavBtn" onclick="toggleTopNav()" title="إخفاء/إظهار الأدوات" style="position: fixed; top: 15px; left: 15px; z-index: 999999; background: #e84393; color: white; border: 2px solid #fff; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.8); transition: 0.3s; display: flex; justify-content: center; align-items: center;">⚙️</button>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 7:46:54 PM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 7:54:20 PM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -369,7 +369,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى نَبِيِّنَا مُحَمَّدٍ</span>
+        <span id="adhkar-text" style="opacity: 0; direction: rtl;">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -395,10 +395,10 @@
             <button onclick="closePlayer()" style="background: #ff4757; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="إغلاق المشغل فورا X"> إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق المشغل ✖ </button>
         </div>
 
-        <div id="quality-badge" style="display: none;">📺 الجودة: Auto</div>
+        <div id="quality-badge" style="display: none;">📺 الجودة: جاري التحقق...</div>
         <select id="quality-selector" style="display: none;" onchange="changeVideoQuality(this.value)"><option value="-1">📺 الجودة: Auto</option><option value="0">360p</option><option value="1">480p</option><option value="2">720p</option><option value="3">1080p</option></select>
         
-        <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ البث شغال</div>
+        <div id="stream-status" style="display: none; color: rgb(255, 71, 87); border-color: rgb(255, 71, 87);">❌ البث فاصل حالياً</div>
 
         <video id="my-player" class="" controls="" style="background: #000;" x-webkit-airplay="allow"></video>
         <iframe id="iframe-player" class="hidden" allowfullscreen="true" referrerpolicy="no-referrer" src="" style="border: 10px solid red;" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
@@ -1284,7 +1284,7 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تم إظهار لوحة التحكم 👁️</div>
+    <div id="toast" class="" style="direction: rtl;">تم إخفاء قائمة القنوات 🙈</div>
 
     <script>
         let favChannels = JSON.parse(localStorage.getItem('favChannels')) || [];
