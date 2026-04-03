@@ -359,7 +359,7 @@
 
     <button id="toggleNavBtn" onclick="toggleTopNav()" title="إخفاء/إظهار الأدوات" style="position: fixed; top: 15px; left: 15px; z-index: 999999; background: #e84393; color: white; border: 2px solid #fff; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.8); transition: 0.3s; display: flex; justify-content: center; align-items: center;">⚙️</button>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 7:54:20 PM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 8:40:52 PM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -369,7 +369,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 0; direction: rtl;">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</span>
+        <span id="adhkar-text" style="opacity: 1; direction: rtl;">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -381,7 +381,7 @@
             <button onclick="playPrevServerManual()" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="السيرفر السابق">السابق ⏮️</button>
             <button onclick="playNextServerManual()" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="السيرفر التالي">⏭️ اللي بعده التالي </button>
             
-            <button id="cast-btn" onclick="toggleCast()" style="background: rgb(9, 132, 227); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: inline-block;" title="بث للشاشة (Cast)">📺</button>
+            <button id="cast-btn" onclick="toggleCast()" style="background: rgb(9, 132, 227); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="بث للشاشة (Cast)">📺</button>
             <button id="adblock-btn" onclick="toggleAdBlock()" style="background: rgb(231, 76, 60); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="درع الإعلانات المنبثقة">اعلانات 🛡️</button>
             
             <button onclick="copyChannelLink()" style="background: #8e44ad; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="مشاركة رابط القناة">📤مشاركة </button>
@@ -400,8 +400,8 @@
         
         <div id="stream-status" style="display: none; color: rgb(255, 71, 87); border-color: rgb(255, 71, 87);">❌ البث فاصل حالياً</div>
 
-        <video id="my-player" class="" controls="" style="background: #000;" x-webkit-airplay="allow"></video>
-        <iframe id="iframe-player" class="hidden" allowfullscreen="true" referrerpolicy="no-referrer" src="" style="border: 10px solid red;" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
+        <video id="my-player" class="hidden" controls="" style="background: #000;" x-webkit-airplay="allow"></video>
+        <iframe id="iframe-player" class="" allowfullscreen="true" referrerpolicy="no-referrer" src="" style="border: 10px solid red;" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
     </div>
 
     <div id="main-list" class="tv-container list-view" style="display: none !important;"><button onclick="playVideo(this, 'https://surahquran.com/?autoplay=1')" class="cat-btn match-btn" style="display: none; background-image: url(&quot;https://surahquran.com/img/logo2.svg&quot;) !important;" data-original-index="300" title="📺 القران الكريم">📺 القران الكريم<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://radioe.ct.ws/app/index.html?i=1#station')" class="cat-btn match-btn" style="display: none; background-image: url(&quot;https://i.pinimg.com/736x/a7/b1/e8/a7b1e8abc2bdfbc2191b90e5106168fd.jpg&quot;) !important;" data-original-index="300" title="راديو و اذاعة">راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -1163,8 +1163,8 @@
             <h3 style="text-align: center; color: #2ecc71; margin-top:0;">🧲 آلة جلب Iframes</h3>
             <p style="font-size: 13px; color: #ccc; text-align: center;">الطريقة 1: سحب مباشر (للمواقع العادية)</p>
             <input type="text" id="fetcherUrl" placeholder="حط رابط الصفحة هنا..." data-ddg-inputtype="unknown">
-            <button class="modal-btn" style="background: #3498db; color: white; width: 100%; margin-bottom: 10px;" onclick="fetchIframes()">جلب الروابط الآن 🚀</button>
-            <div id="fetcherLoading" style="display:none; color: #f39c12; text-align: center; margin: 10px 0; font-weight: bold;">جاري تجربة أكثر من مسار للكسر... ⏳</div>
+            <button class="modal-btn" style="background: #3498db; color: white; width: 100%; margin-bottom: 10px;" onclick="fetchIframes()">جلب الروابط الآن 🚀</button><button class="modal-btn" style="background: #00d2d3; color: #000; width: 100%; margin-bottom: 10px; font-weight: bold;" onclick="fetchKooraPlayers()">⚽ صيد لينكات الـ Player (مواقع الكورة)</button>
+            <div id="fetcherLoading" style="display: none; color: rgb(243, 156, 18); text-align: center; margin: 10px 0px; font-weight: bold;">جاري قنص مسارات الـ Player... 🎯⏳</div>
             <div id="fetcherResults" style="text-align: right; margin-top: 10px;"></div>
             
             <hr style="border-color: #4caac9; margin: 15px 0;">
@@ -1284,7 +1284,7 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تم إخفاء قائمة القنوات 🙈</div>
+    <div id="toast" class="" style="direction: rtl;">تم إظهار لوحة التحكم 👁️</div>
 
     <script>
         let favChannels = JSON.parse(localStorage.getItem('favChannels')) || [];
@@ -2764,6 +2764,112 @@ function toggleTopNav() {
         btn.innerHTML = '🎛️';
         btn.style.background = '#2ecc71'; // بنغير لونه للأخضر عشان يلفت الانتباه وهو مقفول
         showToast("تم إخفاء لوحة التحكم لتوسيع الشاشة 🙈");
+    }
+}
+// --- دالة سحب لينكات الـ Player المخصصة لمواقع الكورة ---
+async function fetchKooraPlayers() {
+    let targetUrl = document.getElementById('fetcherUrl').value.trim();
+    if(!targetUrl) return showToast("حط رابط صفحة الماتش الأول يا هندسة ❌");
+
+    let resultsDiv = document.getElementById('fetcherResults');
+    let loadingDiv = document.getElementById('fetcherLoading');
+    
+    resultsDiv.innerHTML = '';
+    loadingDiv.style.display = 'block';
+    loadingDiv.innerText = 'جاري قنص مسارات الـ Player... 🎯⏳';
+
+    const proxies = [
+        'https://api.allorigins.win/raw?url=',
+        'https://corsproxy.io/?',
+        'https://api.codetabs.com/v1/proxy?quest='
+    ];
+
+    let htmlText = null;
+    let success = false;
+
+    // محاولة كسر حماية الموقع
+    for (let proxy of proxies) {
+        try {
+            let response = await fetch(proxy + encodeURIComponent(targetUrl));
+            if (response.ok) {
+                htmlText = await response.text();
+                success = true;
+                break; 
+            }
+        } catch (e) { console.log("Proxy failed: " + proxy); }
+    }
+    
+    if (!success || !htmlText) {
+        loadingDiv.style.display = 'none';
+        resultsDiv.innerHTML = '<p style="color: #ff4757; text-align: center; font-weight: bold;">الموقع محمي جداً ومش قابل السحب المباشر ❌</p>';
+        return;
+    }
+
+    try {
+        let parser = new DOMParser();
+        let doc = parser.parseFromString(htmlText, 'text/html');
+        let foundLinks = [];
+        let urlObj = new URL(targetUrl);
+        
+        // الكلمات اللي بندور عليها في اللينكات
+        const keywords = ['player', 'albaplayer', 'bein', 'live'];
+
+        function processLink(href, title) {
+            if (!href || href.includes('javascript:') || href === '#') return;
+            
+            let lowerHref = href.toLowerCase();
+            let isMatch = keywords.some(kw => lowerHref.includes(kw));
+            
+            if (isMatch) {
+                let fullUrl = href;
+                // تحويل المسار النسبي (زي /albaplayer/) لرابط كامل
+                if(href.startsWith('/')) {
+                    fullUrl = urlObj.origin + href;
+                } else if (!href.startsWith('http')) {
+                    let basePath = urlObj.href.substring(0, urlObj.href.lastIndexOf('/') + 1);
+                    fullUrl = basePath + href;
+                }
+                foundLinks.push({ url: fullUrl, title: title || "سيرفر مشاهدة" });
+            }
+        }
+
+        // سحب من الروابط <a> ومن الـ iframes
+        doc.querySelectorAll('a').forEach(a => processLink(a.getAttribute('href'), a.innerText.trim()));
+        doc.querySelectorAll('iframe').forEach(ifr => processLink(ifr.getAttribute('src') || ifr.getAttribute('data-src'), "سيرفر Iframe"));
+
+        loadingDiv.style.display = 'none';
+
+        // فلترة المتكرر
+        let uniqueLinks = [];
+        let seen = new Set();
+        for (let item of foundLinks) {
+            if (!seen.has(item.url)) { seen.add(item.url); uniqueLinks.push(item); }
+        }
+
+        if(uniqueLinks.length === 0) {
+            resultsDiv.innerHTML = '<p style="color: #ff4757; text-align: center;">ملقيناش لينكات Player في الصفحة دي ❌</p>';
+            return;
+        }
+
+        let htmlOut = `<p style="color: #2ecc71; text-align: center; font-weight: bold;">تم اصطياد ${uniqueLinks.length} لينك جاهز ✅</p>`;
+        
+        uniqueLinks.forEach((item, idx) => {
+            htmlOut += `
+                <div style="background: #222; padding: 10px; border-radius: 8px; margin-bottom: 8px; border: 1px solid #00d2d3;">
+                    <div style="color: #00d2d3; margin-bottom: 5px; font-size: 13px;">${item.title}</div>
+                    <input type="text" value="${item.url}" readonly style="width: 100%; background: #000; color: #fff; border: none; padding: 5px; font-size: 11px; margin-bottom: 8px;" dir="ltr">
+                    <div style="display: flex; gap: 5px;">
+                        <button onclick="closeFetcherModal(); playVideo(null, '${item.url}')" style="flex: 1; background: #2ecc71; border: none; padding: 7px; color: white; border-radius: 4px; cursor: pointer; font-weight: bold;">تشغيل ▶️</button>
+                        <button onclick="navigator.clipboard.writeText('${item.url}'); showToast('تم النسخ 📋')" style="flex: 1; background: #f39c12; border: none; padding: 7px; color: white; border-radius: 4px; cursor: pointer; font-weight: bold;">نسخ 📋</button>
+                    </div>
+                </div>
+            `;
+        });
+        resultsDiv.innerHTML = htmlOut;
+
+    } catch(e) {
+        loadingDiv.style.display = 'none';
+        resultsDiv.innerHTML = '<p style="color: #ff4757; text-align: center;">حصل خطأ في تحليل الكود ❌</p>';
     }
 }
     </script>
