@@ -343,7 +343,7 @@
             
             <button onclick="exportFavToM3U()" class="cat-btn tool-btn" style="border-color: #3498db; color: #3498db; direction: rtl; background: transparent;">📥 تصدير المفضلة M3U</button>
             
-            <button onclick="openMultiScreenModal()" class="cat-btn tool-btn" style="border-color: #e84393; color: #e84393; direction: rtl; background: transparent;">🖥️ شاشات متعددة</button><button onclick="exportFullHTML()" class="cat-btn tool-btn" style="border-color: #2ecc71; color: #2ecc71; direction: rtl; background: transparent; font-size: 15px;">💾 حفظ ونسخ ملف الموقع</button>
+            <button onclick="playRandomLiveChannel()" class="cat-btn tool-btn" style="border-color: #ff007f; color: #ff007f; direction: rtl; background: transparent; font-weight: bold;">🎲 اكتشف قناة (حظك اليوم)</button><button onclick="openMultiScreenModal()" class="cat-btn tool-btn" style="border-color: #e84393; color: #e84393; direction: rtl; background: transparent;">🖥️ شاشات متعددة</button><button onclick="exportFullHTML()" class="cat-btn tool-btn" style="border-color: #2ecc71; color: #2ecc71; direction: rtl; background: transparent; font-size: 15px;">💾 حفظ ونسخ ملف الموقع</button>
             
             <input type="file" id="bgFileInput" accept="image/*" style="display: none;" onchange="handleBackgroundUpload(event)">
             <button onclick="document.getElementById('bgFileInput').click()" class="cat-btn tool-btn" style="border-color: #00cec9; color: #00cec9; direction: rtl; background: transparent; font-size: 15px;">🖼️ تغيير الخلفية</button>
@@ -357,7 +357,7 @@
         <div class="netflix-logo">MY TV</div>
     </div>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 7:12:34 AM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 4:31:47 PM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -367,7 +367,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</span>
+        <span id="adhkar-text" style="opacity: 1; direction: rtl;">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -393,7 +393,7 @@
             <button onclick="closePlayer()" style="background: #ff4757; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="إغلاق المشغل فورا X"> إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق إغلاق المشغل ✖ </button>
         </div>
 
-        <div id="quality-badge" style="display: none;">📺 الجودة: Auto</div>
+        <div id="quality-badge" style="display: none;">📺 الجودة: جاري التحقق...</div>
         <select id="quality-selector" style="display: none;" onchange="changeVideoQuality(this.value)"><option value="-1">📺 الجودة: Auto</option><option value="0">360p</option><option value="1">480p</option><option value="2">720p</option><option value="3">1080p</option></select>
         
         <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ البث شغال</div>
@@ -2693,6 +2693,41 @@ function handleLocalIPTVFile(event) {
                 applyCustomBackground(savedBg);
             }
         }
+        async function playRandomLiveChannel() {
+    // إظهار رسالة لليوزر إننا بندور
+    showToast("جاري اصطياد قناة شغالة... 🔍⏳");
+
+    try {
+        // سحب بيانات القنوات من الـ API المفتوح
+        let response = await fetch('https://iptv-org.github.io/api/streams.json');
+        
+        if (!response.ok) throw new Error("Network response was not ok");
+        
+        let streams = await response.json();
+
+        // فلترة القنوات عشان نتأكد إننا بنجيب الروابط اللي شغالة (Online) بس
+        let workingStreams = streams.filter(stream => stream.status === "online" || stream.status === undefined);
+
+        if (workingStreams.length === 0) {
+            showToast("ملقيناش قنوات متاحة حالياً ❌");
+            return;
+        }
+
+        // اختيار قناة عشوائية من اللستة
+        let randomIndex = Math.floor(Math.random() * workingStreams.length);
+        let randomChannel = workingStreams[randomIndex];
+
+        // إرسال اللينك للمشغل بتاعك عشان يشتغل
+        showToast("لقطنا قناة! جاري التشغيل... 🚀");
+        
+        // استخدام الدالة بتاعتك الأساسية للتشغيل
+        playVideo(null, randomChannel.url);
+
+    } catch (error) {
+        console.error("Error fetching random channel:", error);
+        showToast("حصلت مشكلة في الاتصال بقاعدة البيانات ❌");
+    }
+}
     </script>
 
     <footer>
