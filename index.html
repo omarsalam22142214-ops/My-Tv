@@ -311,7 +311,7 @@
         footer { background-color: #333; padding: 20px; text-align: center; color: #fff; margin-top: 40px; border-top: 3px solid #4caac9; }
         #scrollTopBtn { display: none; position: fixed; bottom: 20px; left: 20px; z-index: 9999; background: #4caac9; color: #000; border: none; width: 45px; height: 45px; border-radius: 50%; font-size: 24px; cursor: pointer; }
     </style>
-<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
+<style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
 <body class="">
 
     <div class="top-nav-bar">
@@ -344,6 +344,10 @@
             <button onclick="exportFavToM3U()" class="cat-btn tool-btn" style="border-color: #3498db; color: #3498db; direction: rtl; background: transparent;">📥 تصدير المفضلة M3U</button>
             
             <button onclick="openMultiScreenModal()" class="cat-btn tool-btn" style="border-color: #e84393; color: #e84393; direction: rtl; background: transparent;">🖥️ شاشات متعددة</button><button onclick="exportFullHTML()" class="cat-btn tool-btn" style="border-color: #2ecc71; color: #2ecc71; direction: rtl; background: transparent; font-size: 15px;">💾 حفظ ونسخ ملف الموقع</button>
+            
+            <input type="file" id="bgFileInput" accept="image/*" style="display: none;" onchange="handleBackgroundUpload(event)">
+            <button onclick="document.getElementById('bgFileInput').click()" class="cat-btn tool-btn" style="border-color: #00cec9; color: #00cec9; direction: rtl; background: transparent; font-size: 15px;">🖼️ تغيير الخلفية</button>
+            <button onclick="resetBackground()" id="resetBgBtn" class="cat-btn tool-btn" style="border-color: #ff7675; color: #ff7675; direction: rtl; background: transparent; font-size: 15px; display: none;">🗑️ حذف الخلفية</button>
         </div>
 
         <div id="last-channel-container" style="text-align: center;"><button class="cat-btn match-btn" style="background:#2ecc71; color:#fff;" onclick="playLast()">▶️ تشغيل آخر قناة وقفت عليها</button></div>
@@ -353,7 +357,7 @@
         <div class="netflix-logo">MY TV</div>
     </div>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 12:08:47 PM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 3:36:00 AM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -363,7 +367,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</span>
+        <span id="adhkar-text" style="opacity: 1; direction: rtl;">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -1256,7 +1260,7 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تم إخفاء قائمة القنوات 🙈</div>
+    <div id="toast" class="" style="direction: rtl;">تم تحميل ملف الموقع بنجاح 💾</div>
 
     <script>
         let favChannels = JSON.parse(localStorage.getItem('favChannels')) || [];
@@ -1866,6 +1870,9 @@
             startAdhkarTicker();
             injectFavStars();
             initChannelsIndex();
+            
+            // تفعيل الخلفية المخصصة أول ما الموقع يفتح
+            loadCustomBackground();
 
             let lastCh = localStorage.getItem('lastPlayedChannel');
             if(lastCh) {
@@ -2608,6 +2615,52 @@ function handleLocalIPTVFile(event) {
             
             reader.readAsText(file);
         }
+
+        // --- دوال تغيير خلفية الموقع ---
+        function handleBackgroundUpload(event) {
+            let file = event.target.files[0];
+            if (!file) return;
+            
+            let reader = new FileReader();
+            reader.onload = function(e) {
+                let imgData = e.target.result;
+                try {
+                    localStorage.setItem('customBackground', imgData);
+                    applyCustomBackground(imgData);
+                    showToast("عاش! تم تغيير الخلفية بنجاح 🖼️");
+                } catch (err) {
+                    showToast("حجم الصورة كبير جداً على الذاكرة، اختار صورة أصغر ❌");
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function applyCustomBackground(imgData) {
+            document.body.style.backgroundImage = `url('${imgData}')`;
+            document.body.style.backgroundSize = "cover";
+            document.body.style.backgroundAttachment = "fixed";
+            document.body.style.backgroundPosition = "center";
+            document.body.style.backgroundRepeat = "no-repeat";
+            
+            let resetBtn = document.getElementById('resetBgBtn');
+            if(resetBtn) resetBtn.style.display = 'inline-block';
+        }
+
+        function resetBackground() {
+            document.body.style.backgroundImage = "none";
+            localStorage.removeItem('customBackground');
+            
+            let resetBtn = document.getElementById('resetBgBtn');
+            if(resetBtn) resetBtn.style.display = 'none';
+            showToast("تم الرجوع للخلفية الأصلية 🔙");
+        }
+
+        function loadCustomBackground() {
+            let savedBg = localStorage.getItem('customBackground');
+            if (savedBg) {
+                applyCustomBackground(savedBg);
+            }
+        }
     </script>
 
     <footer>
@@ -2615,17 +2668,5 @@ function handleLocalIPTVFile(event) {
         <p>اللَّهُمَّ صَلِّ وَسَلِّمْ عَلَى سَيِّدِنَا مُحَمَّدٍ ﷺ</p>
     </footer>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<a href="blob:https://omarsalam22142214-ops.github.io/8e67af63-7a20-4656-a654-39e3ea9ad121" id="sb_down_blob" style="display: none;"></a></body></html>
+<a href="blob:https://omarsalam22142214-ops.github.io/8e67af63-7a20-4656-a654-39e3ea9ad121" id="sb_down_blob" style="display: none;"></a>
+</body></html>
