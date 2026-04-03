@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ar" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=yes">
@@ -316,7 +315,7 @@
 
     <div class="top-nav-bar">
         <div class="control-group">
-            <button onclick="filterChannels('all')" class="cat-btn active-cat" style="direction: rtl;">🌐 الكل</button>
+            <button onclick="filterChannels('all')" class="cat-btn active-cat" style="direction: rtl;">🌐 الكل</button><button id="toggleNavBtn" onclick="toggleTopNav()" title="إخفاء/إظهار الأدوات" style="position: fixed; top: 15px; left: 15px; z-index: 999999; background: #e84393; color: white; border: 2px solid #fff; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.8); transition: 0.3s; display: flex; justify-content: center; align-items: center;">⚙️</button>
             
             
             
@@ -357,7 +356,7 @@
         <div class="netflix-logo">MY TV</div>
     </div>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 4:31:47 PM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 4:45:22 PM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -367,7 +366,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</span>
+        <span id="adhkar-text" style="opacity: 0; direction: rtl;">لَا حَوْلَ وَلَا قُوَّةَ إِلَّا بِاللَّهِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -2726,6 +2725,26 @@ function handleLocalIPTVFile(event) {
     } catch (error) {
         console.error("Error fetching random channel:", error);
         showToast("حصلت مشكلة في الاتصال بقاعدة البيانات ❌");
+    }
+}
+// دالة إخفاء وإظهار الشريط العلوي بالكامل
+function toggleTopNav() {
+    let navBar = document.querySelector('.top-nav-bar');
+    let btn = document.getElementById('toggleNavBtn');
+
+    // لو الشريط مخفي، نظهره
+    if (navBar.style.display === 'none') {
+        navBar.style.display = 'flex'; // بنرجعها flex عشان ده الستايل الأصلي بتاعها في الـ CSS
+        btn.innerHTML = '⚙️';
+        btn.style.background = '#e84393';
+        showToast("تم إظهار لوحة التحكم 👁️");
+    } 
+    // لو الشريط ظاهر، نخفيه
+    else {
+        navBar.style.display = 'none';
+        btn.innerHTML = '🎛️';
+        btn.style.background = '#2ecc71'; // بنغير لونه للأخضر عشان يلفت الانتباه وهو مقفول
+        showToast("تم إخفاء لوحة التحكم لتوسيع الشاشة 🙈");
     }
 }
     </script>
