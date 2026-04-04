@@ -319,7 +319,7 @@
             
             
             
-            <button onclick="playVideo(null, 'https://www.filgoal.com/matches/')" class="cat-btn match-btn" style="display: inline-flex; direction: rtl;">⚽️ مباريات اليوم<div class="fav-icon-star" title="المفضلة">★</div></button>
+            <button onclick="window.open('https://omarsalam22142214-ops.github.io/SPORTONLY/', '_blank')" class="cat-btn match-btn" style="display: inline-flex; direction: rtl;" title="⚽️ رياضة بس">⚽️ رياضة بس<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(null, 'https://www.filgoal.com/matches/')" class="cat-btn match-btn" style="display: inline-flex; direction: rtl;">⚽️ مباريات اليوم<div class="fav-icon-star" title="المفضلة">★</div></button>
             <button onclick="window.open('https://radioe.ct.ws/app/index.html#station')" class="cat-btn match-btn" style="display: inline-flex; direction: rtl;">📻 راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
             <button onclick="playVideo(null, 'https://timesprayer.com/')" class="cat-btn match-btn" style="display: inline-flex; direction: rtl;">🕌 مواقيت الصلاة<div class="fav-icon-star" title="المفضلة">★</div></button>
             <button onclick="window.open('https://qiblafinder.withgoogle.com/intl/ar/desktop', '_blank')" class="cat-btn match-btn" style="display: inline-flex; direction: rtl;">🧭 القبلة<div class="fav-icon-star" title="المفضلة">★</div></button>
@@ -361,7 +361,7 @@
 
     <button id="toggleNavBtn" onclick="toggleTopNav()" title="إخفاء/إظهار الأدوات" style="position: fixed; top: 15px; left: 15px; z-index: 999999; background: #e84393; color: white; border: 2px solid #fff; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.8); transition: 0.3s; display: flex; justify-content: center; align-items: center;">⚙️</button>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 11:12:50 AM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 12:02:27 PM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -371,7 +371,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</span>
+        <span id="adhkar-text" style="opacity: 1; direction: rtl;">حَسْبِيَ اللَّهُ لَا إِلَهَ إِلَّا هُوَ عَلَيْهِ تَوَكَّلْتُ وَهُوَ رَبُّ الْعَرْشِ الْعَظِيمِ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -383,7 +383,7 @@
             <button onclick="playPrevServerManual()" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="السيرفر السابق">السابق ⏮️</button>
             <button onclick="playNextServerManual()" style="background: #2980b9; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="السيرفر التالي">⏭️ اللي بعده التالي </button>
             
-            <button id="cast-btn" onclick="toggleCast()" style="background: rgb(9, 132, 227); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: inline-block;" title="بث للشاشة (Cast)">📺</button>
+            <button id="cast-btn" onclick="toggleCast()" style="background: rgb(9, 132, 227); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold; display: none;" title="بث للشاشة (Cast)">📺</button>
             <button id="adblock-btn" onclick="toggleAdBlock()" style="background: rgb(231, 76, 60); color: white; border: medium; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="درع الإعلانات المنبثقة">اعلانات 🛡️</button>
             
             <button onclick="copyChannelLink()" style="background: #8e44ad; color: white; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; font-weight: bold;" title="مشاركة رابط القناة">📤مشاركة </button>
@@ -402,8 +402,8 @@
         
         <div id="stream-status" style="display: none; color: rgb(0, 255, 0); border-color: rgb(0, 255, 0);">✅ البث شغال</div>
 
-        <video id="my-player" class="" controls="" style="background: #000;" x-webkit-airplay="allow"></video>
-        <iframe id="iframe-player" class="hidden" allowfullscreen="true" referrerpolicy="no-referrer" src="" style="border: 10px solid red;" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
+        <video id="my-player" class="hidden" controls="" style="background: #000;" x-webkit-airplay="allow"></video>
+        <iframe id="iframe-player" class="" allowfullscreen="true" referrerpolicy="no-referrer" src="" style="border: 10px solid red;" sandbox="allow-scripts allow-same-origin allow-forms allow-presentation"></iframe>
     </div>
 
     <div id="main-list" class="tv-container list-view" style="display: none !important;"><button onclick="playVideo(this, 'https://surahquran.com/?autoplay=1')" class="cat-btn match-btn" style="display: none; background-image: url(&quot;https://surahquran.com/img/logo2.svg&quot;) !important;" data-original-index="300" title="📺 القران الكريم">📺 القران الكريم<div class="fav-icon-star" title="المفضلة">★</div></button><button onclick="playVideo(this, 'https://radioe.ct.ws/app/index.html?i=1#station')" class="cat-btn match-btn" style="display: none; background-image: url(&quot;https://i.pinimg.com/736x/a7/b1/e8/a7b1e8abc2bdfbc2191b90e5106168fd.jpg&quot;) !important;" data-original-index="300" title="راديو و اذاعة">راديو و اذاعة<div class="fav-icon-star" title="المفضلة">★</div></button>
