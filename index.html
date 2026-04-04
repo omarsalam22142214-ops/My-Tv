@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="ar" dir="rtl"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="user-scalable=yes">
@@ -314,9 +313,9 @@
 <style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style><style>:is([id*='google_ads_iframe'],[id*='taboola-'],.taboolaHeight,.taboola-placeholder,#top-ad,#credential_picker_container,#credentials-picker-container,#credential_picker_iframe,[id*='google-one-tap-iframe'],#google-one-tap-popup-container,.google-one-tap__module,.google-one-tap-modal-div,#amp_floatingAdDiv,#ez-content-blocker-container) {display:none!important;min-height:0!important;height:0!important;}</style></head>
 <body class="">
 
-    <div class="top-nav-bar" style="display: flex;">
+    <div class="top-nav-bar" style="display: none;">
         <div class="control-group">
-            <button onclick="filterChannels('all')" class="cat-btn active-cat" style="direction: rtl;">🌐 الكل</button><button id="toggleNavBtn" onclick="toggleTopNav()" title="إخفاء/إظهار الأدوات" style="position: fixed; top: 15px; left: 15px; z-index: 999999; background: rgb(232, 67, 147); color: white; border: 2px solid rgb(255, 255, 255); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 22px; box-shadow: rgba(0, 0, 0, 0.8) 0px 4px 10px; transition: 0.3s; display: flex; justify-content: center; align-items: center;">⚙️</button>
+            <button onclick="filterChannels('all')" class="cat-btn active-cat" style="direction: rtl;">🌐 الكل</button><button id="toggleNavBtn" onclick="toggleTopNav()" title="إخفاء/إظهار الأدوات" style="position: fixed; top: 15px; left: 15px; z-index: 999999; background: rgb(46, 204, 113); color: white; border: 2px solid rgb(255, 255, 255); border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 22px; box-shadow: rgba(0, 0, 0, 0.8) 0px 4px 10px; transition: 0.3s; display: flex; justify-content: center; align-items: center;">🎛️</button>
             
             
             
@@ -350,7 +349,10 @@
             <button onclick="resetBackground()" id="resetBgBtn" class="cat-btn tool-btn" style="border-color: #ff7675; color: #ff7675; direction: rtl; background: transparent; font-size: 15px; display: none;">🗑️ حذف الخلفية</button>
         </div>
 
-        <button onclick="playRandomLiveChannel()" class="cat-btn tool-btn" style="border-color: #ff007f; color: #ff007f; direction: rtl; background: transparent; font-weight: bold;">🎲 اكتشف قناة (حظك اليوم)</button>
+       <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <button onclick="playRandomLiveChannel()" class="cat-btn tool-btn" style="border-color: #ff007f; color: #ff007f; direction: rtl; background: transparent; font-weight: bold;">🎲 اكتشف قناة (حظك اليوم)</button>
+            <button onclick="playRandomSportsChannel()" class="cat-btn tool-btn" style="border-color: #00cec9; color: #00cec9; direction: rtl; background: transparent; font-weight: bold;">⚽ اكتشاف قناة رياضية</button>
+        </div>
     </div>
 
     <div style="text-align: center; direction: ltr; padding-top: 15px;">
@@ -359,7 +361,7 @@
 
     <button id="toggleNavBtn" onclick="toggleTopNav()" title="إخفاء/إظهار الأدوات" style="position: fixed; top: 15px; left: 15px; z-index: 999999; background: #e84393; color: white; border: 2px solid #fff; border-radius: 50%; width: 45px; height: 45px; cursor: pointer; font-size: 22px; box-shadow: 0 4px 10px rgba(0,0,0,0.8); transition: 0.3s; display: flex; justify-content: center; align-items: center;">⚙️</button>
 
-    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 4:50:57 AM</div>
+    <div id="live-clock" style="color: rgb(76, 170, 201); font-size: 18px; font-weight: bold; margin-bottom: 15px; direction: rtl;">⏱ توقيت البث: 9:37:45 AM</div>
 
     <div class="search-sort-container">
         <input type="text" id="searchInput" onkeyup="searchChannels()" placeholder="🔍 ابحث عن قناة..." style="direction: rtl;" data-ddg-inputtype="unknown">
@@ -369,7 +371,7 @@
     </div>
 
     <div id="adhkar-ticker">
-        <span id="adhkar-text" style="opacity: 1; direction: rtl;">الْحَمْدُ لِلَّهِ حَمْداً كَثِيراً طَيِّباً مُبَارَكاً فِيهِ</span>
+        <span id="adhkar-text" style="opacity: 1; direction: rtl;">لَا إِلَهَ إِلَّا اللَّهُ وَحْدَهُ لَا شَرِيكَ لَهُ</span>
     </div>
 
     <div id="media-wrapper" style="display: none;">
@@ -1284,7 +1286,7 @@
         </div>
     </div>
 
-    <div id="toast" class="" style="direction: rtl;">تم إخفاء قائمة القنوات 🙈</div>
+    <div id="toast" class="" style="direction: rtl;">تم إخفاء لوحة التحكم لتوسيع الشاشة 🙈</div>
 
     <script>
         let favChannels = JSON.parse(localStorage.getItem('favChannels')) || [];
@@ -2870,6 +2872,47 @@ async function fetchKooraPlayers() {
     } catch(e) {
         loadingDiv.style.display = 'none';
         resultsDiv.innerHTML = '<p style="color: #ff4757; text-align: center;">حصل خطأ في تحليل الكود ❌</p>';
+    }
+}
+async function playRandomSportsChannel() {
+    // إظهار رسالة لليوزر إننا بندور
+    showToast("جاري اصطياد قناة رياضية... ⚽🔍⏳");
+
+    try {
+        // سحب بيانات القنوات من الـ API المفتوح
+        let response = await fetch('https://iptv-org.github.io/api/streams.json');
+        
+        if (!response.ok) throw new Error("Network response was not ok");
+        
+        let streams = await response.json();
+
+        // كلمات مفتاحية بنفلتر بيها القنوات الرياضية من الـ ID بتاعها
+        let sportsKeywords = ['sport', 'bein', 'ssc', 'kass', 'espn', 'arena', 'match', 'football', 'golf', 'nba', 'ad_sport', 'bt_sport'];
+        
+        // فلترة القنوات عشان نتأكد إنها شغالة وكمان تكون رياضية
+        let workingStreams = streams.filter(stream => {
+            let isOnline = stream.status === "online" || stream.status === undefined;
+            let isSports = sportsKeywords.some(kw => stream.channel && stream.channel.toLowerCase().includes(kw));
+            return isOnline && isSports;
+        });
+
+        if (workingStreams.length === 0) {
+            showToast("ملقيناش قنوات رياضية متاحة حالياً ❌");
+            return;
+        }
+
+        // اختيار قناة عشوائية من اللستة الرياضية
+        let randomIndex = Math.floor(Math.random() * workingStreams.length);
+        let randomChannel = workingStreams[randomIndex];
+
+        // إرسال اللينك للمشغل عشان يشتغل
+        showToast("لقطنا قناة رياضية! جاري التشغيل... 🚀⚽");
+        
+        playVideo(null, randomChannel.url);
+
+    } catch (error) {
+        console.error("Error fetching random sports channel:", error);
+        showToast("حصلت مشكلة في الاتصال بقاعدة البيانات ❌");
     }
 }
     </script>
